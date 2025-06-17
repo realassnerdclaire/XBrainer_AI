@@ -1,6 +1,6 @@
 
 import { Shield, Zap, Brain, Lock, Eye, Cpu } from 'lucide-react';
-import { PhaseData, AICapability, ProblemCard } from '@/types';
+import type { PhaseData, AICapability, ProblemCard } from '@/types';
 
 export const navItems = ['About', 'Technology', 'Research', 'Contact'];
 
