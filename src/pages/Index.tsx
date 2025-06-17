@@ -27,7 +27,8 @@ const Index = () => {
         "SDK for secure BCI development"
       ],
       icon: Shield,
-      gradient: "from-blue-500 to-cyan-400"
+      gradient: "from-cyan-500 via-blue-500 to-purple-600",
+      bgPattern: "radial-gradient(circle at 20% 50%, cyan, transparent 50%), radial-gradient(circle at 80% 20%, blue, transparent 50%)"
     },
     {
       title: "Phase 2 - Implant-Level Defense",
@@ -39,7 +40,8 @@ const Index = () => {
         "Cognitive injection prevention systems"
       ],
       icon: Brain,
-      gradient: "from-purple-500 to-pink-400"
+      gradient: "from-purple-500 via-pink-500 to-red-500",
+      bgPattern: "radial-gradient(circle at 30% 40%, purple, transparent 50%), radial-gradient(circle at 70% 60%, pink, transparent 50%)"
     },
     {
       title: "Phase 3 - Neural OS Security",
@@ -51,7 +53,8 @@ const Index = () => {
         "Comprehensive neural ecosystem protection"
       ],
       icon: Network,
-      gradient: "from-violet-500 to-purple-400"
+      gradient: "from-emerald-500 via-teal-500 to-cyan-500",
+      bgPattern: "radial-gradient(circle at 60% 30%, emerald, transparent 50%), radial-gradient(circle at 40% 70%, teal, transparent 50%)"
     }
   ];
 
@@ -82,127 +85,182 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      {/* Enhanced Galaxy Background with Nebula and Star-burst Effects */}
+      {/* Enhanced Galaxy Background with Rainbow Nebula Bursts */}
       <div className="absolute inset-0">
         {/* Deep space multi-layer gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/60 via-purple-900/40 via-blue-900/30 to-black"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-purple-800/20 via-violet-700/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/80 via-purple-950/60 via-blue-950/40 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-purple-900/30 via-violet-800/20 to-transparent"></div>
         
-        {/* Vibrant Nebula Clouds - Inspired by reference images */}
+        {/* Rainbow Nebula Bursts - Multiple colorful explosions */}
         <div className="absolute inset-0">
-          {/* Main orange-red nebula */}
-          <div className="absolute top-0 left-0 w-[800px] h-[600px] bg-gradient-radial from-orange-500/30 via-red-500/20 via-yellow-500/15 to-transparent rounded-full blur-3xl animate-pulse opacity-70" style={{ animationDuration: '8s' }}></div>
+          {/* Main rainbow nebula burst - center */}
+          <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-[1000px] h-[800px] opacity-60">
+            <div className="w-full h-full rounded-full blur-3xl animate-pulse" 
+                 style={{ 
+                   background: 'radial-gradient(circle, #ff0080 0%, #ff8000 15%, #ffff00 30%, #80ff00 45%, #00ff80 60%, #0080ff 75%, #8000ff 90%, transparent 100%)',
+                   animationDuration: '6s'
+                 }}>
+            </div>
+          </div>
           
-          {/* Blue-cyan nebula cluster */}
-          <div className="absolute top-20 right-0 w-[700px] h-[700px] bg-gradient-radial from-cyan-400/25 via-blue-500/20 via-teal-400/15 to-transparent rounded-full blur-3xl animate-pulse opacity-60" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
+          {/* Secondary rainbow burst - top right */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-50">
+            <div className="w-full h-full rounded-full blur-3xl animate-pulse" 
+                 style={{ 
+                   background: 'radial-gradient(circle, #00ffff 0%, #ff00ff 25%, #ffff00 50%, #ff8000 75%, transparent 100%)',
+                   animationDuration: '8s',
+                   animationDelay: '2s'
+                 }}>
+            </div>
+          </div>
           
-          {/* Purple-magenta nebula */}
-          <div className="absolute bottom-0 left-1/3 w-[600px] h-[500px] bg-gradient-radial from-purple-500/30 via-magenta-500/20 via-pink-400/15 to-transparent rounded-full blur-3xl animate-pulse opacity-50" style={{ animationDuration: '10s', animationDelay: '4s' }}></div>
+          {/* Tertiary rainbow burst - bottom left */}
+          <div className="absolute bottom-0 left-0 w-[700px] h-[500px] opacity-45">
+            <div className="w-full h-full rounded-full blur-3xl animate-pulse" 
+                 style={{ 
+                   background: 'radial-gradient(circle, #8000ff 0%, #ff0080 30%, #00ff80 60%, #0080ff 90%, transparent 100%)',
+                   animationDuration: '10s',
+                   animationDelay: '4s'
+                 }}>
+            </div>
+          </div>
           
-          {/* Green-teal nebula accent */}
-          <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-emerald-400/20 via-teal-500/15 via-green-400/10 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+          {/* Additional smaller rainbow bursts */}
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] opacity-40">
+            <div className="w-full h-full rounded-full blur-3xl animate-pulse" 
+                 style={{ 
+                   background: 'radial-gradient(circle, #ff8000 0%, #ffff00 33%, #80ff00 66%, transparent 100%)',
+                   animationDuration: '7s',
+                   animationDelay: '1s'
+                 }}>
+            </div>
+          </div>
           
-          {/* Golden nebula wisps */}
-          <div className="absolute bottom-1/4 right-1/3 w-[350px] h-[300px] bg-gradient-radial from-yellow-400/25 via-amber-500/15 via-orange-400/10 to-transparent rounded-full blur-3xl animate-pulse opacity-35" style={{ animationDuration: '14s', animationDelay: '3s' }}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] opacity-35">
+            <div className="w-full h-full rounded-full blur-3xl animate-pulse" 
+                 style={{ 
+                   background: 'radial-gradient(circle, #00ff80 0%, #0080ff 50%, #8000ff 100%, transparent 100%)',
+                   animationDuration: '9s',
+                   animationDelay: '3s'
+                 }}>
+            </div>
+          </div>
         </div>
 
         {/* Enhanced Star Field with Sparkle Effects */}
         <div className="absolute inset-0">
-          {[...Array(400)].map((_, i) => (
+          {[...Array(500)].map((_, i) => (
             <div
               key={i}
               className="absolute"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 6 + 2}px`,
-                height: `${Math.random() * 6 + 2}px`,
-                background: i % 3 === 0 ? 'linear-gradient(45deg, #00f5ff, #ffffff)' : 
-                           i % 5 === 0 ? 'linear-gradient(45deg, #ff00ff, #ffffff)' : 
-                           i % 7 === 0 ? 'linear-gradient(45deg, #ffff00, #ffffff)' :
+                width: `${Math.random() * 4 + 1}px`,
+                height: `${Math.random() * 4 + 1}px`,
+                background: i % 7 === 0 ? 'linear-gradient(45deg, #ff0080, #ffffff)' : 
+                           i % 7 === 1 ? 'linear-gradient(45deg, #00ffff, #ffffff)' : 
+                           i % 7 === 2 ? 'linear-gradient(45deg, #ffff00, #ffffff)' :
+                           i % 7 === 3 ? 'linear-gradient(45deg, #ff8000, #ffffff)' :
+                           i % 7 === 4 ? 'linear-gradient(45deg, #80ff00, #ffffff)' :
+                           i % 7 === 5 ? 'linear-gradient(45deg, #8000ff, #ffffff)' :
                            '#ffffff',
-                borderRadius: i % 4 === 0 ? '50%' : '0',
-                clipPath: i % 4 !== 0 ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' : 'none',
-                boxShadow: i % 2 === 0 ? '0 0 10px currentColor' : '0 0 6px currentColor',
-                animation: `twinkle ${Math.random() * 4 + 2}s infinite ${Math.random() * 3}s, float ${Math.random() * 25 + 15}s infinite linear`
+                borderRadius: i % 3 === 0 ? '50%' : '0',
+                clipPath: i % 3 !== 0 ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' : 'none',
+                boxShadow: i % 2 === 0 ? '0 0 15px currentColor' : '0 0 8px currentColor',
+                animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s, float ${Math.random() * 20 + 10}s infinite linear`
               }}
             />
           ))}
         </div>
 
-        {/* Star-shaped Shooting Stars */}
+        {/* Small Star-shaped Shooting Stars with Rainbow Colors */}
         <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <div
               key={i}
               className="absolute opacity-90"
               style={{
                 left: `${Math.random() * 120 - 20}%`,
                 top: `${Math.random() * 120 - 20}%`,
-                width: `${Math.random() * 100 + 80}px`,
-                height: `${Math.random() * 20 + 15}px`,
-                background: i % 3 === 0 ? 
-                  'linear-gradient(90deg, transparent, #00f5ff, #ffffff, #00f5ff, transparent)' :
-                  i % 3 === 1 ?
-                  'linear-gradient(90deg, transparent, #ff00ff, #ffffff, #ff00ff, transparent)' :
-                  'linear-gradient(90deg, transparent, #ffff00, #ffffff, #ffff00, transparent)',
+                width: `${Math.random() * 60 + 40}px`,
+                height: `${Math.random() * 12 + 8}px`,
+                background: i % 6 === 0 ? 
+                  'linear-gradient(90deg, transparent, #ff0080, #ffffff, #ff0080, transparent)' :
+                  i % 6 === 1 ?
+                  'linear-gradient(90deg, transparent, #00ffff, #ffffff, #00ffff, transparent)' :
+                  i % 6 === 2 ?
+                  'linear-gradient(90deg, transparent, #ffff00, #ffffff, #ffff00, transparent)' :
+                  i % 6 === 3 ?
+                  'linear-gradient(90deg, transparent, #ff8000, #ffffff, #ff8000, transparent)' :
+                  i % 6 === 4 ?
+                  'linear-gradient(90deg, transparent, #80ff00, #ffffff, #80ff00, transparent)' :
+                  'linear-gradient(90deg, transparent, #8000ff, #ffffff, #8000ff, transparent)',
                 clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-                transform: `rotate(${Math.random() * 60 - 30}deg)`,
-                animation: `shootingStar ${Math.random() * 6 + 4}s infinite ${Math.random() * 8}s`,
-                filter: 'blur(0.5px)'
+                transform: `rotate(${Math.random() * 45 - 22.5}deg)`,
+                animation: `shootingStar ${Math.random() * 4 + 3}s infinite ${Math.random() * 6}s`,
+                filter: 'blur(0.3px)'
               }}
             />
           ))}
         </div>
 
-        {/* Star Burst Effects */}
+        {/* Enhanced Star Burst Effects with Rainbow Colors */}
         <div className="absolute inset-0">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
               className="absolute"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                width: '60px',
-                height: '60px',
-                background: i % 2 === 0 ? 
-                  'radial-gradient(circle, #00f5ff, transparent 70%)' :
-                  'radial-gradient(circle, #ff00ff, transparent 70%)',
+                width: '40px',
+                height: '40px',
+                background: i % 5 === 0 ? 
+                  'radial-gradient(circle, #ff0080, transparent 70%)' :
+                  i % 5 === 1 ?
+                  'radial-gradient(circle, #00ffff, transparent 70%)' :
+                  i % 5 === 2 ?
+                  'radial-gradient(circle, #ffff00, transparent 70%)' :
+                  i % 5 === 3 ?
+                  'radial-gradient(circle, #ff8000, transparent 70%)' :
+                  'radial-gradient(circle, #8000ff, transparent 70%)',
                 clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-                animation: `starBurst ${Math.random() * 8 + 6}s infinite ${Math.random() * 10}s`,
-                opacity: 0.6
+                animation: `starBurst ${Math.random() * 6 + 4}s infinite ${Math.random() * 8}s`,
+                opacity: 0.7
               }}
             />
           ))}
         </div>
 
-        {/* Rotating Galaxy Spiral */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20">
+        {/* Rotating Galaxy Spiral with Rainbow Colors */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-15">
           <div className="absolute inset-0">
             <div className="w-full h-full animate-spin" style={{ 
-              background: 'conic-gradient(from 0deg, transparent, #8b5cf6, transparent, #06b6d4, transparent, #ec4899, transparent, #f59e0b, transparent)',
-              animationDuration: '180s'
+              background: 'conic-gradient(from 0deg, transparent, #ff0080, transparent, #00ffff, transparent, #ffff00, transparent, #ff8000, transparent, #80ff00, transparent, #8000ff, transparent)',
+              animationDuration: '120s'
             }}></div>
           </div>
         </div>
 
-        {/* Enhanced Particle System */}
+        {/* Enhanced Particle System with Rainbow Colors */}
         <div className="absolute inset-0">
-          {[...Array(80)].map((_, i) => (
+          {[...Array(100)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full opacity-70"
+              className="absolute rounded-full opacity-80"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                background: i % 4 === 0 ? '#00f5ff' : 
-                           i % 4 === 1 ? '#ff00ff' :
-                           i % 4 === 2 ? '#ffff00' : '#ffffff',
-                boxShadow: '0 0 6px currentColor',
-                animation: `particle ${Math.random() * 20 + 15}s infinite linear`
+                width: `${Math.random() * 2 + 1}px`,
+                height: `${Math.random() * 2 + 1}px`,
+                background: i % 6 === 0 ? '#ff0080' : 
+                           i % 6 === 1 ? '#00ffff' :
+                           i % 6 === 2 ? '#ffff00' : 
+                           i % 6 === 3 ? '#ff8000' :
+                           i % 6 === 4 ? '#80ff00' : '#8000ff',
+                boxShadow: '0 0 8px currentColor',
+                animation: `particle ${Math.random() * 15 + 10}s infinite linear`
               }}
             />
           ))}
@@ -212,37 +270,37 @@ const Index = () => {
       {/* Enhanced CSS Animations */}
       <style>{`
         @keyframes twinkle {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.3); }
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.4); }
         }
         @keyframes float {
           0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-          33% { transform: translateY(-15px) translateX(8px) rotate(120deg); }
-          66% { transform: translateY(8px) translateX(-8px) rotate(240deg); }
+          33% { transform: translateY(-12px) translateX(6px) rotate(120deg); }
+          66% { transform: translateY(6px) translateX(-6px) rotate(240deg); }
           100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
         }
         @keyframes shootingStar {
-          0% { transform: translateX(-300px) translateY(300px) rotate(-45deg); opacity: 0; }
-          5% { opacity: 1; }
-          95% { opacity: 1; }
-          100% { transform: translateX(500px) translateY(-500px) rotate(-45deg); opacity: 0; }
+          0% { transform: translateX(-200px) translateY(200px) rotate(-35deg); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(400px) translateY(-400px) rotate(-35deg); opacity: 0; }
         }
         @keyframes starBurst {
-          0%, 100% { transform: scale(0.5) rotate(0deg); opacity: 0.6; }
-          50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+          0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0.7; }
+          50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
         }
         @keyframes particle {
           0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
           10% { opacity: 1; }
           90% { opacity: 1; }
-          100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
+          100% { transform: translateY(-50px) translateX(50px) rotate(360deg); opacity: 0; }
         }
         .bg-gradient-radial {
           background-image: radial-gradient(circle, var(--tw-gradient-stops));
         }
       `}</style>
 
-      {/* Enhanced Mouse Follower with Multiple Layers */}
+      {/* Enhanced Mouse Follower with Rainbow Effect */}
       <div className="absolute pointer-events-none z-10">
         <div
           className="absolute transition-all duration-500 ease-out opacity-20"
@@ -251,7 +309,7 @@ const Index = () => {
             top: mousePosition.y - 250,
             width: 500,
             height: 500,
-            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(168, 85, 247, 0.6) 20%, rgba(236, 72, 153, 0.4) 40%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255, 0, 128, 0.8) 0%, rgba(0, 255, 255, 0.6) 20%, rgba(255, 255, 0, 0.4) 40%, rgba(128, 0, 255, 0.3) 60%, transparent 80%)',
             borderRadius: '50%'
           }}
         />
@@ -262,14 +320,14 @@ const Index = () => {
             top: mousePosition.y - 120,
             width: 240,
             height: 240,
-            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(59, 130, 246, 0.6) 30%, transparent 60%)',
+            background: 'radial-gradient(circle, rgba(255, 128, 0, 0.9) 0%, rgba(128, 255, 0, 0.6) 30%, transparent 60%)',
             borderRadius: '50%'
           }}
         />
       </div>
 
       <div className="relative z-20">
-        {/* Enhanced Glassmorphism Header */}
+        {/* Header Section */}
         <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/40 via-purple-900/30 to-black/40 border-b border-cyan-500/40">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-3">
@@ -335,6 +393,7 @@ const Index = () => {
           )}
         </header>
 
+        {/* Hero Section */}
         <section className="py-20 px-6 relative">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
@@ -364,44 +423,44 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Enhanced Problem Statement Cards */}
+            {/* Enhanced Problem Statement Cards with Darker Backgrounds */}
             <div className="grid md:grid-cols-3 gap-8 mb-20">
-              <Card className="bg-gradient-to-br from-slate-900/50 to-red-900/30 border-red-500/40 backdrop-blur-sm hover:from-slate-900/70 hover:to-red-900/50 transition-all duration-300 group">
+              <Card className="bg-gradient-to-br from-slate-950/90 to-red-950/80 border-red-500/40 backdrop-blur-sm hover:from-slate-950/95 hover:to-red-950/90 transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4">
                     <Zap className="h-12 w-12 text-red-400 mx-auto" />
                     <div className="absolute inset-0 bg-red-400/20 rounded-full blur-xl group-hover:bg-red-400/40 transition-all duration-300"></div>
                   </div>
                   <h3 className="text-xl font-bold text-red-400 mb-2">Unencrypted</h3>
-                  <p className="text-slate-300">Neural data flows without protection</p>
+                  <p className="text-slate-200">Neural data flows without protection</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-slate-900/50 to-orange-900/30 border-orange-500/40 backdrop-blur-sm hover:from-slate-900/70 hover:to-orange-900/50 transition-all duration-300 group">
+              <Card className="bg-gradient-to-br from-slate-950/90 to-orange-950/80 border-orange-500/40 backdrop-blur-sm hover:from-slate-950/95 hover:to-orange-950/90 transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4">
                     <Globe className="h-12 w-12 text-orange-400 mx-auto" />
                     <div className="absolute inset-0 bg-orange-400/20 rounded-full blur-xl group-hover:bg-orange-400/40 transition-all duration-300"></div>
                   </div>
                   <h3 className="text-xl font-bold text-orange-400 mb-2">Unfiltered</h3>
-                  <p className="text-slate-300">No permission system exists</p>
+                  <p className="text-slate-200">No permission system exists</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-slate-900/50 to-yellow-900/30 border-yellow-500/40 backdrop-blur-sm hover:from-slate-900/70 hover:to-yellow-900/50 transition-all duration-300 group">
+              <Card className="bg-gradient-to-br from-slate-950/90 to-yellow-950/80 border-yellow-500/40 backdrop-blur-sm hover:from-slate-950/95 hover:to-yellow-950/90 transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4">
                     <Users className="h-12 w-12 text-yellow-400 mx-auto" />
                     <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl group-hover:bg-yellow-400/40 transition-all duration-300"></div>
                   </div>
                   <h3 className="text-xl font-bold text-yellow-400 mb-2">Vulnerable</h3>
-                  <p className="text-slate-300">Open to misuse and manipulation</p>
+                  <p className="text-slate-200">Open to misuse and manipulation</p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* Enhanced Three Phases Section */}
-        <section className="py-20 px-6 bg-gradient-to-r from-slate-900/40 to-purple-900/20 backdrop-blur-sm">
+        {/* Enhanced Three Phases Section with Creative Design */}
+        <section className="py-20 px-6 bg-gradient-to-r from-slate-950/60 to-purple-950/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Our Three-Phase Approach
@@ -409,32 +468,49 @@ const Index = () => {
             
             <div className="space-y-12">
               {phases.map((phase, index) => (
-                <Card key={index} className="bg-slate-800/50 border-slate-700/50 backdrop-blur-sm overflow-hidden">
-                  <CardContent className="p-8">
+                <Card key={index} className="bg-slate-950/80 border-slate-700/50 backdrop-blur-sm overflow-hidden relative">
+                  <CardContent className="p-8 relative z-10">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                       <div>
                         <div className="flex items-center mb-4">
-                          <div className={`p-3 rounded-full bg-gradient-to-r ${phase.gradient} mr-4`}>
-                            <phase.icon className="h-8 w-8 text-white" />
+                          <div className={`p-4 rounded-full bg-gradient-to-r ${phase.gradient} mr-4 shadow-lg`}>
+                            <phase.icon className="h-10 w-10 text-white" />
                           </div>
                           <div>
                             <h3 className="text-2xl font-bold text-white">{phase.title}</h3>
-                            <p className="text-slate-400 font-mono">{phase.subtitle}</p>
+                            <p className="text-slate-300 font-mono text-sm bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                              {phase.subtitle}
+                            </p>
                           </div>
                         </div>
                         <ul className="space-y-3">
                           {phase.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start">
                               <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-slate-300">{feature}</span>
+                              <span className="text-slate-200">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <div className={`relative h-64 rounded-lg bg-gradient-to-br ${phase.gradient} opacity-20`}>
-                        <div className="absolute inset-0 bg-black/50 rounded-lg"></div>
+                      <div className={`relative h-64 rounded-lg bg-gradient-to-br ${phase.gradient} opacity-30 overflow-hidden`}>
+                        <div className="absolute inset-0 bg-black/60 rounded-lg"></div>
+                        <div className="absolute inset-0" style={{ background: phase.bgPattern, opacity: 0.4 }}></div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <phase.icon className="h-24 w-24 text-white/30" />
+                          <phase.icon className="h-32 w-32 text-white/50" />
+                        </div>
+                        {/* Neural network pattern overlay */}
+                        <div className="absolute inset-0">
+                          {[...Array(12)].map((_, i) => (
+                            <div
+                              key={i}
+                              className="absolute w-2 h-2 bg-white/30 rounded-full"
+                              style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`
+                              }}
+                            />
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -445,7 +521,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Enhanced AI Capabilities Section */}
+        {/* Enhanced AI Capabilities Section with Darker Cards */}
         <section className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -458,13 +534,13 @@ const Index = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {aiCapabilities.map((capability, index) => (
-                <Card key={index} className="bg-slate-800/30 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 group">
+                <Card key={index} className="bg-slate-950/80 border-slate-700/50 backdrop-blur-sm hover:bg-slate-950/90 transition-all duration-300 group">
                   <CardContent className="p-6 text-center h-full flex flex-col">
                     <div className="mb-4 p-3 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 w-fit mx-auto group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
                       <capability.icon className="h-8 w-8 text-blue-400" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-3">{capability.title}</h3>
-                    <p className="text-slate-300 text-sm flex-grow">{capability.description}</p>
+                    <p className="text-slate-200 text-sm flex-grow">{capability.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -472,8 +548,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Enhanced Footer CTA */}
-        <section className="py-16 px-6 bg-gradient-to-r from-slate-900/80 via-purple-900/40 to-slate-900/80 backdrop-blur-sm">
+        {/* Footer CTA Section */}
+        <section className="py-16 px-6 bg-gradient-to-r from-slate-950/90 via-purple-950/60 to-slate-950/90 backdrop-blur-sm">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               The Future of Neural Security Starts Now
@@ -488,7 +564,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Enhanced Footer */}
+        {/* Footer Section */}
         <footer className="py-8 px-6 border-t border-slate-700/50 bg-gradient-to-r from-black/80 to-purple-900/20 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
