@@ -230,7 +230,7 @@ const Background: React.FC = () => {
         {[...Array(120)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full opacity-60"
+            className="absolute"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -242,6 +242,7 @@ const Background: React.FC = () => {
                          i % 7 === 3 ? '#ff8000' :
                          i % 7 === 4 ? '#80ff00' : 
                          i % 7 === 5 ? '#8000ff' : '#ff4080',
+              clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
               boxShadow: '0 0 12px currentColor',
               animation: `particle ${Math.random() * 20 + 15}s infinite linear`
             }}
