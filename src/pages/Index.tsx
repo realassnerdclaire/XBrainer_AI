@@ -1,11 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
-import { Shield, Brain, Zap, Lock, Eye, Database, Cpu, Network, Users, Globe, CheckCircle, ArrowRight } from 'lucide-react';
+import { Shield, Brain, Zap, Lock, Eye, Database, Cpu, Network, Users, Globe, CheckCircle, ArrowRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -78,66 +79,160 @@ const Index = () => {
     }
   ];
 
+  const navItems = ['Why Now', 'Solution', 'Careers', 'Contact'];
+
   return (
-    <div className="min-h-screen bg-slate-900 text-white overflow-hidden relative">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-blue-900/20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent"></div>
-        {/* Floating particles */}
+    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+      {/* Galaxy Background with Shooting Stars */}
+      <div className="absolute inset-0">
+        {/* Deep space gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-blue-900/20 to-black"></div>
+        
+        {/* Nebula effects */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-60 right-32 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-40 left-1/3 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        {/* Stars */}
         <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(200)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-pulse"
+              className="absolute bg-white rounded-full opacity-60"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+                animation: `twinkle ${Math.random() * 4 + 2}s infinite ${Math.random() * 2}s`
               }}
             />
           ))}
         </div>
+
+        {/* Shooting Stars */}
+        <div className="absolute inset-0">
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-70"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${Math.random() * 100 + 50}px`,
+                transform: 'rotate(-45deg)',
+                animation: `shootingStar ${Math.random() * 3 + 2}s infinite ${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Galaxy spiral effect */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <div className="absolute inset-0 opacity-20">
+            <div className="w-full h-full bg-gradient-conic from-purple-500/20 via-transparent to-blue-500/20 animate-spin" style={{ animationDuration: '60s' }}></div>
+          </div>
+        </div>
       </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
+        }
+        @keyframes shootingStar {
+          0% { transform: translateX(-100px) translateY(100px) rotate(-45deg); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(300px) translateY(-300px) rotate(-45deg); opacity: 0; }
+        }
+        .bg-gradient-conic {
+          background: conic-gradient(var(--tw-gradient-stops));
+        }
+      `}</style>
 
       {/* Mouse Follower Effect */}
       <div
-        className="absolute pointer-events-none opacity-20 transition-all duration-300 ease-out"
+        className="absolute pointer-events-none opacity-30 transition-all duration-300 ease-out z-10"
         style={{
-          left: mousePosition.x - 100,
-          top: mousePosition.y - 100,
-          width: 200,
-          height: 200,
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%)',
+          left: mousePosition.x - 150,
+          top: mousePosition.y - 150,
+          width: 300,
+          height: 300,
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%)',
           borderRadius: '50%'
         }}
       />
 
-      <div className="relative z-10">
+      <div className="relative z-20">
         {/* Header */}
-        <header className="p-6 backdrop-blur-sm bg-slate-900/50 border-b border-slate-700/50">
+        <header className="p-6 backdrop-blur-md bg-black/20 border-b border-purple-500/20">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Brain className="h-8 w-8 text-blue-400" />
-                <div className="absolute inset-0 bg-blue-400/20 rounded-full animate-pulse"></div>
+                <Brain className="h-8 w-8 text-cyan-400" />
+                <div className="absolute inset-0 bg-cyan-400/30 rounded-full animate-pulse"></div>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 XBrainer AI
               </span>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group"
+                >
+                  {item}
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></div>
+                </a>
+              ))}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+
+            <div className="hidden md:flex items-center space-x-2 text-sm text-slate-400">
               <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
               <span className="font-mono">STEALTH MODE</span>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-6 pb-6 border-t border-purple-500/20">
+              <nav className="flex flex-col space-y-4 mt-6">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
         </header>
 
         {/* Hero Section */}
         <section className="py-20 px-6">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
                 Building the Firewall<br />
                 <span className="text-5xl md:text-7xl">for the Human Brain</span>
               </h1>
@@ -149,32 +244,32 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold">
+              <Button className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold border border-cyan-500/50">
                 Request Early Access
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-3 text-lg">
+              <Button variant="outline" className="border-purple-500/50 text-slate-300 hover:bg-purple-900/30 px-8 py-3 text-lg backdrop-blur-sm">
                 Learn More
               </Button>
             </div>
 
             {/* Problem Statement */}
             <div className="grid md:grid-cols-3 gap-8 mb-20">
-              <Card className="bg-slate-800/50 border-red-500/30 backdrop-blur-sm">
+              <Card className="bg-slate-900/30 border-red-500/30 backdrop-blur-sm">
                 <CardContent className="p-6 text-center">
                   <Zap className="h-12 w-12 text-red-400 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-red-400 mb-2">Unencrypted</h3>
                   <p className="text-slate-300">Neural data flows without protection</p>
                 </CardContent>
               </Card>
-              <Card className="bg-slate-800/50 border-orange-500/30 backdrop-blur-sm">
+              <Card className="bg-slate-900/30 border-orange-500/30 backdrop-blur-sm">
                 <CardContent className="p-6 text-center">
                   <Globe className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-orange-400 mb-2">Unfiltered</h3>
                   <p className="text-slate-300">No permission system exists</p>
                 </CardContent>
               </Card>
-              <Card className="bg-slate-800/50 border-yellow-500/30 backdrop-blur-sm">
+              <Card className="bg-slate-900/30 border-yellow-500/30 backdrop-blur-sm">
                 <CardContent className="p-6 text-center">
                   <Users className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-yellow-400 mb-2">Vulnerable</h3>
