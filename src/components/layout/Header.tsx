@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
           </span>
         </div>
 
-        {/* Enhanced Desktop Navigation with Neon Hover Effects */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <a
@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        {/* Enhanced Status Indicator */}
+        {/* Status Indicator */}
         <div className="hidden md:flex items-center space-x-2 text-sm text-slate-400">
           <div className="relative">
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>

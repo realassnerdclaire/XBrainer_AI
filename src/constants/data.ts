@@ -1,94 +1,101 @@
 
-import { Shield, Brain, Network, Eye, Lock, Cpu, Database, Zap, Globe, Users } from 'lucide-react';
+import { Shield, Zap, Brain, Lock, Eye, Cpu } from 'lucide-react';
 import { PhaseData, AICapability, ProblemCard } from '@/types';
+
+export const navItems = ['About', 'Technology', 'Research', 'Contact'];
+
+export const problemCards: ProblemCard[] = [
+  {
+    title: "Unauthorized Neural Access",
+    description: "Protecting against unwanted intrusion into brain-machine interfaces and neural implants.",
+    icon: Shield,
+    color: "from-red-500 to-pink-500",
+    action: () => console.log("Learning about neural security...")
+  },
+  {
+    title: "Cognitive Privacy Breach",
+    description: "Safeguarding personal thoughts and memories from unauthorized external access.",
+    icon: Lock,
+    color: "from-blue-500 to-purple-500", 
+    action: () => console.log("Exploring privacy protection...")
+  },
+  {
+    title: "Neural Network Hijacking",
+    description: "Preventing malicious control of neural pathways and brain-computer connections.",
+    icon: Eye,
+    color: "from-green-500 to-teal-500",
+    action: () => console.log("Understanding network security...")
+  }
+];
 
 export const phases: PhaseData[] = [
   {
-    title: "Phase 1 - EEG Security Layer",
-    subtitle: "Available Now",
+    title: "Phase 1: Foundation",
+    subtitle: "Neural Security Framework",
     features: [
-      "Real-time encryption of EEG/IMU signal streams",
-      "Permissions engine for brain data access control",
-      "Logging and alert system for unauthorized access",
-      "SDK for secure BCI development"
+      "Core neural intrusion detection algorithms",
+      "Basic brain-machine interface security protocols", 
+      "Foundational cognitive firewall architecture"
     ],
     icon: Shield,
-    gradient: "from-cyan-500 via-blue-500 to-purple-600",
-    bgPattern: "radial-gradient(circle at 20% 50%, cyan, transparent 50%), radial-gradient(circle at 80% 20%, blue, transparent 50%)"
+    gradient: "from-cyan-400 to-blue-500",
+    bgPattern: "radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.3) 0%, transparent 50%)"
   },
   {
-    title: "Phase 2 - Implant-Level Defense",
-    subtitle: "Mid-term",
+    title: "Phase 2: Enhancement", 
+    subtitle: "Advanced Protection Systems",
     features: [
-      "Brainprint authentication via neural patterns",
-      "Intrusion detection against memory manipulation",
-      "Secure API infrastructure for ethical access",
-      "Cognitive injection prevention systems"
+      "Real-time neural threat monitoring",
+      "Adaptive cognitive defense mechanisms",
+      "Multi-layer brain security protocols"
+    ],
+    icon: Zap,
+    gradient: "from-purple-400 to-pink-500",
+    bgPattern: "radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.3) 0%, transparent 50%)"
+  },
+  {
+    title: "Phase 3: Evolution",
+    subtitle: "AI-Powered Neural Defense",
+    features: [
+      "Autonomous neural security AI",
+      "Predictive cognitive threat analysis", 
+      "Self-evolving brain protection systems"
     ],
     icon: Brain,
-    gradient: "from-purple-500 via-pink-500 to-red-500",
-    bgPattern: "radial-gradient(circle at 30% 40%, purple, transparent 50%), radial-gradient(circle at 70% 60%, pink, transparent 50%)"
-  },
-  {
-    title: "Phase 3 - Neural OS Security",
-    subtitle: "Future",
-    features: [
-      "Global identity standard for neural interfaces",
-      "Tokenized, consent-based neural permissions",
-      "Infrastructure for ethical neuro-enhancement",
-      "Comprehensive neural ecosystem protection"
-    ],
-    icon: Network,
-    gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    bgPattern: "radial-gradient(circle at 60% 30%, emerald, transparent 50%), radial-gradient(circle at 40% 70%, teal, transparent 50%)"
+    gradient: "from-green-400 to-cyan-500",
+    bgPattern: "radial-gradient(circle at 50% 80%, rgba(0, 255, 128, 0.3) 0%, transparent 50%)"
   }
 ];
 
 export const aiCapabilities: AICapability[] = [
   {
-    title: "Cognitive Intrusion Detection",
-    description: "Unsupervised learning identifies abnormal brain patterns and unauthorized access attempts in real-time",
-    icon: Eye
+    title: "Neural Pattern Recognition",
+    description: "Advanced AI algorithms that can identify and classify neural activity patterns in real-time.",
+    icon: Brain
   },
   {
-    title: "Neural Privacy Filters",
-    description: "Deep learning automatically detects and blocks sensitive cognitive signatures and profiling attempts",
+    title: "Threat Detection System", 
+    description: "Machine learning models trained to detect anomalous neural activity and potential intrusion attempts.",
+    icon: Shield
+  },
+  {
+    title: "Adaptive Defense Protocols",
+    description: "Self-learning security systems that evolve and adapt to new types of neural threats.",
+    icon: Zap
+  },
+  {
+    title: "Cognitive Encryption",
+    description: "Revolutionary encryption methods specifically designed for protecting neural data streams.",
     icon: Lock
   },
   {
-    title: "Brain-Based Authentication",
-    description: "Personalized EEG-based biometric login that's secure, passive, and resistant to spoofing",
+    title: "Real-time Monitoring",
+    description: "Continuous surveillance of brain-machine interface connections for security breaches.",
+    icon: Eye
+  },
+  {
+    title: "Neural Firewall Engine",
+    description: "Core protection system that filters and validates all neural communication protocols.",
     icon: Cpu
-  },
-  {
-    title: "Adaptive Signal Governance",
-    description: "AI agents classify signal context and apply intelligent access policies that learn over time",
-    icon: Database
   }
 ];
-
-export const problemCards: ProblemCard[] = [
-  {
-    title: "Unencrypted",
-    description: "Neural data flows without protection",
-    icon: Zap,
-    color: "red",
-    action: () => console.log("Learn about unencrypted neural data")
-  },
-  {
-    title: "Unfiltered", 
-    description: "No permission system exists",
-    icon: Globe,
-    color: "orange",
-    action: () => console.log("Learn about unfiltered access")
-  },
-  {
-    title: "Vulnerable",
-    description: "Open to misuse and manipulation", 
-    icon: Users,
-    color: "yellow",
-    action: () => console.log("Learn about vulnerabilities")
-  }
-];
-
-export const navItems = ['Why Now', 'Solution', 'Careers', 'Contact'];
