@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { MousePosition } from '@/types';
+import type { MousePosition } from '../../types';
 
 interface MouseFollowerProps {
   mousePosition: MousePosition;

@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import ProblemCards from '@/components/sections/ProblemCards';
+import { Button } from '../ui/button';
+import ProblemCards from './ProblemCards';
 
 const HeroSection: React.FC = () => {
   return (

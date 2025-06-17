@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Brain, Menu, X } from 'lucide-react';
-import { navItems } from '@/constants/data';
+import { navItems } from '../../constants/data';
 
 interface HeaderProps {
   mobileMenuOpen: boolean;

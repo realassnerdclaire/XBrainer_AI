@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { phases } from '@/constants/data';
+import { Card, CardContent } from '../ui/card';
+import { phases } from '../../constants/data';
 
 const PhasesSection: React.FC = () => {
   return (

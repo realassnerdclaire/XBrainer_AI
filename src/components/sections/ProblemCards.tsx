@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { problemCards } from '@/constants/data';
+import { Card, CardContent } from '../ui/card';
+import { problemCards } from '../../constants/data';
 
 const ProblemCards: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import type { MousePosition } from '@/types';
+import type { MousePosition } from '../types';
 
 export const useMousePosition = (): MousePosition => {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });

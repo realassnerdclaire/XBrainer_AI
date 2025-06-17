@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { aiCapabilities } from '@/constants/data';
+import { Card, CardContent } from '../ui/card';
+import { aiCapabilities } from '../../constants/data';
 
 const AICapabilitiesSection: React.FC = () => {
   return (
