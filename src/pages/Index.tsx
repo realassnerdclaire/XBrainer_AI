@@ -82,81 +82,127 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      {/* Advanced Galaxy Background with Dynamic Effects */}
+      {/* Enhanced Galaxy Background with Nebula and Star-burst Effects */}
       <div className="absolute inset-0">
-        {/* Multi-layered deep space gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 via-blue-900/20 to-black"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-purple-800/10 via-transparent to-transparent"></div>
+        {/* Deep space multi-layer gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/60 via-purple-900/40 via-blue-900/30 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-purple-800/20 via-violet-700/10 to-transparent"></div>
         
-        {/* Animated Nebula Clouds */}
+        {/* Vibrant Nebula Clouds - Inspired by reference images */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-[600px] h-[600px] bg-gradient-radial from-purple-500/20 via-purple-600/10 to-transparent rounded-full blur-3xl animate-pulse opacity-60" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute top-40 right-20 w-[500px] h-[500px] bg-gradient-radial from-cyan-500/15 via-blue-500/10 to-transparent rounded-full blur-3xl animate-pulse opacity-50" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-pink-500/15 via-violet-500/10 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-[350px] h-[350px] bg-gradient-radial from-emerald-500/12 via-teal-500/8 to-transparent rounded-full blur-3xl animate-pulse opacity-35" style={{ animationDuration: '7s', animationDelay: '3s' }}></div>
+          {/* Main orange-red nebula */}
+          <div className="absolute top-0 left-0 w-[800px] h-[600px] bg-gradient-radial from-orange-500/30 via-red-500/20 via-yellow-500/15 to-transparent rounded-full blur-3xl animate-pulse opacity-70" style={{ animationDuration: '8s' }}></div>
+          
+          {/* Blue-cyan nebula cluster */}
+          <div className="absolute top-20 right-0 w-[700px] h-[700px] bg-gradient-radial from-cyan-400/25 via-blue-500/20 via-teal-400/15 to-transparent rounded-full blur-3xl animate-pulse opacity-60" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
+          
+          {/* Purple-magenta nebula */}
+          <div className="absolute bottom-0 left-1/3 w-[600px] h-[500px] bg-gradient-radial from-purple-500/30 via-magenta-500/20 via-pink-400/15 to-transparent rounded-full blur-3xl animate-pulse opacity-50" style={{ animationDuration: '10s', animationDelay: '4s' }}></div>
+          
+          {/* Green-teal nebula accent */}
+          <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-emerald-400/20 via-teal-500/15 via-green-400/10 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+          
+          {/* Golden nebula wisps */}
+          <div className="absolute bottom-1/4 right-1/3 w-[350px] h-[300px] bg-gradient-radial from-yellow-400/25 via-amber-500/15 via-orange-400/10 to-transparent rounded-full blur-3xl animate-pulse opacity-35" style={{ animationDuration: '14s', animationDelay: '3s' }}></div>
         </div>
 
-        {/* Enhanced Star Field */}
+        {/* Enhanced Star Field with Sparkle Effects */}
         <div className="absolute inset-0">
-          {[...Array(300)].map((_, i) => (
+          {[...Array(400)].map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full"
+              className="absolute"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 4 + 1}px`,
-                height: `${Math.random() * 4 + 1}px`,
-                background: i % 5 === 0 ? 'linear-gradient(45deg, #00f5ff, #ffffff)' : 
-                           i % 7 === 0 ? 'linear-gradient(45deg, #ff00ff, #ffffff)' : 
+                width: `${Math.random() * 6 + 2}px`,
+                height: `${Math.random() * 6 + 2}px`,
+                background: i % 3 === 0 ? 'linear-gradient(45deg, #00f5ff, #ffffff)' : 
+                           i % 5 === 0 ? 'linear-gradient(45deg, #ff00ff, #ffffff)' : 
+                           i % 7 === 0 ? 'linear-gradient(45deg, #ffff00, #ffffff)' :
                            '#ffffff',
-                boxShadow: i % 3 === 0 ? '0 0 6px currentColor' : 'none',
-                animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s, float ${Math.random() * 20 + 10}s infinite linear`
+                borderRadius: i % 4 === 0 ? '50%' : '0',
+                clipPath: i % 4 !== 0 ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' : 'none',
+                boxShadow: i % 2 === 0 ? '0 0 10px currentColor' : '0 0 6px currentColor',
+                animation: `twinkle ${Math.random() * 4 + 2}s infinite ${Math.random() * 3}s, float ${Math.random() * 25 + 15}s infinite linear`
               }}
             />
           ))}
         </div>
 
-        {/* Multiple Shooting Star Layers */}
+        {/* Star-shaped Shooting Stars */}
         <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute h-px opacity-80"
+              className="absolute opacity-90"
+              style={{
+                left: `${Math.random() * 120 - 20}%`,
+                top: `${Math.random() * 120 - 20}%`,
+                width: `${Math.random() * 100 + 80}px`,
+                height: `${Math.random() * 20 + 15}px`,
+                background: i % 3 === 0 ? 
+                  'linear-gradient(90deg, transparent, #00f5ff, #ffffff, #00f5ff, transparent)' :
+                  i % 3 === 1 ?
+                  'linear-gradient(90deg, transparent, #ff00ff, #ffffff, #ff00ff, transparent)' :
+                  'linear-gradient(90deg, transparent, #ffff00, #ffffff, #ffff00, transparent)',
+                clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+                transform: `rotate(${Math.random() * 60 - 30}deg)`,
+                animation: `shootingStar ${Math.random() * 6 + 4}s infinite ${Math.random() * 8}s`,
+                filter: 'blur(0.5px)'
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Star Burst Effects */}
+        <div className="absolute inset-0">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 150 + 100}px`,
+                width: '60px',
+                height: '60px',
                 background: i % 2 === 0 ? 
-                  'linear-gradient(90deg, transparent, #00f5ff, #ffffff, transparent)' :
-                  'linear-gradient(90deg, transparent, #ff00ff, #ffffff, transparent)',
-                transform: 'rotate(-45deg)',
-                animation: `shootingStar ${Math.random() * 4 + 3}s infinite ${Math.random() * 6}s`
+                  'radial-gradient(circle, #00f5ff, transparent 70%)' :
+                  'radial-gradient(circle, #ff00ff, transparent 70%)',
+                clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+                animation: `starBurst ${Math.random() * 8 + 6}s infinite ${Math.random() * 10}s`,
+                opacity: 0.6
               }}
             />
           ))}
         </div>
 
         {/* Rotating Galaxy Spiral */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-15">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20">
           <div className="absolute inset-0">
             <div className="w-full h-full animate-spin" style={{ 
-              background: 'conic-gradient(from 0deg, transparent, #8b5cf6, transparent, #06b6d4, transparent, #ec4899, transparent)',
-              animationDuration: '120s'
+              background: 'conic-gradient(from 0deg, transparent, #8b5cf6, transparent, #06b6d4, transparent, #ec4899, transparent, #f59e0b, transparent)',
+              animationDuration: '180s'
             }}></div>
           </div>
         </div>
 
-        {/* Particle System */}
+        {/* Enhanced Particle System */}
         <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(80)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
+              className="absolute rounded-full opacity-70"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `particle ${Math.random() * 15 + 10}s infinite linear`
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+                background: i % 4 === 0 ? '#00f5ff' : 
+                           i % 4 === 1 ? '#ff00ff' :
+                           i % 4 === 2 ? '#ffff00' : '#ffffff',
+                boxShadow: '0 0 6px currentColor',
+                animation: `particle ${Math.random() * 20 + 15}s infinite linear`
               }}
             />
           ))}
@@ -167,25 +213,29 @@ const Index = () => {
       <style>{`
         @keyframes twinkle {
           0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.2); }
+          50% { opacity: 1; transform: scale(1.3); }
         }
         @keyframes float {
-          0% { transform: translateY(0px) translateX(0px); }
-          33% { transform: translateY(-10px) translateX(5px); }
-          66% { transform: translateY(5px) translateX(-5px); }
-          100% { transform: translateY(0px) translateX(0px); }
+          0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+          33% { transform: translateY(-15px) translateX(8px) rotate(120deg); }
+          66% { transform: translateY(8px) translateX(-8px) rotate(240deg); }
+          100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
         }
         @keyframes shootingStar {
-          0% { transform: translateX(-200px) translateY(200px) rotate(-45deg); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(400px) translateY(-400px) rotate(-45deg); opacity: 0; }
+          0% { transform: translateX(-300px) translateY(300px) rotate(-45deg); opacity: 0; }
+          5% { opacity: 1; }
+          95% { opacity: 1; }
+          100% { transform: translateX(500px) translateY(-500px) rotate(-45deg); opacity: 0; }
+        }
+        @keyframes starBurst {
+          0%, 100% { transform: scale(0.5) rotate(0deg); opacity: 0.6; }
+          50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
         }
         @keyframes particle {
-          0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+          0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
           10% { opacity: 1; }
           90% { opacity: 1; }
-          100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+          100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
         }
         .bg-gradient-radial {
           background-image: radial-gradient(circle, var(--tw-gradient-stops));
@@ -197,22 +247,22 @@ const Index = () => {
         <div
           className="absolute transition-all duration-500 ease-out opacity-20"
           style={{
-            left: mousePosition.x - 200,
-            top: mousePosition.y - 200,
-            width: 400,
-            height: 400,
-            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(168, 85, 247, 0.4) 30%, transparent 70%)',
+            left: mousePosition.x - 250,
+            top: mousePosition.y - 250,
+            width: 500,
+            height: 500,
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(168, 85, 247, 0.6) 20%, rgba(236, 72, 153, 0.4) 40%, transparent 70%)',
             borderRadius: '50%'
           }}
         />
         <div
-          className="absolute transition-all duration-300 ease-out opacity-30"
+          className="absolute transition-all duration-300 ease-out opacity-40"
           style={{
-            left: mousePosition.x - 100,
-            top: mousePosition.y - 100,
-            width: 200,
-            height: 200,
-            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 60%)',
+            left: mousePosition.x - 120,
+            top: mousePosition.y - 120,
+            width: 240,
+            height: 240,
+            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(59, 130, 246, 0.6) 30%, transparent 60%)',
             borderRadius: '50%'
           }}
         />
@@ -220,13 +270,13 @@ const Index = () => {
 
       <div className="relative z-20">
         {/* Enhanced Glassmorphism Header */}
-        <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/30 via-purple-900/20 to-black/30 border-b border-cyan-500/30">
+        <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/40 via-purple-900/30 to-black/40 border-b border-cyan-500/40">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <Brain className="h-8 w-8 text-cyan-400" />
-                <div className="absolute inset-0 bg-cyan-400/50 rounded-full animate-ping"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-30 animate-pulse"></div>
+                <div className="absolute inset-0 bg-cyan-400/60 rounded-full animate-ping"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-40 animate-pulse"></div>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 XBrainer AI
@@ -268,13 +318,13 @@ const Index = () => {
 
           {/* Mobile Menu with Glassmorphism */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-6 pb-6 border-t border-purple-500/30 backdrop-blur-xl bg-black/20 rounded-lg">
+            <div className="md:hidden mt-6 pb-6 border-t border-purple-500/30 backdrop-blur-xl bg-black/30 rounded-lg">
               <nav className="flex flex-col space-y-4 mt-6">
                 {navItems.map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase().replace(' ', '-')}`}
-                    className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-2 rounded-lg hover:bg-purple-900/30"
+                    className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-2 rounded-lg hover:bg-purple-900/40"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
@@ -285,7 +335,6 @@ const Index = () => {
           )}
         </header>
 
-        {/* Enhanced Hero Section */}
         <section className="py-20 px-6 relative">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
