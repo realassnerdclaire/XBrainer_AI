@@ -11,11 +11,28 @@
   100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
 }
 
-@keyframes flyingStar {
-  0% { transform: translateX(-100px) translateY(100px) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.08; }
-  90% { opacity: 0.08; }
-  100% { transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(360deg); opacity: 0; }
+@keyframes flyingStarCircular {
+  0% { transform: rotate(0deg) translateX(300px) rotate(0deg) scale(1); opacity: 0.3; }
+  25% { opacity: 0.8; }
+  50% { transform: rotate(180deg) translateX(300px) rotate(-180deg) scale(1.2); opacity: 0.8; }
+  75% { opacity: 0.8; }
+  100% { transform: rotate(360deg) translateX(300px) rotate(-360deg) scale(1); opacity: 0.3; }
+}
+
+@keyframes flyingStarCircularLarge {
+  0% { transform: rotate(0deg) translateX(400px) rotate(0deg) scale(1); opacity: 0.4; }
+  25% { opacity: 0.9; }
+  50% { transform: rotate(180deg) translateX(400px) rotate(-180deg) scale(1.4); opacity: 0.9; }
+  75% { opacity: 0.9; }
+  100% { transform: rotate(360deg) translateX(400px) rotate(-360deg) scale(1); opacity: 0.4; }
+}
+
+@keyframes flyingStarCircularSmall {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg) scale(1); opacity: 0.2; }
+  25% { opacity: 0.6; }
+  50% { transform: rotate(180deg) translateX(150px) rotate(-180deg) scale(1.1); opacity: 0.6; }
+  75% { opacity: 0.6; }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg) scale(1); opacity: 0.2; }
 }
 
 @keyframes particle {
@@ -23,6 +40,22 @@
   10% { opacity: 0.5; }
   90% { opacity: 0.5; }
   100% { transform: translateY(-50px) translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes nebulaCircular {
+  0% { transform: rotate(0deg) translateX(200px) translateY(100px) rotate(0deg); }
+  25% { transform: rotate(90deg) translateX(200px) translateY(100px) rotate(-90deg); }
+  50% { transform: rotate(180deg) translateX(200px) translateY(100px) rotate(-180deg); }
+  75% { transform: rotate(270deg) translateX(200px) translateY(100px) rotate(-270deg); }
+  100% { transform: rotate(360deg) translateX(200px) translateY(100px) rotate(-360deg); }
+}
+
+@keyframes nebulaCircularLarge {
+  0% { transform: rotate(0deg) translateX(300px) translateY(150px) rotate(0deg); }
+  25% { transform: rotate(90deg) translateX(300px) translateY(150px) rotate(-90deg); }
+  50% { transform: rotate(180deg) translateX(300px) translateY(150px) rotate(-180deg); }
+  75% { transform: rotate(270deg) translateX(300px) translateY(150px) rotate(-270deg); }
+  100% { transform: rotate(360deg) translateX(300px) translateY(150px) rotate(-360deg); }
 }
 
 @keyframes nebulaFloat {
