@@ -174,7 +174,7 @@ const Careers: React.FC = () => {
                   to join our mission in developing cutting-edge cybersecurity solutions for advanced technologies.
                 </p>
                 <div className="inline-flex px-6 py-3 bg-gradient-to-r from-cyan-200/50 to-blue-200/50 rounded-2xl border border-cyan-300/60 shadow-lg shadow-cyan-200/20">
-                  <span className="text-cyan-800 font-semibold text-lg">Available in San Francisco & Hyderabad (Remote)</span>
+                  <span className="text-cyan-800 font-semibold text-lg">Available in San Francisco (Remote) & Hyderabad (Remote)</span>
                 </div>
               </div>
             </div>

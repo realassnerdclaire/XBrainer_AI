@@ -1,6 +1,72 @@
 
 import { Job } from '../types';
 
+// Navigation items for header
+export const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Careers', href: '/careers' },
+];
+
+// Problem cards data
+export const problemCards = [
+  {
+    title: 'Neural Signal Interception',
+    description: 'Brain-computer interfaces create new attack vectors for cognitive data theft.',
+    icon: '🧠'
+  },
+  {
+    title: 'Encryption Challenges',
+    description: 'Traditional cryptography may not suit real-time neural communication.',
+    icon: '🔐'
+  },
+  {
+    title: 'Authentication Complexity',
+    description: 'Verifying identity through brain signals requires novel approaches.',
+    icon: '🔒'
+  }
+];
+
+// AI capabilities data
+export const aiCapabilities = [
+  {
+    title: 'Neural Protocol Analysis',
+    description: 'Advanced AI models analyze neural communication patterns to identify vulnerabilities.',
+    icon: '🔍'
+  },
+  {
+    title: 'Cryptographic Framework',
+    description: 'Machine learning optimizes encryption algorithms for real-time neural data.',
+    icon: '⚡'
+  },
+  {
+    title: 'Security Validation',
+    description: 'Automated testing ensures robust protection across neural interface systems.',
+    icon: '✅'
+  }
+];
+
+// Development phases data
+export const phases = [
+  {
+    phase: 'Phase 1',
+    title: 'Research & Analysis',
+    description: 'Analyze existing neural interface vulnerabilities and develop security frameworks.',
+    status: 'completed'
+  },
+  {
+    phase: 'Phase 2',
+    title: 'Protocol Development',
+    description: 'Design and implement secure communication protocols for neural data transmission.',
+    status: 'in-progress'
+  },
+  {
+    phase: 'Phase 3',
+    title: 'Testing & Validation',
+    description: 'Comprehensive testing of security protocols across various neural interface systems.',
+    status: 'upcoming'
+  }
+];
+
 export const baseJobs: Job[] = [
   {
     id: 'ai-research-analyst',
