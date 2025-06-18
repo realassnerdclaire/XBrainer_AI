@@ -1,6 +1,5 @@
-
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles } from 'lucide-react';
+import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, Brain } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
