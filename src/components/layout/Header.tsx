@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const handleNavClick = (item: string) => {
     if (item === 'Briefing Request') {
-      window.open('https://tally.so/r/nGaDPo', '_blank');
+      window.open('https://briefing_request.xbrainer.ai', '_blank');
     } else if (item === 'Careers') {
       window.open('https://boards.greenhouse.io/xbrainerai', '_blank');
     } else {
