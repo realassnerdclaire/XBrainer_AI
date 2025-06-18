@@ -5,6 +5,11 @@ import { Button } from '../ui/button';
 import ProblemCards from './ProblemCards';
 
 const HeroSection: React.FC = () => {
+  const handleEarlyAccess = () => {
+    // Open Tally form in new tab for early access requests
+    window.open('https://tally.so/r/wAjjdL', '_blank');
+  };
+
   return (
     <section className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto text-center">
@@ -26,7 +31,10 @@ const HeroSection: React.FC = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg font-semibold border border-cyan-400/50 shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300">
+          <Button 
+            onClick={handleEarlyAccess}
+            className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg font-semibold border border-cyan-400/50 shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300"
+          >
             Request Early Access
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

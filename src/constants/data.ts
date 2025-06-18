@@ -14,7 +14,7 @@ export const problemCards: ProblemCard[] = [
   {
     icon: AlertTriangle,
     title: "Neural Vulnerability",
-    description: "Brain-machine interfaces create unprecedented attack vectors for malicious actors to exploit neural pathways.",
+    description: "Brain-machine interfaces create unprecedented attack vectors for malicious actors to exploit cognitive pathways.",
     action: () => console.log("Neural Vulnerability clicked")
   },
   {
@@ -34,25 +34,25 @@ export const problemCards: ProblemCard[] = [
 export const phases: Phase[] = [
   {
     icon: Shield,
-    title: "Phase 1: Neural Firewall",
-    subtitle: "NEURAL INTRUSION PREVENTION",
+    title: "Adaptive Neuroprotection",
+    subtitle: "INTELLIGENT INTERFACE SAFETY",
     features: [
-      "Real-time neural signal monitoring and anomaly detection",
-      "Behavioral pattern analysis to identify unauthorized access attempts",
-      "Automatic quarantine of suspicious neural activities",
-      "Integration with existing brain-machine interface protocols"
+      "AI-enhanced interface safety with continuous monitoring capabilities",
+      "Context-aware behavioral analysis for unauthorized access prevention",
+      "Automated response systems for suspicious activity isolation",
+      "Seamless integration with existing brain-machine interface protocols"
     ],
     gradient: "from-blue-500 to-cyan-500",
     bgPattern: "radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3), transparent 50%)"
   },
   {
     icon: Brain,
-    title: "Phase 2: Cognitive Authentication",
-    subtitle: "BIOMETRIC NEURAL VALIDATION",
+    title: "Identity-Aware Systems",
+    subtitle: "BIOMETRIC COGNITIVE VALIDATION",
     features: [
-      "Unique neural signature identification and verification",
+      "Unique cognitive signature identification and verification",
       "Multi-layer consciousness authentication protocols",
-      "Dynamic neural pattern encryption for secure communications",
+      "Dynamic pattern encryption for secure neural communications",
       "Seamless integration with thought-based user interfaces"
     ],
     gradient: "from-purple-500 to-pink-500",
@@ -60,13 +60,13 @@ export const phases: Phase[] = [
   },
   {
     icon: Zap,
-    title: "Phase 3: Neural Network Defense",
-    subtitle: "DISTRIBUTED PROTECTION GRID",
+    title: "Resilient Infrastructure",
+    subtitle: "DISTRIBUTED PROTECTION NETWORK",
     features: [
-      "Decentralized neural security network across multiple interfaces",
+      "Decentralized security network across multiple neural interfaces",
       "Predictive threat modeling using advanced AI algorithms",
       "Quantum-resistant encryption for neural data transmission",
-      "Global threat intelligence sharing between neural security nodes"
+      "Global threat intelligence sharing between security nodes"
     ],
     gradient: "from-green-500 to-blue-500",
     bgPattern: "radial-gradient(circle at 25% 25%, rgba(34, 197, 94, 0.4), transparent 50%), radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3), transparent 50%)"
@@ -77,7 +77,7 @@ export const aiCapabilities: AICapability[] = [
   {
     icon: Search,
     title: "Threat Detection",
-    description: "AI-powered analysis of neural patterns to identify potential security breaches in real-time."
+    description: "AI-powered analysis of cognitive patterns to identify potential security breaches in real-time."
   },
   {
     icon: Activity,
@@ -97,7 +97,7 @@ export const aiCapabilities: AICapability[] = [
   {
     icon: Database,
     title: "Data Encryption",
-    description: "Neural-specific encryption algorithms designed for thought pattern protection."
+    description: "Neural-specific encryption algorithms designed for cognitive pattern protection."
   },
   {
     icon: Bot,

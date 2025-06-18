@@ -9,7 +9,7 @@ const PhasesSection: React.FC = () => {
     <section className="py-20 px-6 bg-gradient-to-r from-slate-950/80 to-purple-950/60 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
-          Our Three-Phase Approach
+          Our Focus Areas
         </h2>
         
         <div className="space-y-12">
