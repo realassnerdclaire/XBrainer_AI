@@ -34,7 +34,9 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
     city: '',
     zipCode: '',
     resume: null as File | null,
-    coverLetter: null as File | null
+    coverLetter: null as File | null,
+    whyGoodFit: '',
+    excitingProject: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -98,14 +100,6 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Jobs
               </Button>
-            </div>
-            
-            <div className="bg-gradient-to-r from-amber-200/40 to-orange-200/40 rounded-2xl p-6 border border-amber-300/60 shadow-lg">
-              <div className="flex items-center gap-3 mb-2">
-                <DollarSign className="h-6 w-6 text-amber-700" />
-                <span className="text-lg font-bold text-amber-800">Compensation</span>
-              </div>
-              <p className="text-amber-800 font-semibold">Unpaid; potential for full-time paid role with salary + equity upon funding</p>
             </div>
           </div>
         </div>
@@ -211,6 +205,14 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     Opportunity for conversion to a full-time, paid role with equity as the company raises external funding
                   </li>
                 </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-amber-200/40 to-orange-200/40 rounded-2xl p-6 border border-amber-300/60 shadow-lg">
+                <div className="flex items-center gap-3 mb-2">
+                  <DollarSign className="h-6 w-6 text-amber-700" />
+                  <span className="text-lg font-bold text-amber-800">Compensation</span>
+                </div>
+                <p className="text-amber-800 font-semibold">Unpaid; potential for full-time paid role with salary + equity upon funding</p>
               </div>
             </div>
 
@@ -439,6 +441,42 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     </p>
                   )}
                 </div>
+              </div>
+            </div>
+
+            {/* Additional Questions */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-cyan-800 flex items-center">
+                <FileText className="h-5 w-5 mr-2" />
+                Additional Questions
+              </h3>
+              
+              <div className="space-y-4">
+                <Label htmlFor="whyGoodFit" className="text-cyan-800 font-semibold">Why do you think you are a good fit? *</Label>
+                <Textarea
+                  id="whyGoodFit"
+                  name="whyGoodFit"
+                  value={formData.whyGoodFit}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="bg-white/50 border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg resize-none"
+                  placeholder="Tell us why you believe you're a great fit for this role..."
+                />
+              </div>
+              
+              <div className="space-y-4">
+                <Label htmlFor="excitingProject" className="text-cyan-800 font-semibold">Tell me one exciting project you worked on *</Label>
+                <Textarea
+                  id="excitingProject"
+                  name="excitingProject"
+                  value={formData.excitingProject}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="bg-white/50 border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg resize-none"
+                  placeholder="Describe an exciting project you've worked on and what made it special..."
+                />
               </div>
             </div>
 
