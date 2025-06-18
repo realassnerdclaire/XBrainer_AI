@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, User, Phone, MapPin, Mail, FileText, Send, Sparkles, Clock, DollarSign, Building, Users, CheckCircle } from 'lucide-react';
 import { Button } from '../ui/button';
@@ -391,7 +392,7 @@ Files:
       </div>
 
       {/* Application Form */}
-      <Card className="backdrop-blur-xl bg-gradient-to-br from-white/60 to-white/50 border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
+      <Card className="bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
         <CardHeader className="p-8">
           <CardTitle className="text-2xl font-bold text-cyan-800 flex items-center">
             <Sparkles className="h-6 w-6 mr-3 text-cyan-600 animate-pulse" />
