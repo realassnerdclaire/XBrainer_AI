@@ -22,25 +22,27 @@ interface Job {
   responsibilities?: string[];
 }
 
-// Create jobs with proper compensation based on location
-const jobs: Job[] = baseJobs.flatMap((job, index) => {
-  const sfJob: Job = {
-    ...job,
+// Create separate jobs for each location
+const jobs: Job[] = [];
+
+baseJobs.forEach((baseJob, index) => {
+  // San Francisco job
+  jobs.push({
+    ...baseJob,
     id: `sf-${index}`,
     location: 'San Francisco (Remote)',
     country: 'United States',
-    compensation: job.sfCompensation || undefined
-  };
+    compensation: baseJob.sfCompensation || undefined
+  });
   
-  const hydJob: Job = {
-    ...job,
+  // Hyderabad job
+  jobs.push({
+    ...baseJob,
     id: `hyd-${index}`,
     location: 'Hyderabad (Remote)',
     country: 'India',
-    compensation: job.hydCompensation || undefined
-  };
-  
-  return [sfJob, hydJob];
+    compensation: baseJob.hydCompensation || undefined
+  });
 });
 
 const JobListings: React.FC = () => {
@@ -63,7 +65,7 @@ const JobListings: React.FC = () => {
   }, [searchTerm, countryFilter, typeFilter]);
 
   const handleApply = (job: Job) => {
-    console.log('Clicked job:', job.id, job.title, job.location);
+    console.log('Clicked job:', job.id, job.title, job.location, job.compensation);
     setSelectedJob(job);
   };
 

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowLeft, Upload, User, Phone, MapPin, Mail, FileText, Send, Sparkles, Clock, DollarSign, Building, Users, CheckCircle } from 'lucide-react';
 import { Button } from '../ui/button';
@@ -17,6 +16,9 @@ interface Job {
   focus: string;
   skills: string;
   background: string;
+  compensation?: string;
+  commitment?: string;
+  responsibilities?: string[];
 }
 
 interface JobApplicationFormProps {
@@ -65,12 +67,10 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
   };
 
   const sendApplicationEmail = async (applicationData: any) => {
-    // This function will need to be implemented with Supabase Edge Functions
-    // For now, we'll simulate the email sending
     console.log('Sending application to clairekwon@xbrainer.ai:', applicationData);
     
     const emailContent = `
-New Job Application for ${job.title}
+New Job Application for ${job.title} - ${job.location}
 
 Personal Information:
 - Name: ${applicationData.name}
@@ -87,20 +87,14 @@ Files:
 - Cover Letter: ${applicationData.coverLetter?.name || 'Not provided'}
     `;
 
-    // TODO: Implement actual email sending via Supabase Edge Function
-    // This would typically involve calling a Supabase Edge Function that uses a service like Resend or SendGrid
-    
-    return Promise.resolve(); // Simulate successful email sending
+    return Promise.resolve();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
-      // Send email with application data
       await sendApplicationEmail(formData);
-      
-      // Show success message
       setShowSuccessMessage(true);
       
       toast({
@@ -201,12 +195,20 @@ Files:
                 <div className="flex items-center gap-4 text-cyan-700 text-lg">
                   <span className="flex items-center gap-2">
                     <MapPin className="h-5 w-5" />
-                    Remote (San Francisco-based company)
+                    {job.location}
                   </span>
-                  <span className="flex items-center gap-2">
-                    <Clock className="h-5 w-5" />
-                    15–20 hours/week
-                  </span>
+                  {job.commitment && (
+                    <span className="flex items-center gap-2">
+                      <Clock className="h-5 w-5" />
+                      {job.commitment}
+                    </span>
+                  )}
+                  {job.compensation && (
+                    <span className="flex items-center gap-2">
+                      <DollarSign className="h-5 w-5" />
+                      {job.compensation}
+                    </span>
+                  )}
                 </div>
               </div>
               <Button
@@ -244,62 +246,32 @@ Files:
                   Role Overview
                 </h3>
                 <p className="text-cyan-700 leading-relaxed">
-                  We're seeking a Machine Learning / Signal Processing Intern to support our R&D efforts in preprocessing and analyzing 
-                  EEG or related neural interface data. You will help implement pipelines for artifact removal, anomaly detection, and 
-                  signal classification. This is a hands-on role ideal for someone with strong applied ML skills and an interest in neurotechnology.
+                  {job.focus}
                 </p>
               </div>
 
-              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                <h3 className="text-2xl font-bold text-cyan-800 mb-4">Responsibilities</h3>
-                <ul className="text-cyan-700 space-y-3 text-lg">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Preprocess EEG or neurodata streams (e.g., filtering, ICA, normalization)
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Implement anomaly detection and signal segmentation pipelines
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Perform feature extraction from multichannel time-series data
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Evaluate model performance on simulated or recorded neural signals
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Document technical findings and assist in shaping internal research tools
-                  </li>
-                </ul>
-              </div>
+              {job.responsibilities && job.responsibilities.length > 0 && (
+                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
+                  <h3 className="text-2xl font-bold text-cyan-800 mb-4">Responsibilities</h3>
+                  <ul className="text-cyan-700 space-y-3 text-lg">
+                    {job.responsibilities.map((responsibility, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
                 <h3 className="text-2xl font-bold text-cyan-800 mb-4">Preferred Skills</h3>
-                <ul className="text-cyan-700 space-y-3 text-lg">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Python (required), plus experience with NumPy, SciPy, and pandas
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                    ML frameworks: PyTorch or TensorFlow
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Signal processing: filtering, ICA, spike sorting
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                    Familiarity with time-series modeling or anomaly detection
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                    <span><strong>Bonus:</strong> experience with BCI datasets (e.g., OpenBCI, PhysioNet)</span>
-                  </li>
-                </ul>
+                <p className="text-cyan-700 leading-relaxed text-lg">{job.skills}</p>
+              </div>
+
+              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
+                <h3 className="text-2xl font-bold text-cyan-800 mb-4">Ideal Background</h3>
+                <p className="text-cyan-700 leading-relaxed text-lg">{job.background}</p>
               </div>
 
               <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
@@ -324,13 +296,18 @@ Files:
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-r from-amber-200/40 to-orange-200/40 rounded-2xl p-6 border border-amber-300/60 shadow-lg">
-                <div className="flex items-center gap-3 mb-2">
-                  <DollarSign className="h-6 w-6 text-amber-700" />
-                  <span className="text-lg font-bold text-amber-800">Compensation</span>
+              {job.compensation && (
+                <div className="bg-gradient-to-r from-amber-200/40 to-orange-200/40 rounded-2xl p-6 border border-amber-300/60 shadow-lg">
+                  <div className="flex items-center gap-3 mb-2">
+                    <DollarSign className="h-6 w-6 text-amber-700" />
+                    <span className="text-lg font-bold text-amber-800">Compensation</span>
+                  </div>
+                  <p className="text-amber-800 font-semibold">
+                    {job.compensation}
+                    {job.compensation === 'Unpaid' && '; potential for full-time paid role with salary + equity upon funding'}
+                  </p>
                 </div>
-                <p className="text-amber-800 font-semibold">Unpaid; potential for full-time paid role with salary + equity upon funding</p>
-              </div>
+              )}
             </div>
 
             <div className="flex justify-center pt-8">
