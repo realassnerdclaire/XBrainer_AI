@@ -1,11 +1,11 @@
-
 import React, { useState } from 'react';
-import { ArrowLeft, Upload, User, Phone, MapPin, Mail, FileText, Send, Sparkles, Clock, DollarSign, Building, Users } from 'lucide-react';
+import { ArrowLeft, Upload, User, Phone, MapPin, Mail, FileText, Send, Sparkles, Clock, DollarSign, Building, Users, CheckCircle } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { useToast } from '../../hooks/use-toast';
 
 interface Job {
   id: string;
@@ -25,6 +25,7 @@ interface JobApplicationFormProps {
 
 const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) => {
   const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -39,6 +40,8 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
     excitingProject: ''
   });
 
+  const { toast } = useToast();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -51,15 +54,65 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
       if (allowedTypes.includes(file.type)) {
         setFormData(prev => ({ ...prev, [fileType]: file }));
       } else {
-        alert('Please upload only PDF, DOC, or DOCX files.');
+        toast({
+          title: "Invalid file type",
+          description: "Please upload only PDF, DOC, or DOCX files.",
+          variant: "destructive",
+        });
       }
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendApplicationEmail = async (applicationData: any) => {
+    // This function will need to be implemented with Supabase Edge Functions
+    // For now, we'll simulate the email sending
+    console.log('Sending application to clairekwon@xbrainer.ai:', applicationData);
+    
+    const emailContent = `
+New Job Application for ${job.title}
+
+Personal Information:
+- Name: ${applicationData.name}
+- Phone: ${applicationData.phone}
+- Email: ${applicationData.email}
+- Location: ${applicationData.city}, ${applicationData.state}, ${applicationData.country} ${applicationData.zipCode}
+
+Application Responses:
+- Why they think they're a good fit: ${applicationData.whyGoodFit}
+- Exciting project they worked on: ${applicationData.excitingProject}
+
+Files:
+- Resume: ${applicationData.resume?.name || 'Not provided'}
+- Cover Letter: ${applicationData.coverLetter?.name || 'Not provided'}
+    `;
+
+    // TODO: Implement actual email sending via Supabase Edge Function
+    // This would typically involve calling a Supabase Edge Function that uses a service like Resend or SendGrid
+    
+    return Promise.resolve(); // Simulate successful email sending
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Application submitted:', formData);
-    alert('Application submitted successfully!');
+    
+    try {
+      // Send email with application data
+      await sendApplicationEmail(formData);
+      
+      // Show success message
+      setShowSuccessMessage(true);
+      
+      toast({
+        title: "Application submitted successfully!",
+        description: "We'll follow up within 3 business days.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error submitting application",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleApplyClick = () => {
@@ -70,12 +123,75 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
     setShowApplicationForm(false);
   };
 
+  if (showSuccessMessage) {
+    return (
+      <div className="space-y-8 relative">
+        {/* Header */}
+        <div className="relative z-10">
+          <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
+                  Application Submitted
+                </h2>
+              </div>
+              <Button
+                onClick={onBack}
+                variant="outline"
+                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Jobs
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Success Message */}
+        <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
+          <CardContent className="p-12 text-center">
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-green-400/50 rounded-full animate-pulse blur-2xl"></div>
+                <div className="relative p-6 rounded-full bg-gradient-to-br from-green-200/50 to-emerald-300/50 backdrop-blur-sm border border-green-300/60 shadow-2xl shadow-green-300/40">
+                  <CheckCircle className="h-20 w-20 text-green-700" />
+                </div>
+              </div>
+            </div>
+            
+            <h3 className="text-3xl font-bold text-cyan-800 mb-6">Thank you for applying!</h3>
+            <p className="text-lg text-cyan-700 mb-8 max-w-2xl mx-auto">
+              We will do our best to follow up within 3 business days. Meanwhile, please take a look at some exciting technology from XBrainer AI website.
+            </p>
+            
+            <div className="flex justify-center gap-4">
+              <Button
+                onClick={() => window.open('https://xbrainer.ai', '_blank')}
+                className="bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold px-8 py-3 rounded-2xl shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+              >
+                <Sparkles className="h-5 w-5 mr-2" />
+                Visit XBrainer AI
+              </Button>
+              <Button
+                onClick={onBack}
+                variant="outline"
+                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-8 py-3 shadow-lg backdrop-blur-sm"
+              >
+                Browse More Jobs
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   if (!showApplicationForm) {
     return (
       <div className="space-y-8 relative">
         {/* Header */}
         <div className="relative z-10">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-white/60 to-white/50 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
+          <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
@@ -235,7 +351,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
     <div className="space-y-8 relative">
       {/* Header */}
       <div className="relative z-10">
-        <div className="backdrop-blur-xl bg-gradient-to-br from-white/60 to-white/50 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
+        <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
@@ -297,7 +413,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -314,7 +430,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                   placeholder="Enter your phone number"
                 />
               </div>
@@ -331,7 +447,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -352,7 +468,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     value={formData.country}
                     onChange={handleInputChange}
                     required
-                    className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                     placeholder="Enter your country"
                   />
                 </div>
@@ -365,7 +481,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     value={formData.state}
                     onChange={handleInputChange}
                     required
-                    className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                     placeholder="Enter your state/province"
                   />
                 </div>
@@ -378,7 +494,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     value={formData.city}
                     onChange={handleInputChange}
                     required
-                    className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                     placeholder="Enter your city"
                   />
                 </div>
@@ -391,7 +507,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                     value={formData.zipCode}
                     onChange={handleInputChange}
                     required
-                    className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg"
+                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
                     placeholder="Enter your ZIP/postal code"
                   />
                 </div>
@@ -414,7 +530,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                       accept=".pdf,.doc,.docx"
                       onChange={(e) => handleFileChange(e, 'resume')}
                       required
-                      className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
+                      className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
                     />
                   </div>
                   {formData.resume && (
@@ -432,7 +548,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                       type="file"
                       accept=".pdf,.doc,.docx"
                       onChange={(e) => handleFileChange(e, 'coverLetter')}
-                      className="bg-white/50 border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
+                      className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
                     />
                   </div>
                   {formData.coverLetter && (
@@ -460,7 +576,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="bg-white/50 border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg resize-none"
+                  className="bg-white border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg resize-none"
                   placeholder="Tell us why you believe you're a great fit for this role..."
                 />
               </div>
@@ -474,7 +590,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) 
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="bg-white/50 border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm shadow-lg resize-none"
+                  className="bg-white border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg resize-none"
                   placeholder="Describe an exciting project you've worked on and what made it special..."
                 />
               </div>
