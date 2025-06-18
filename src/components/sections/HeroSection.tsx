@@ -7,7 +7,7 @@ import ProblemCards from './ProblemCards';
 const HeroSection: React.FC = () => {
   const handleEarlyAccess = () => {
     // Open Tally form in new tab for early access requests
-    window.open('https://tally.so/r/wAjjdL', '_blank');
+    window.open('https://tally.so/r/mD9DRq', '_blank');
   };
 
   return (
