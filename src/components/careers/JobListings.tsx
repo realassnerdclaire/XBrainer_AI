@@ -16,6 +16,9 @@ interface Job {
   focus: string;
   skills: string;
   background: string;
+  compensation?: string;
+  commitment?: string;
+  responsibilities?: string[];
 }
 
 const baseJobs = [
@@ -168,6 +171,18 @@ const JobListings: React.FC = () => {
                       <MapPin className="h-4 w-4 text-cyan-700" />
                       <span className="text-cyan-800 font-semibold">{job.location}</span>
                     </div>
+                    {job.compensation && (
+                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-green-200/40 to-emerald-200/40 border border-green-300/60 backdrop-blur-sm shadow-lg">
+                        <DollarSign className="h-4 w-4 text-green-700" />
+                        <span className="text-green-800 font-semibold">{job.compensation}</span>
+                      </div>
+                    )}
+                    {job.commitment && (
+                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-purple-200/40 to-violet-200/40 border border-purple-300/60 backdrop-blur-sm shadow-lg">
+                        <Clock className="h-4 w-4 text-purple-700" />
+                        <span className="text-purple-800 font-semibold">{job.commitment}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <Button 
@@ -188,6 +203,23 @@ const JobListings: React.FC = () => {
                   </h4>
                   <p className="text-cyan-700 leading-relaxed">{job.focus}</p>
                 </div>
+                
+                {job.responsibilities && job.responsibilities.length > 0 && (
+                  <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
+                    <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
+                      <Briefcase className="h-5 w-5 mr-2 text-cyan-600" />
+                      Responsibilities:
+                    </h4>
+                    <ul className="text-cyan-700 leading-relaxed space-y-2">
+                      {job.responsibilities.map((responsibility, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="w-2 h-2 bg-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 
                 <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
                   <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
