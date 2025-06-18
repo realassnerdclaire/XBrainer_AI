@@ -11,7 +11,10 @@ import Footer from '../components/sections/Footer';
 import { useMousePosition } from '../hooks/useMousePosition';
 import '../styles/animations.css';
 
+console.log("Index component loading...");
+
 const Index: React.FC = () => {
+  console.log("Index component rendering...");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mousePosition = useMousePosition();
 
