@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
     if (item === 'Briefing Request') {
       window.open('https://tally.so/r/nGaDPo', '_blank');
     } else if (item === 'Careers') {
-      window.open('https://boards.greenhouse.io/xbrainerai', '_blank');
+      window.location.href = '/careers';
     } else {
       // For other nav items, navigate to section
       const sectionId = item.toLowerCase().replace(' ', '-');
