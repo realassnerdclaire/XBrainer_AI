@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, DollarSign } from 'lucide-react';
 import { Input } from '../ui/input';
@@ -158,9 +157,8 @@ const JobListings: React.FC = () => {
                     </div>
                     {job.compensation && (
                       <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-gray-200/40 to-slate-200/40 border border-gray-300/60 backdrop-blur-sm shadow-lg">
-                        <DollarSign className="h-4 w-4 text-gray-700" />
                         <span className="text-gray-800 font-semibold">
-                          {job.country === 'India' ? job.compensation.replace('$', '₹').replace('USD', 'INR') : job.compensation}
+                          {job.compensation}
                         </span>
                       </div>
                     )}
