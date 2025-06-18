@@ -1,30 +1,27 @@
 
-import React from 'react';
+export interface MousePosition {
+  x: number;
+  y: number;
+}
 
-export interface PhaseData {
+export interface ProblemCard {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  action: () => void;
+}
+
+export interface Phase {
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   subtitle: string;
   features: string[];
-  icon: React.ComponentType<{ className?: string }>;
   gradient: string;
   bgPattern: string;
 }
 
 export interface AICapability {
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
-
-export interface ProblemCard {
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  color: string;
-  action: () => void;
-}
-
-export interface MousePosition {
-  x: number;
-  y: number;
 }
