@@ -1,69 +1,115 @@
 
 import { Job } from '../types';
+import { Brain, Shield, Lock, Search, Zap, CheckCircle, Microscope, Server, Users } from 'lucide-react';
 
-// Navigation items for header
-export const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Careers', href: '/careers' },
-];
+// Navigation items for header - should be strings as expected by Header component
+export const navItems = ['Home', 'Careers', 'Briefing Request'];
 
-// Problem cards data
+// Problem cards data with React components and actions
 export const problemCards = [
   {
     title: 'Neural Signal Interception',
     description: 'Brain-computer interfaces create new attack vectors for cognitive data theft.',
-    icon: '🧠'
+    icon: Brain,
+    action: () => {
+      const element = document.getElementById('ai-capabilities');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   },
   {
     title: 'Encryption Challenges',
     description: 'Traditional cryptography may not suit real-time neural communication.',
-    icon: '🔐'
+    icon: Shield,
+    action: () => {
+      const element = document.getElementById('ai-capabilities');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   },
   {
     title: 'Authentication Complexity',
     description: 'Verifying identity through brain signals requires novel approaches.',
-    icon: '🔒'
+    icon: Lock,
+    action: () => {
+      const element = document.getElementById('ai-capabilities');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }
 ];
 
-// AI capabilities data
+// AI capabilities data with React components
 export const aiCapabilities = [
   {
     title: 'Neural Protocol Analysis',
     description: 'Advanced AI models analyze neural communication patterns to identify vulnerabilities.',
-    icon: '🔍'
+    icon: Search
   },
   {
     title: 'Cryptographic Framework',
     description: 'Machine learning optimizes encryption algorithms for real-time neural data.',
-    icon: '⚡'
+    icon: Zap
   },
   {
     title: 'Security Validation',
     description: 'Automated testing ensures robust protection across neural interface systems.',
-    icon: '✅'
+    icon: CheckCircle
   }
 ];
 
-// Development phases data
+// Development phases data with all required properties
 export const phases = [
   {
     phase: 'Phase 1',
     title: 'Research & Analysis',
+    subtitle: 'Foundation Building',
     description: 'Analyze existing neural interface vulnerabilities and develop security frameworks.',
-    status: 'completed'
+    status: 'completed',
+    icon: Microscope,
+    gradient: 'from-blue-500 to-cyan-500',
+    bgPattern: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%)',
+    features: [
+      'Comprehensive vulnerability assessment',
+      'Security framework development',
+      'Research methodology establishment',
+      'Initial threat modeling'
+    ]
   },
   {
     phase: 'Phase 2',
     title: 'Protocol Development',
+    subtitle: 'Implementation Phase',
     description: 'Design and implement secure communication protocols for neural data transmission.',
-    status: 'in-progress'
+    status: 'in-progress',
+    icon: Server,
+    gradient: 'from-purple-500 to-pink-500',
+    bgPattern: 'radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%)',
+    features: [
+      'Secure protocol design',
+      'Real-time encryption implementation',
+      'Authentication mechanisms',
+      'Performance optimization'
+    ]
   },
   {
     phase: 'Phase 3',
     title: 'Testing & Validation',
+    subtitle: 'Quality Assurance',
     description: 'Comprehensive testing of security protocols across various neural interface systems.',
-    status: 'upcoming'
+    status: 'upcoming',
+    icon: Users,
+    gradient: 'from-green-500 to-emerald-500',
+    bgPattern: 'radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%)',
+    features: [
+      'Multi-system compatibility testing',
+      'Security validation protocols',
+      'Performance benchmarking',
+      'Real-world deployment preparation'
+    ]
   }
 ];
 
@@ -146,7 +192,7 @@ export const baseJobs: Job[] = [
     ]
   },
   {
-    id: 'software-devops-infrastructure-intern',
+    id: 'software-devops-infrastructure-intern-sf',
     title: 'Software/DevOps Infrastructure Intern',
     type: 'Intern',
     location: '',
@@ -156,12 +202,31 @@ export const baseJobs: Job[] = [
     background: 'Computer engineering, DevOps, or infrastructure automation',
     commitment: '15-20 hours/week',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
+    hydCompensation: 'N/A',
     responsibilities: [
       'Design and implement lightweight CI/CD pipelines for rapid experimentation',
       'Automate build/test/deploy operations across multi-agent research systems',
       'Create containerized testbeds for simulating secure neural data channels',
       'Support infrastructure configuration for distributed BCI simulation environments'
+    ]
+  },
+  {
+    id: 'software-devops-infrastructure-intern-hyd',
+    title: 'Software/DevOps Infrastructure Intern',
+    type: 'Intern',
+    location: '',
+    country: '',
+    focus: 'Build and maintain automated CI/CD pipelines, create containerized workflows, and support infrastructure for AI-based neural security platforms.',
+    skills: 'Python, shell scripting, Docker, CI/CD tools, cloud platforms',
+    background: 'Computer engineering, DevOps, or infrastructure automation',
+    commitment: '15-20 hours/week',
+    sfCompensation: 'N/A',
+    hydCompensation: '2,200 INR per month',
+    responsibilities: [
+      'Build and maintain automated CI/CD pipelines',
+      'Create containerized workflows using Docker or similar tools',
+      'Simulate secure data transfer environments for prototype testing',
+      'Support infrastructure reliability and reproducibility across modules'
     ]
   },
   {

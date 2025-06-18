@@ -13,8 +13,11 @@ export interface ProblemCard {
 
 export interface Phase {
   icon: React.ComponentType<{ className?: string }>;
+  phase: string;
   title: string;
   subtitle: string;
+  description: string;
+  status: string;
   features: string[];
   gradient: string;
   bgPattern: string;
