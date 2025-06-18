@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Brain, Menu, X } from 'lucide-react';
 import { navItems } from '../../constants/data';
@@ -12,6 +11,8 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
   const handleNavClick = (item: string) => {
     if (item === 'Briefing Request') {
       window.open('https://tally.so/r/nGaDPo', '_blank');
+    } else if (item === 'Careers') {
+      window.open('https://boards.greenhouse.io/xbrainerai', '_blank');
     } else {
       // For other nav items, navigate to section
       const sectionId = item.toLowerCase().replace(' ', '-');
