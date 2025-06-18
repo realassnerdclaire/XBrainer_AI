@@ -60,14 +60,23 @@
   }
 }
 
-@keyframes float {
+@keyframes cloudFloat {
   0%, 100% {
     transform: translateY(0px) translateX(0px);
   }
   33% {
-    transform: translateY(-20px) translateX(10px);
+    transform: translateY(-20px) translateX(15px);
   }
   66% {
     transform: translateY(10px) translateX(-10px);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
   }
 }
