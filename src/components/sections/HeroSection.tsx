@@ -16,17 +16,17 @@ const HeroSection: React.FC = () => {
         <div className="mb-8">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent animate-pulse">
-              Building the Firewall
+              Developing Secure
             </span>
             <br />
             <span className="text-5xl md:text-7xl bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent">
-              for the Human Brain
+              Communication Protocols for Neural-Interface Data
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto leading-relaxed backdrop-blur-sm bg-black/40 p-6 rounded-2xl border border-purple-500/30">
-            In a future where brain-machine interfaces connect minds to machines, 
-            we're building the world's first neural intrusion prevention system to protect 
-            unauthorized access to the human brain.
+            As neural interfaces expand the attack surface for cognitive data interception, 
+            we're developing cryptographic protocols and validation frameworks to ensure 
+            confidentiality and integrity of brain-machine communication channels.
           </p>
         </div>
         

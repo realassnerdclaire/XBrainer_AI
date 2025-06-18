@@ -8,11 +8,11 @@ const AICapabilitiesSection: React.FC = () => {
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-          AI-Powered Neural Defense
+          Methodological Focus Areas
         </h2>
         <p className="text-xl text-slate-100 text-center mb-16 max-w-3xl mx-auto">
-          Artificial Intelligence is central to every part of our platform, defending brain data 
-          dynamically, intelligently, and ethically.
+          Our research employs statistical learning and cryptographic methods to address 
+          security challenges in neural-interface communication protocols.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

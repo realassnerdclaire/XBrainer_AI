@@ -13,60 +13,60 @@ export const navItems = [
 export const problemCards: ProblemCard[] = [
   {
     icon: AlertTriangle,
-    title: "Neural Vulnerability",
-    description: "Brain-machine interfaces create unprecedented attack vectors for malicious actors to exploit cognitive pathways.",
-    action: () => console.log("Neural Vulnerability clicked")
+    title: "Attack Surface Expansion",
+    description: "Neural interfaces introduce novel vectors for unauthorized access through electromagnetic coupling and signal interception pathways.",
+    action: () => console.log("Attack Surface Expansion clicked")
   },
   {
     icon: Lock,
-    title: "Data Privacy Crisis",
-    description: "Thoughts, memories, and cognitive patterns become the ultimate personal data requiring military-grade protection.",
-    action: () => console.log("Data Privacy Crisis clicked")
+    title: "Confidentiality of Cognition",
+    description: "Neuro-electrical patterns contain extractable information requiring cryptographic protection at the physiological data layer.",
+    action: () => console.log("Confidentiality of Cognition clicked")
   },
   {
     icon: Network,
-    title: "System Integration",
-    description: "Current cybersecurity frameworks are inadequate for protecting the complex neural-digital interface ecosystem.",
-    action: () => console.log("System Integration clicked")
+    title: "Interface Reliability",
+    description: "Existing communication protocols lack validation mechanisms for neural-machine data integrity and transmission authenticity.",
+    action: () => console.log("Interface Reliability clicked")
   }
 ];
 
 export const phases: Phase[] = [
   {
     icon: Shield,
-    title: "Adaptive Neuroprotection",
-    subtitle: "INTELLIGENT INTERFACE SAFETY",
+    title: "Interface Monitoring",
+    subtitle: "TEMPORAL SIGNAL-INTEGRITY VALIDATION",
     features: [
-      "AI-enhanced interface safety with continuous monitoring capabilities",
-      "Context-aware behavioral analysis for unauthorized access prevention",
-      "Automated response systems for suspicious activity isolation",
-      "Seamless integration with existing brain-machine interface protocols"
+      "Evaluate mitigation latencies for real-time neural transmission channels",
+      "Event-triggered anomaly isolation in multichannel neuro-electrical streams",
+      "Baseline establishment for physiological signal deviation thresholds",
+      "Protocol compatibility assessment with existing brain-machine interfaces"
     ],
     gradient: "from-blue-500 to-cyan-500",
     bgPattern: "radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3), transparent 50%)"
   },
   {
     icon: Brain,
-    title: "Identity-Aware Systems",
-    subtitle: "BIOMETRIC COGNITIVE VALIDATION",
+    title: "Signal Authentication",
+    subtitle: "PUBLIC-KEY HANDSHAKES FOR NEURAL TRANSMISSIONS",
     features: [
-      "Unique cognitive signature identification and verification",
-      "Multi-layer consciousness authentication protocols",
-      "Dynamic pattern encryption for secure neural communications",
-      "Seamless integration with thought-based user interfaces"
+      "Biometric feature extraction from neural oscillation patterns",
+      "Cryptographic key derivation from physiological entropy sources",
+      "Assess cipher suitability for bandwidth-constrained neural links",
+      "Validation of identity verification through cognitive response patterns"
     ],
     gradient: "from-purple-500 to-pink-500",
     bgPattern: "radial-gradient(circle at 30% 40%, rgba(168, 85, 247, 0.4), transparent 50%), radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.3), transparent 50%)"
   },
   {
     icon: Zap,
-    title: "Resilient Infrastructure",
-    subtitle: "DISTRIBUTED PROTECTION NETWORK",
+    title: "Distributed Channel Hardening",
+    subtitle: "SEQUENCE-BASED DEVIATION SCORING",
     features: [
-      "Decentralized security network across multiple neural interfaces",
-      "Predictive threat modeling using advanced AI algorithms",
-      "Quantum-resistant encryption for neural data transmission",
-      "Global threat intelligence sharing between security nodes"
+      "Model federated update strategies for distributed neural networks",
+      "Electromagnetic interference mitigation in multi-node configurations",
+      "Latency optimization for encrypted neural data transmission protocols",
+      "Cross-platform compatibility validation for neural interface standards"
     ],
     gradient: "from-green-500 to-blue-500",
     bgPattern: "radial-gradient(circle at 25% 25%, rgba(34, 197, 94, 0.4), transparent 50%), radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3), transparent 50%)"
@@ -76,42 +76,42 @@ export const phases: Phase[] = [
 export const aiCapabilities: AICapability[] = [
   {
     icon: Search,
-    title: "Threat Detection",
-    description: "AI-powered analysis of cognitive patterns to identify potential security breaches in real-time."
+    title: "Signal Classification",
+    description: "Semi-supervised classification of multichannel neuro-electrical artifacts using statistical pattern recognition."
   },
   {
     icon: Activity,
-    title: "Behavioral Analysis",
-    description: "Machine learning algorithms that understand normal vs. abnormal neural activity patterns."
+    title: "Temporal Analysis",
+    description: "Time-series analysis of neural oscillation patterns for baseline deviation identification and characterization."
   },
   {
     icon: Eye,
-    title: "Anomaly Recognition",
-    description: "Advanced pattern recognition to detect subtle deviations in neural signal integrity."
+    title: "Anomaly Detection",
+    description: "Unsupervised learning algorithms for identifying statistical outliers in physiological data streams."
   },
   {
     icon: Cpu,
-    title: "Adaptive Defense",
-    description: "Self-learning security protocols that evolve with emerging neural interface threats."
+    title: "Protocol Optimization",
+    description: "Algorithmic refinement of communication protocols based on empirical performance metrics and error rates."
   },
   {
     icon: Database,
-    title: "Data Encryption",
-    description: "Neural-specific encryption algorithms designed for cognitive pattern protection."
+    title: "Cryptographic Implementation",
+    description: "Implementation and validation of encryption algorithms specifically designed for neural data characteristics."
   },
   {
     icon: Bot,
-    title: "Automated Response",
-    description: "Intelligent response systems that can neutralize threats without user intervention."
+    title: "Automated Validation",
+    description: "Systematic testing frameworks for verifying data integrity and transmission authenticity in neural interfaces."
   },
   {
     icon: Network,
-    title: "Network Security",
-    description: "Comprehensive protection across distributed neural network infrastructures."
+    title: "Network Analysis",
+    description: "Graph-theoretic analysis of distributed neural network topologies for vulnerability assessment."
   },
   {
     icon: Shield,
-    title: "Privacy Shield",
-    description: "Multi-layered privacy protection ensuring complete neural data confidentiality."
+    title: "Privacy Preservation",
+    description: "Mathematical frameworks for maintaining confidentiality of neural data while enabling necessary processing."
   }
 ];
