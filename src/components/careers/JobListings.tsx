@@ -26,7 +26,7 @@ interface Job {
 const jobs: Job[] = baseJobs.flatMap((job, index) => {
   const sfJob: Job = {
     ...job,
-    id: `sf-${job.title.replace(/\s+/g, '-').toLowerCase()}-${index}`,
+    id: `sf-${index}`,
     location: 'San Francisco (Remote)',
     country: 'United States',
     compensation: job.sfCompensation || undefined
@@ -34,7 +34,7 @@ const jobs: Job[] = baseJobs.flatMap((job, index) => {
   
   const hydJob: Job = {
     ...job,
-    id: `hyd-${job.title.replace(/\s+/g, '-').toLowerCase()}-${index}`,
+    id: `hyd-${index}`,
     location: 'Hyderabad (Remote)',
     country: 'India',
     compensation: job.hydCompensation || undefined
@@ -63,6 +63,7 @@ const JobListings: React.FC = () => {
   }, [searchTerm, countryFilter, typeFilter]);
 
   const handleApply = (job: Job) => {
+    console.log('Clicked job:', job.id, job.title, job.location);
     setSelectedJob(job);
   };
 
@@ -154,9 +155,9 @@ const JobListings: React.FC = () => {
                       <span className="text-cyan-800 font-semibold">{job.location}</span>
                     </div>
                     {job.compensation && (
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-slate-200/40 to-gray-200/40 border border-slate-300/60 backdrop-blur-sm shadow-lg">
-                        <DollarSign className="h-4 w-4 text-slate-700" />
-                        <span className="text-slate-800 font-semibold">{job.compensation}</span>
+                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-gray-200/40 to-slate-200/40 border border-gray-300/60 backdrop-blur-sm shadow-lg">
+                        <DollarSign className="h-4 w-4 text-gray-700" />
+                        <span className="text-gray-800 font-semibold">{job.compensation}</span>
                       </div>
                     )}
                     {job.commitment && (
