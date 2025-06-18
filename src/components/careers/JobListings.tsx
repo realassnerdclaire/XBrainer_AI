@@ -156,8 +156,16 @@ const JobListings: React.FC = () => {
                       <span className="text-cyan-800 font-semibold">{job.location}</span>
                     </div>
                     {job.compensation && (
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-gray-200/40 to-slate-200/40 border border-gray-300/60 backdrop-blur-sm shadow-lg">
-                        <span className="text-gray-800 font-semibold">
+                      <div className={`flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-sm shadow-lg ${
+                        job.compensation.includes('Applications open') 
+                          ? 'bg-gradient-to-r from-green-200/40 to-emerald-200/40 border-green-300/60' 
+                          : 'bg-gradient-to-r from-gray-200/40 to-slate-200/40 border-gray-300/60'
+                      }`}>
+                        <span className={`font-semibold ${
+                          job.compensation.includes('Applications open') 
+                            ? 'text-green-800' 
+                            : 'text-gray-800'
+                        }`}>
                           {job.compensation}
                         </span>
                       </div>

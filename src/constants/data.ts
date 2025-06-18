@@ -1,4 +1,3 @@
-
 import { Brain, Shield, Zap, Network, AlertTriangle, Lock, Search, Activity, Eye, Cpu, Database, Bot } from 'lucide-react';
 import type { ProblemCard, Phase, AICapability } from '../types';
 
@@ -125,7 +124,7 @@ export const baseJobs = [
     skills: 'Python proficiency, NumPy, SciPy, pandas, PyTorch/TensorFlow, time-series analysis, filtering, ICA, spike sorting. Ability to read and interpret EEG/BCI signals is a plus.',
     background: 'Biomedical engineering, neuro-AI, or computational neuroscience. Familiarity with neural datasets and signal processing workflows. Research experience in BCI or related signal processing fields.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
+    hydCompensation: '₹2,200 INR/month',
     commitment: '15–20 hours/week',
     responsibilities: [
       'Preprocess EEG or neurodata streams using signal-cleaning methods (e.g., filtering, ICA)',
@@ -150,7 +149,7 @@ We are seeking a Machine Learning / Signal Processing Intern to support signal p
     skills: 'Proficiency in Python, C/C++, or Go. Familiarity with TLS, custom protocol stacks, or encryption algorithms. Understanding of cybersecurity principles.',
     background: 'Computer science, cybersecurity, or applied cryptography major. Coursework or research experience in protocol security or secure systems.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
+    hydCompensation: '₹2,200 INR/month',
     commitment: '15–20 hours/week',
     responsibilities: [
       'Prototype secure communication layers for real-time neural input/output',
@@ -186,7 +185,32 @@ What You'll Gain:
     skills: 'Docker, Linux, Python APIs, CI/CD, networking.',
     background: 'Knowledge of secure protocol simulation (e.g., ns-3 or simulation frameworks) is optional.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month'
+    hydCompensation: '₹2,200 INR/month',
+    commitment: '15–20 hours/week',
+    responsibilities: [
+      'Design and implement lightweight CI/CD pipelines for rapid experimentation',
+      'Automate build/test/deploy operations across multi-agent research systems',
+      'Create containerized testbeds (e.g., Docker) for simulating secure neural data channels',
+      'Support infrastructure configuration for distributed BCI simulation environments'
+    ],
+    fullDescription: {
+      sf: `XBrainer AI is developing foundational infrastructure to secure brain-machine interfaces. As part of our early technical team, you will help us build robust internal tooling and deployment systems for AI-based neural security platforms.
+
+We are seeking a Software/DevOps Infrastructure Intern to support backend automation and deployment workflows. You will prototype tools, design simulation environments, and help implement streamlined pipelines across our AI and neurosecurity stack.
+
+What You'll Gain:
+- Firsthand experience with the infrastructure behind cognitive systems R&D
+- Mentorship from AI engineers and neurosecurity specialists
+- Consideration for full-time technical roles as the company grows`,
+      hyd: `XBrainer AI is building secure computing infrastructure for next-generation brain-machine interfaces. As part of our technical team, you'll support scalable deployment and simulation workflows across our neuro-AI research stack.
+
+We're seeking a DevOps/Software Intern to help develop and automate backend tooling for internal prototypes. You will design deployment pipelines, simulate secure communication environments, and ensure engineering reproducibility.
+
+What You'll Gain:
+- Hands-on experience with research-grade software deployment systems
+- Exposure to security protocols for brain-computer systems
+- Consideration for full-time technical roles as the company scales`
+    }
   },
   {
     title: 'Neuroscientist',
@@ -194,8 +218,35 @@ What You'll Gain:
     focus: 'Research neural signal patterns, validate physiological models, and contribute to understanding brain-machine interface security implications.',
     skills: 'Neuroscience research methods, EEG/fMRI analysis, statistical modeling, MATLAB/Python, neural data interpretation.',
     background: 'PhD or advanced degree in Neuroscience, Cognitive Science, or related field. Experience with neural signal analysis and brain-computer interfaces.',
-    sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month'
+    sfCompensation: 'Applications open July 5, 2025',
+    hydCompensation: '₹2,200 INR/month',
+    commitment: '15–20 hours/week',
+    responsibilities: [
+      'Analyze and interpret neural data (EEG or similar signal types)',
+      'Validate statistical or computational models of neural physiology',
+      'Collaborate with AI and cybersecurity researchers to inform protocol-level design',
+      'Investigate the impact of neural variability on cognitive authentication and transmission systems'
+    ],
+    fullDescription: {
+      sf: `XBrainer AI is developing secure protocols for brain-machine interfaces. We're building an interdisciplinary team at the intersection of neuroscience, AI, and cybersecurity.
+
+We're seeking a neuroscientist to help guide our understanding of neural signal structures and contribute insight into physiological patterns relevant to interface security.
+
+What You'll Gain:
+- Direct involvement in real-world neural interface security work
+- Cross-functional collaboration in an early-stage neuro-AI company
+- Consideration for paid research/technical roles as the company expands
+
+Applications open on July 5, 2025. Submit a brief statement of interest and your CV. We welcome applicants who are curious, rigorous, and excited about building the future of neuro-secure systems.`,
+      hyd: `XBrainer AI is developing secure protocols for brain-machine interfaces. We're building an interdisciplinary team at the intersection of neuroscience, AI, and cybersecurity.
+
+We're seeking a neuroscientist to help guide our understanding of neural signal structures and contribute insight into physiological patterns relevant to interface security.
+
+What You'll Gain:
+- Direct involvement in real-world neural interface security work
+- Cross-functional collaboration in an early-stage neuro-AI company
+- Consideration for paid research/technical roles as the company expands`
+    }
   },
   {
     title: 'Neuroengineer',
@@ -204,7 +255,7 @@ What You'll Gain:
     skills: 'Circuit design, signal processing hardware, embedded systems, FPGA programming, biomedical instrumentation.',
     background: 'Biomedical Engineering, Electrical Engineering, or Neurotechnology. Experience with neural interface hardware and signal acquisition systems.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month'
+    hydCompensation: '₹2,200 INR/month'
   },
   {
     title: 'Hardware Interface Advisor',
@@ -213,6 +264,6 @@ What You'll Gain:
     skills: 'Hardware architecture, systems integration, neural interface standards, security protocol design, technical advisory.',
     background: 'Senior-level experience in hardware design, neural interfaces, or biomedical devices. Advisory or consulting experience preferred.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month'
+    hydCompensation: '₹2,200 INR/month'
   }
 ];
