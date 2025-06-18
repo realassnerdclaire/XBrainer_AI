@@ -9,6 +9,19 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const handleNavClick = (item: string) => {
+    if (item === 'Briefing Request') {
+      window.open('https://tally.so/r/nGaDPo', '_blank');
+    } else {
+      // For other nav items, navigate to section
+      const sectionId = item.toLowerCase().replace(' ', '-');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 border-b border-cyan-500/50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -26,10 +39,10 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <a
+            <button
               key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-gray-300 hover:text-white transition-all duration-300 relative group cursor-pointer px-4 py-2"
+              onClick={() => handleNavClick(item)}
+              className="text-gray-300 hover:text-white transition-all duration-300 relative group cursor-pointer px-4 py-2 bg-transparent border-none"
             >
               <span className="relative z-10">{item}</span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-cyan-500/60 group-hover:to-purple-500/60 transition-all duration-300 transform scale-95 group-hover:scale-100"></div>
@@ -39,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
                 background: 'radial-gradient(circle at center, rgba(0, 255, 255, 0.4) 0%, rgba(128, 0, 255, 0.4) 50%, transparent 100%)',
                 filter: 'blur(12px)'
               }}></div>
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -66,14 +79,16 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
         <div className="md:hidden mt-6 pb-6 border-t border-purple-500/30 backdrop-blur-xl bg-black/30 rounded-lg">
           <nav className="flex flex-col space-y-4 mt-6">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-2 rounded-lg hover:bg-purple-900/40"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick(item);
+                  setMobileMenuOpen(false);
+                }}
+                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-2 rounded-lg hover:bg-purple-900/40 text-left bg-transparent border-none"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
         </div>

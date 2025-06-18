@@ -1,4 +1,3 @@
-
 import { Brain, Shield, Zap, Network, AlertTriangle, Lock, Search, Activity, Eye, Cpu, Database, Bot } from 'lucide-react';
 import type { ProblemCard, Phase, AICapability } from '../types';
 
@@ -7,7 +6,8 @@ export const navItems = [
   'About',
   'Technology',
   'Research',
-  'Contact'
+  'Careers',
+  'Briefing Request'
 ];
 
 export const problemCards: ProblemCard[] = [
