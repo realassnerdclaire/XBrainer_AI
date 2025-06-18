@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, Brain } from 'lucide-react';
 import { Input } from '../ui/input';
@@ -144,7 +145,7 @@ const JobListings: React.FC = () => {
       {/* Enhanced Job Cards */}
       <div className="relative z-10 grid gap-8">
         {filteredJobs.map((job) => (
-          <Card key={job.id} className="group backdrop-blur-xl bg-gradient-to-br from-white/60 to-white/50 border border-cyan-300/50 hover:border-cyan-400/70 transition-all duration-500 rounded-3xl shadow-2xl shadow-cyan-200/20 hover:shadow-cyan-300/30 hover:scale-[1.02] relative overflow-hidden">
+          <Card key={job.id} className="group backdrop-blur-xl bg-white border border-cyan-300/50 hover:border-cyan-400/70 transition-all duration-500 rounded-3xl shadow-2xl shadow-cyan-200/20 hover:shadow-cyan-300/30 hover:scale-[1.02] relative overflow-hidden">
             {/* Card Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-200/15 via-blue-200/20 to-cyan-300/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
             
@@ -180,7 +181,7 @@ const JobListings: React.FC = () => {
             </CardHeader>
             <CardContent className="relative z-10 p-8 pt-0">
               <div className="grid gap-6">
-                <div className="bg-gradient-to-r from-white/40 to-white/30 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
+                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
                   <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
                     <Sparkles className="h-5 w-5 mr-2 text-cyan-600" />
                     Focus:
@@ -188,7 +189,7 @@ const JobListings: React.FC = () => {
                   <p className="text-cyan-700 leading-relaxed">{job.focus}</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-white/40 to-white/30 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
+                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
                   <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
                     <Briefcase className="h-5 w-5 mr-2 text-cyan-600" />
                     Skills:
@@ -196,7 +197,7 @@ const JobListings: React.FC = () => {
                   <p className="text-cyan-700 leading-relaxed">{job.skills}</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-white/40 to-white/30 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
+                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
                   <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
                     <Brain className="h-5 w-5 mr-2 text-cyan-600" />
                     Ideal Background:
