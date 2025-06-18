@@ -113,28 +113,28 @@ const JobListings: React.FC = () => {
     <div className="space-y-8 relative">
       {/* Enhanced Futuristic Filters */}
       <div className="relative z-10">
-        <div className="backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-8 border border-cyan-400/30 shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-400/10 to-indigo-500/5 rounded-3xl"></div>
+        <div className="backdrop-blur-xl bg-gradient-to-br from-white/30 to-white/20 rounded-3xl p-8 border border-sky-400/40 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-sky-300/10 via-blue-300/15 to-sky-400/10 rounded-3xl"></div>
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative group">
-              <Search className="absolute left-4 top-4 h-5 w-5 text-cyan-300 group-hover:text-cyan-200 transition-colors z-10" />
+              <Search className="absolute left-4 top-4 h-5 w-5 text-sky-700 group-hover:text-sky-600 transition-colors z-10" />
               <Input
                 placeholder="Search positions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 bg-black/30 border-cyan-400/50 text-white placeholder-cyan-300/70 rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 transition-all backdrop-blur-sm"
+                className="pl-12 bg-white/40 border-sky-400/60 text-slate-800 placeholder-sky-700/70 rounded-2xl h-12 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/50 transition-all backdrop-blur-sm"
               />
             </div>
 
             <Select value={countryFilter} onValueChange={setCountryFilter}>
-              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
-                <Globe className="h-4 w-4 text-cyan-300 mr-2" />
+              <SelectTrigger className="bg-white/40 border-sky-400/60 text-slate-800 rounded-2xl h-12 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/50 backdrop-blur-sm">
+                <Globe className="h-4 w-4 text-sky-700 mr-2" />
                 <SelectValue placeholder="Select location" />
               </SelectTrigger>
-              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
-                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Locations</SelectItem>
+              <SelectContent className="bg-white/95 border-sky-400/60 backdrop-blur-xl">
+                <SelectItem value="all" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">All Locations</SelectItem>
                 {countries.map(country => (
-                  <SelectItem key={country} value={country} className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">
+                  <SelectItem key={country} value={country} className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">
                     {country}
                   </SelectItem>
                 ))}
@@ -142,28 +142,28 @@ const JobListings: React.FC = () => {
             </Select>
 
             <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
-                <Clock className="h-4 w-4 text-cyan-300 mr-2" />
+              <SelectTrigger className="bg-white/40 border-sky-400/60 text-slate-800 rounded-2xl h-12 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/50 backdrop-blur-sm">
+                <Clock className="h-4 w-4 text-sky-700 mr-2" />
                 <SelectValue placeholder="Position type" />
               </SelectTrigger>
-              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
-                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Types</SelectItem>
-                <SelectItem value="Intern" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Intern</SelectItem>
-                <SelectItem value="Part-Time" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Part-Time</SelectItem>
-                <SelectItem value="Full-Time" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Full-Time</SelectItem>
+              <SelectContent className="bg-white/95 border-sky-400/60 backdrop-blur-xl">
+                <SelectItem value="all" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">All Types</SelectItem>
+                <SelectItem value="Intern" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Intern</SelectItem>
+                <SelectItem value="Part-Time" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Part-Time</SelectItem>
+                <SelectItem value="Full-Time" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Full-Time</SelectItem>
               </SelectContent>
             </Select>
 
             <Select value={levelFilter} onValueChange={setLevelFilter}>
-              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
-                <Briefcase className="h-4 w-4 text-cyan-300 mr-2" />
+              <SelectTrigger className="bg-white/40 border-sky-400/60 text-slate-800 rounded-2xl h-12 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/50 backdrop-blur-sm">
+                <Briefcase className="h-4 w-4 text-sky-700 mr-2" />
                 <SelectValue placeholder="Experience level" />
               </SelectTrigger>
-              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
-                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Levels</SelectItem>
-                <SelectItem value="Early Career" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Early Career</SelectItem>
-                <SelectItem value="Junior" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Junior</SelectItem>
-                <SelectItem value="Mid Level" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Mid Level</SelectItem>
+              <SelectContent className="bg-white/95 border-sky-400/60 backdrop-blur-xl">
+                <SelectItem value="all" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">All Levels</SelectItem>
+                <SelectItem value="Early Career" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Early Career</SelectItem>
+                <SelectItem value="Junior" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Junior</SelectItem>
+                <SelectItem value="Mid Level" className="text-slate-800 hover:bg-sky-200/50 focus:bg-sky-200/50">Mid Level</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -171,50 +171,50 @@ const JobListings: React.FC = () => {
       </div>
 
       {/* Results Count */}
-      <div className="relative z-10 text-cyan-200 font-mono bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-lg rounded-2xl px-6 py-3 border border-cyan-400/30">
-        <Sparkles className="inline h-4 w-4 mr-2 text-cyan-300" />
+      <div className="relative z-10 text-sky-800 font-mono bg-gradient-to-r from-sky-300/20 to-blue-300/20 backdrop-blur-lg rounded-2xl px-6 py-3 border border-sky-400/40">
+        <Sparkles className="inline h-4 w-4 mr-2 text-sky-700" />
         Positions Found: {filteredJobs.length} of {jobs.length}
       </div>
 
       {/* Enhanced Job Cards */}
       <div className="relative z-10 grid gap-8">
         {filteredJobs.map((job) => (
-          <Card key={job.id} className="group backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-cyan-400/30 hover:border-cyan-300/50 transition-all duration-500 rounded-3xl shadow-2xl hover:shadow-cyan-400/20 hover:scale-[1.02] relative overflow-hidden">
+          <Card key={job.id} className="group backdrop-blur-xl bg-gradient-to-br from-white/30 to-white/20 border border-sky-400/40 hover:border-sky-500/60 transition-all duration-500 rounded-3xl shadow-2xl hover:shadow-sky-400/30 hover:scale-[1.02] relative overflow-hidden">
             {/* Card Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-400/10 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-300/10 via-blue-300/15 to-sky-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
             
             <CardHeader className="relative z-10 p-8">
               <div className="flex justify-between items-start">
                 <div className="space-y-6">
-                  <CardTitle className="text-3xl font-bold bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 bg-clip-text text-transparent group-hover:from-cyan-100 group-hover:via-blue-100 group-hover:to-indigo-100 transition-all duration-300">
+                  <CardTitle className="text-3xl font-bold bg-gradient-to-r from-sky-800 via-blue-700 to-sky-900 bg-clip-text text-transparent group-hover:from-sky-700 group-hover:via-blue-600 group-hover:to-sky-800 transition-all duration-300">
                     {job.title}
                   </CardTitle>
                   <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/40 backdrop-blur-sm">
-                      <Clock className="h-4 w-4 text-cyan-200" />
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-sky-300/30 to-blue-300/30 border border-sky-400/50 backdrop-blur-sm">
+                      <Clock className="h-4 w-4 text-sky-700" />
                       <span className={`font-semibold ${
-                        job.type === 'Intern' ? 'text-blue-200' :
-                        job.type === 'Part-Time' ? 'text-yellow-200' :
-                        'text-green-200'
+                        job.type === 'Intern' ? 'text-blue-700' :
+                        job.type === 'Part-Time' ? 'text-amber-700' :
+                        'text-green-700'
                       }`}>
                         {job.type}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-400/40 backdrop-blur-sm">
-                      <Briefcase className="h-4 w-4 text-indigo-200" />
-                      <span className="text-indigo-200 font-semibold">
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-blue-300/30 to-sky-300/30 border border-blue-400/50 backdrop-blur-sm">
+                      <Briefcase className="h-4 w-4 text-blue-700" />
+                      <span className="text-blue-800 font-semibold">
                         {job.level}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-400/40 backdrop-blur-sm">
-                      <MapPin className="h-4 w-4 text-blue-200" />
-                      <span className="text-blue-200 font-semibold">{job.location}</span>
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-sky-400/30 to-blue-400/30 border border-sky-500/50 backdrop-blur-sm">
+                      <MapPin className="h-4 w-4 text-sky-700" />
+                      <span className="text-sky-800 font-semibold">{job.location}</span>
                     </div>
                   </div>
                 </div>
                 <Button 
                   onClick={() => handleApply(job.id)}
-                  className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 hover:from-cyan-400 hover:via-blue-400 hover:to-indigo-400 text-white font-bold px-10 py-4 rounded-2xl shadow-xl shadow-cyan-500/30 hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+                  className="bg-gradient-to-r from-sky-500 via-blue-500 to-sky-600 hover:from-sky-400 hover:via-blue-400 hover:to-sky-500 text-white font-bold px-10 py-4 rounded-2xl shadow-xl shadow-sky-500/40 hover:shadow-sky-400/60 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
                 >
                   <Zap className="h-5 w-5 mr-2" />
                   Apply Now
@@ -222,18 +222,18 @@ const JobListings: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent className="relative z-10 p-8 pt-0">
-              <CardDescription className="text-cyan-100 mb-8 text-lg leading-relaxed">
+              <CardDescription className="text-sky-800 mb-8 text-lg leading-relaxed">
                 {job.description}
               </CardDescription>
-              <div className="bg-gradient-to-r from-black/20 to-black/10 rounded-2xl p-8 border border-cyan-500/20 backdrop-blur-sm">
-                <h4 className="text-xl font-bold text-cyan-200 mb-6 flex items-center">
+              <div className="bg-gradient-to-r from-white/30 to-white/20 rounded-2xl p-8 border border-sky-400/30 backdrop-blur-sm">
+                <h4 className="text-xl font-bold text-sky-800 mb-6 flex items-center">
                   <Sparkles className="h-5 w-5 mr-3" />
                   Requirements:
                 </h4>
                 <ul className="grid gap-4">
                   {job.requirements.map((req, index) => (
-                    <li key={index} className="flex items-start gap-4 text-cyan-100">
-                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full mt-3 flex-shrink-0"></div>
+                    <li key={index} className="flex items-start gap-4 text-sky-800">
+                      <div className="w-2 h-2 bg-gradient-to-r from-sky-500 to-blue-500 rounded-full mt-3 flex-shrink-0"></div>
                       <span className="leading-relaxed text-lg">{req}</span>
                     </li>
                   ))}
@@ -245,11 +245,11 @@ const JobListings: React.FC = () => {
       </div>
 
       {filteredJobs.length === 0 && (
-        <div className="relative z-10 text-center py-20 backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 rounded-3xl border border-cyan-400/30">
+        <div className="relative z-10 text-center py-20 backdrop-blur-xl bg-gradient-to-br from-white/30 to-white/20 rounded-3xl border border-sky-400/40">
           <div className="space-y-6">
-            <Sparkles className="h-20 w-20 text-cyan-300 mx-auto opacity-50" />
-            <p className="text-cyan-200 text-2xl font-semibold">No positions match your current filters.</p>
-            <p className="text-cyan-300 text-lg">Adjust your search parameters to discover more opportunities.</p>
+            <Sparkles className="h-20 w-20 text-sky-600 mx-auto opacity-50" />
+            <p className="text-sky-800 text-2xl font-semibold">No positions match your current filters.</p>
+            <p className="text-sky-700 text-lg">Adjust your search parameters to discover more opportunities.</p>
           </div>
         </div>
       )}
