@@ -54,7 +54,7 @@ const Careers: React.FC = () => {
               <div className="p-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/50 group-hover:border-cyan-300/70 transition-all">
                 <ArrowLeft className="h-5 w-5" />
               </div>
-              <span className="font-semibold">Return to Neural Hub</span>
+              <span className="font-semibold">Return to XBrainer</span>
             </Link>
           </div>
         </header>
@@ -70,22 +70,22 @@ const Careers: React.FC = () => {
             </div>
             
             <h1 className="text-6xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-6 leading-tight">
-              Join the Neural Revolution
+              Join Our Team
             </h1>
             
             <div className="flex justify-center mb-8">
               <div className="flex items-center space-x-4 px-6 py-3 bg-gradient-to-r from-blue-900/50 to-cyan-900/50 backdrop-blur-xl rounded-full border border-cyan-400/50">
                 <Zap className="h-5 w-5 text-cyan-400" />
-                <span className="text-cyan-300 font-mono font-semibold">XBrainer AI Recruitment Portal</span>
+                <span className="text-cyan-300 font-mono font-semibold">XBrainer AI Careers</span>
                 <Zap className="h-5 w-5 text-cyan-400" />
               </div>
             </div>
             
             <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed backdrop-blur-sm bg-black/20 rounded-2xl p-8 border border-cyan-500/30">
-              Help us secure the future of neural interfaces across the globe. We're looking for talented individuals 
-              to join our mission in developing cutting-edge cybersecurity solutions for brain-machine interfaces.
+              Help us secure the future of brain-machine interfaces across the globe. We're looking for talented individuals 
+              to join our mission in developing cutting-edge cybersecurity solutions for advanced technologies.
               <br />
-              <span className="text-cyan-300 font-semibold mt-4 block">Available in San Francisco & Hyderabad</span>
+              <span className="text-cyan-300 font-semibold mt-4 block">Available in San Francisco (Remote) & Hyderabad (Remote)</span>
             </p>
           </div>
 

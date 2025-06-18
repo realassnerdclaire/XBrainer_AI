@@ -22,50 +22,50 @@ const baseJobs = [
     title: 'Machine Learning / Signal Processing Intern',
     type: 'Intern' as const,
     level: 'Early Career' as const,
-    description: 'Work on cutting-edge ML algorithms for neural signal processing and anomaly detection in brain-machine interfaces.',
+    description: 'Work on cutting-edge ML algorithms for signal processing and anomaly detection in brain-machine interfaces.',
     requirements: ['Python, TensorFlow/PyTorch', 'Signal processing fundamentals', 'Statistics/ML coursework', 'Research experience preferred']
   },
   {
     title: 'Cybersecurity Engineer',
     type: 'Full-Time' as const,
     level: 'Mid Level' as const,
-    description: 'Design and implement security protocols for neural interface systems, focusing on encryption and threat detection.',
+    description: 'Design and implement security protocols for advanced interface systems, focusing on encryption and threat detection.',
     requirements: ['5+ years cybersecurity experience', 'Cryptography expertise', 'Network security', 'IoT/embedded systems security']
   },
   {
     title: 'Cybersecurity Intern',
     type: 'Intern' as const,
     level: 'Early Career' as const,
-    description: 'Learn and contribute to cybersecurity research for neural interfaces, including vulnerability assessment and security testing.',
+    description: 'Learn and contribute to cybersecurity research for advanced interfaces, including vulnerability assessment and security testing.',
     requirements: ['Cybersecurity coursework', 'Basic networking knowledge', 'Programming skills (Python/C++)', 'Security certifications a plus']
   },
   {
     title: 'Software/DevOps Infrastructure Intern',
     type: 'Intern' as const,
     level: 'Early Career' as const,
-    description: 'Build and maintain infrastructure for neural interface testing environments and deployment pipelines.',
+    description: 'Build and maintain infrastructure for advanced interface testing environments and deployment pipelines.',
     requirements: ['Docker/Kubernetes experience', 'Cloud platforms (AWS/GCP)', 'CI/CD pipelines', 'Linux administration']
   },
   {
     title: 'Neuroscientist',
     type: 'Full-Time' as const,
     level: 'Junior' as const,
-    description: 'Research neural oscillation patterns and contribute to the scientific understanding of brain-machine interface security.',
-    requirements: ['PhD in Neuroscience/related field', 'Neural signal analysis', 'Research publication record', 'BCI experience preferred']
+    description: 'Research oscillation patterns and contribute to the scientific understanding of brain-machine interface security.',
+    requirements: ['PhD in Neuroscience/related field', 'Signal analysis', 'Research publication record', 'BCI experience preferred']
   },
   {
     title: 'Neuroengineer',
     type: 'Full-Time' as const,
     level: 'Mid Level' as const,
-    description: 'Design and optimize neural interface hardware and software systems with focus on security and reliability.',
-    requirements: ['MS/PhD in Biomedical/Electrical Engineering', 'Neural interface design', 'Signal processing', '3+ years BCI experience']
+    description: 'Design and optimize interface hardware and software systems with focus on security and reliability.',
+    requirements: ['MS/PhD in Biomedical/Electrical Engineering', 'Interface design', 'Signal processing', '3+ years BCI experience']
   },
   {
     title: 'Hardware Interface Advisor',
     type: 'Part-Time' as const,
     level: 'Mid Level' as const,
-    description: 'Provide strategic guidance on hardware security for neural interfaces and review system architectures.',
-    requirements: ['10+ years hardware security', 'Neural interface expertise', 'Consulting experience', 'Security architecture design']
+    description: 'Provide strategic guidance on hardware security for advanced interfaces and review system architectures.',
+    requirements: ['10+ years hardware security', 'Interface expertise', 'Consulting experience', 'Security architecture design']
   }
 ];
 
@@ -74,7 +74,7 @@ const jobs: Job[] = baseJobs.flatMap((job, index) => [
   {
     ...job,
     id: `${index * 2 + 1}`,
-    location: 'San Francisco, CA (Remote)',
+    location: 'San Francisco (Remote)',
     country: 'United States'
   },
   {
@@ -125,7 +125,7 @@ const JobListings: React.FC = () => {
           <div className="relative group">
             <Search className="absolute left-4 top-4 h-5 w-5 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
             <Input
-              placeholder="Search neural positions..."
+              placeholder="Search positions..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-12 bg-black/60 border-cyan-500/50 text-white placeholder-cyan-300/70 rounded-xl h-12 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50 transition-all"
@@ -154,7 +154,7 @@ const JobListings: React.FC = () => {
             </SelectTrigger>
             <SelectContent className="bg-black/90 border-cyan-500/50 backdrop-blur-xl">
               <SelectItem value="all" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">All Types</SelectItem>
-              <SelectItem value="Intern" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Neural Intern</SelectItem>
+              <SelectItem value="Intern" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Intern</SelectItem>
               <SelectItem value="Part-Time" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Part-Time</SelectItem>
               <SelectItem value="Full-Time" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Full-Time</SelectItem>
             </SelectContent>
@@ -167,7 +167,7 @@ const JobListings: React.FC = () => {
             </SelectTrigger>
             <SelectContent className="bg-black/90 border-cyan-500/50 backdrop-blur-xl">
               <SelectItem value="all" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">All Levels</SelectItem>
-              <SelectItem value="Early Career" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Neural Pioneer</SelectItem>
+              <SelectItem value="Early Career" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Early Career</SelectItem>
               <SelectItem value="Junior" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Junior</SelectItem>
               <SelectItem value="Mid Level" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Mid Level</SelectItem>
             </SelectContent>
@@ -178,7 +178,7 @@ const JobListings: React.FC = () => {
       {/* Results Count with Futuristic Design */}
       <div className="relative z-10 text-cyan-300 font-mono bg-gradient-to-r from-blue-900/20 to-cyan-900/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-cyan-500/30">
         <Zap className="inline h-4 w-4 mr-2 text-cyan-400" />
-        Neural Positions Found: {filteredJobs.length} of {jobs.length}
+        Positions Found: {filteredJobs.length} of {jobs.length}
       </div>
 
       {/* Enhanced Job Cards */}
@@ -202,13 +202,13 @@ const JobListings: React.FC = () => {
                         job.type === 'Part-Time' ? 'text-yellow-300' :
                         'text-green-300'
                       }`}>
-                        {job.type === 'Intern' ? 'Neural Intern' : job.type}
+                        {job.type}
                       </span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50">
                       <Briefcase className="h-4 w-4 text-purple-300" />
                       <span className="text-purple-300 font-semibold">
-                        {job.level === 'Early Career' ? 'Neural Pioneer' : job.level}
+                        {job.level}
                       </span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border border-cyan-400/50">
@@ -233,7 +233,7 @@ const JobListings: React.FC = () => {
               <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 rounded-xl p-6 border border-cyan-500/30">
                 <h4 className="text-lg font-bold text-cyan-300 mb-4 flex items-center">
                   <Zap className="h-5 w-5 mr-2" />
-                  Neural Requirements:
+                  Requirements:
                 </h4>
                 <ul className="grid gap-3">
                   {job.requirements.map((req, index) => (
@@ -253,7 +253,7 @@ const JobListings: React.FC = () => {
         <div className="relative z-10 text-center py-16 bg-gradient-to-r from-blue-900/20 to-cyan-900/20 backdrop-blur-xl rounded-2xl border border-cyan-500/30">
           <div className="space-y-4">
             <Zap className="h-16 w-16 text-cyan-400 mx-auto opacity-50" />
-            <p className="text-cyan-300 text-xl font-semibold">No neural positions match your current filters.</p>
+            <p className="text-cyan-300 text-xl font-semibold">No positions match your current filters.</p>
             <p className="text-cyan-500 text-lg">Adjust your search parameters to discover more opportunities.</p>
           </div>
         </div>
