@@ -139,3 +139,62 @@
     opacity: 0.5;
   }
 }
+
+/* New Neural Interface Animations */
+@keyframes neuralPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+@keyframes neuralFlow {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  20% {
+    opacity: 0.8;
+    transform: scaleX(0.3);
+  }
+  80% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes brainWave {
+  0%, 100% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-3px) scaleY(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(2px) scaleY(0.8);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-1px) scaleY(1.1);
+    opacity: 0.5;
+  }
+}
