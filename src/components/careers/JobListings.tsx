@@ -1,9 +1,9 @@
 
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, Brain, DollarSign } from 'lucide-react';
+import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, DollarSign } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import JobApplicationForm from './JobApplicationForm';
 import { baseJobs } from '../../constants/data';
@@ -130,7 +130,7 @@ const JobListings: React.FC = () => {
         Positions Found: {filteredJobs.length} of {jobs.length}
       </div>
 
-      {/* Enhanced Job Cards */}
+      {/* Simplified Job Cards */}
       <div className="relative z-10 grid gap-8">
         {filteredJobs.map((job) => (
           <Card key={job.id} className="group backdrop-blur-xl bg-white border border-cyan-300/50 hover:border-cyan-400/70 transition-all duration-500 rounded-3xl shadow-2xl shadow-cyan-200/20 hover:shadow-cyan-300/30 hover:scale-[1.02] relative overflow-hidden">
@@ -159,7 +159,9 @@ const JobListings: React.FC = () => {
                     {job.compensation && (
                       <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-gray-200/40 to-slate-200/40 border border-gray-300/60 backdrop-blur-sm shadow-lg">
                         <DollarSign className="h-4 w-4 text-gray-700" />
-                        <span className="text-gray-800 font-semibold">{job.compensation}</span>
+                        <span className="text-gray-800 font-semibold">
+                          {job.country === 'India' ? job.compensation.replace('$', '₹').replace('USD', 'INR') : job.compensation}
+                        </span>
                       </div>
                     )}
                     {job.commitment && (
@@ -180,47 +182,12 @@ const JobListings: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent className="relative z-10 p-8 pt-0">
-              <div className="grid gap-6">
-                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
-                  <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
-                    <Sparkles className="h-5 w-5 mr-2 text-cyan-600" />
-                    Focus:
-                  </h4>
-                  <p className="text-cyan-700 leading-relaxed">{job.focus}</p>
-                </div>
-                
-                {job.responsibilities && job.responsibilities.length > 0 && (
-                  <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
-                    <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
-                      <Briefcase className="h-5 w-5 mr-2 text-cyan-600" />
-                      Responsibilities:
-                    </h4>
-                    <ul className="text-cyan-700 leading-relaxed space-y-2">
-                      {job.responsibilities.map((responsibility, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="w-2 h-2 bg-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          {responsibility}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
-                  <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
-                    <Briefcase className="h-5 w-5 mr-2 text-cyan-600" />
-                    Skills:
-                  </h4>
-                  <p className="text-cyan-700 leading-relaxed">{job.skills}</p>
-                </div>
-                
-                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
-                  <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
-                    <Brain className="h-5 w-5 mr-2 text-cyan-600" />
-                    Ideal Background:
-                  </h4>
-                  <p className="text-cyan-700 leading-relaxed">{job.background}</p>
-                </div>
+              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 backdrop-blur-sm shadow-lg">
+                <h4 className="text-lg font-bold text-cyan-800 mb-3 flex items-center">
+                  <Sparkles className="h-5 w-5 mr-2 text-cyan-600" />
+                  Focus:
+                </h4>
+                <p className="text-cyan-700 leading-relaxed">{job.focus}</p>
               </div>
             </CardContent>
           </Card>

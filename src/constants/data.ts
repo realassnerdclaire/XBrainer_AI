@@ -125,7 +125,7 @@ export const baseJobs = [
     skills: 'Python proficiency, NumPy, SciPy, pandas, PyTorch/TensorFlow, time-series analysis, filtering, ICA, spike sorting. Ability to read and interpret EEG/BCI signals is a plus.',
     background: 'Biomedical engineering, neuro-AI, or computational neuroscience. Familiarity with neural datasets and signal processing workflows. Research experience in BCI or related signal processing fields.',
     sfCompensation: 'Unpaid',
-    hydCompensation: '$2,200 USD/month',
+    hydCompensation: '₹2,200 INR/month',
     commitment: '15–20 hours/week',
     responsibilities: [
       'Preprocess EEG or neurodata streams using signal-cleaning methods (e.g., filtering, ICA)',
