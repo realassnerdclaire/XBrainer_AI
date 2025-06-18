@@ -80,3 +80,62 @@
     transform: translateY(-15px) rotate(180deg);
   }
 }
+
+@keyframes raindrop {
+  0%, 100% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateY(-5px) scaleY(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(3px) scaleY(0.9);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(-2px) scaleY(1.1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-100px) translateY(0px);
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(calc(100vw + 100px)) translateY(-20px);
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(calc(200vw + 200px)) translateY(0px);
+    opacity: 0.1;
+  }
+}
+
+@keyframes geometricFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(5px) translateX(-5px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-10px) translateX(15px) rotate(270deg);
+    opacity: 0.5;
+  }
+}

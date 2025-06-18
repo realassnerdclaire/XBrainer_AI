@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Clock, Briefcase, Zap, Globe } from 'lucide-react';
+import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
@@ -111,135 +111,130 @@ const JobListings: React.FC = () => {
 
   return (
     <div className="space-y-8 relative">
-      {/* Futuristic Cloud Background Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/20 via-cyan-300/30 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-indigo-400/20 via-blue-300/30 to-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-br from-purple-400/20 via-pink-300/30 to-blue-400/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
+      {/* Enhanced Futuristic Filters */}
+      <div className="relative z-10">
+        <div className="backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-8 border border-cyan-400/30 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-400/10 to-indigo-500/5 rounded-3xl"></div>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative group">
+              <Search className="absolute left-4 top-4 h-5 w-5 text-cyan-300 group-hover:text-cyan-200 transition-colors z-10" />
+              <Input
+                placeholder="Search positions..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-12 bg-black/30 border-cyan-400/50 text-white placeholder-cyan-300/70 rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 transition-all backdrop-blur-sm"
+              />
+            </div>
 
-      {/* Enhanced Filters with Futuristic Design */}
-      <div className="relative z-10 bg-gradient-to-r from-blue-900/30 via-cyan-800/40 to-purple-900/30 backdrop-blur-2xl rounded-2xl p-8 border border-cyan-400/40 shadow-2xl shadow-cyan-500/20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-400/20 to-purple-500/10 rounded-2xl blur-xl"></div>
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="relative group">
-            <Search className="absolute left-4 top-4 h-5 w-5 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-            <Input
-              placeholder="Search positions..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 bg-black/60 border-cyan-500/50 text-white placeholder-cyan-300/70 rounded-xl h-12 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50 transition-all"
-            />
+            <Select value={countryFilter} onValueChange={setCountryFilter}>
+              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
+                <Globe className="h-4 w-4 text-cyan-300 mr-2" />
+                <SelectValue placeholder="Select location" />
+              </SelectTrigger>
+              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
+                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Locations</SelectItem>
+                {countries.map(country => (
+                  <SelectItem key={country} value={country} className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">
+                    {country}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select value={typeFilter} onValueChange={setTypeFilter}>
+              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
+                <Clock className="h-4 w-4 text-cyan-300 mr-2" />
+                <SelectValue placeholder="Position type" />
+              </SelectTrigger>
+              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
+                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Types</SelectItem>
+                <SelectItem value="Intern" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Intern</SelectItem>
+                <SelectItem value="Part-Time" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Part-Time</SelectItem>
+                <SelectItem value="Full-Time" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Full-Time</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={levelFilter} onValueChange={setLevelFilter}>
+              <SelectTrigger className="bg-black/30 border-cyan-400/50 text-white rounded-2xl h-12 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/50 backdrop-blur-sm">
+                <Briefcase className="h-4 w-4 text-cyan-300 mr-2" />
+                <SelectValue placeholder="Experience level" />
+              </SelectTrigger>
+              <SelectContent className="bg-black/90 border-cyan-400/50 backdrop-blur-xl">
+                <SelectItem value="all" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">All Levels</SelectItem>
+                <SelectItem value="Early Career" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Early Career</SelectItem>
+                <SelectItem value="Junior" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Junior</SelectItem>
+                <SelectItem value="Mid Level" className="text-white hover:bg-cyan-800/50 focus:bg-cyan-800/50">Mid Level</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-
-          <Select value={countryFilter} onValueChange={setCountryFilter}>
-            <SelectTrigger className="bg-black/60 border-cyan-500/50 text-white rounded-xl h-12 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50">
-              <Globe className="h-4 w-4 text-cyan-400 mr-2" />
-              <SelectValue placeholder="Select location" />
-            </SelectTrigger>
-            <SelectContent className="bg-black/90 border-cyan-500/50 backdrop-blur-xl">
-              <SelectItem value="all" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">All Locations</SelectItem>
-              {countries.map(country => (
-                <SelectItem key={country} value={country} className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">
-                  {country}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Select value={typeFilter} onValueChange={setTypeFilter}>
-            <SelectTrigger className="bg-black/60 border-cyan-500/50 text-white rounded-xl h-12 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50">
-              <Clock className="h-4 w-4 text-cyan-400 mr-2" />
-              <SelectValue placeholder="Position type" />
-            </SelectTrigger>
-            <SelectContent className="bg-black/90 border-cyan-500/50 backdrop-blur-xl">
-              <SelectItem value="all" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">All Types</SelectItem>
-              <SelectItem value="Intern" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Intern</SelectItem>
-              <SelectItem value="Part-Time" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Part-Time</SelectItem>
-              <SelectItem value="Full-Time" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Full-Time</SelectItem>
-            </SelectContent>
-          </Select>
-
-          <Select value={levelFilter} onValueChange={setLevelFilter}>
-            <SelectTrigger className="bg-black/60 border-cyan-500/50 text-white rounded-xl h-12 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50">
-              <Briefcase className="h-4 w-4 text-cyan-400 mr-2" />
-              <SelectValue placeholder="Experience level" />
-            </SelectTrigger>
-            <SelectContent className="bg-black/90 border-cyan-500/50 backdrop-blur-xl">
-              <SelectItem value="all" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">All Levels</SelectItem>
-              <SelectItem value="Early Career" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Early Career</SelectItem>
-              <SelectItem value="Junior" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Junior</SelectItem>
-              <SelectItem value="Mid Level" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Mid Level</SelectItem>
-            </SelectContent>
-          </Select>
         </div>
       </div>
 
-      {/* Results Count with Futuristic Design */}
-      <div className="relative z-10 text-cyan-300 font-mono bg-gradient-to-r from-blue-900/20 to-cyan-900/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-cyan-500/30">
-        <Zap className="inline h-4 w-4 mr-2 text-cyan-400" />
+      {/* Results Count */}
+      <div className="relative z-10 text-cyan-200 font-mono bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-lg rounded-2xl px-6 py-3 border border-cyan-400/30">
+        <Sparkles className="inline h-4 w-4 mr-2 text-cyan-300" />
         Positions Found: {filteredJobs.length} of {jobs.length}
       </div>
 
       {/* Enhanced Job Cards */}
       <div className="relative z-10 grid gap-8">
         {filteredJobs.map((job) => (
-          <Card key={job.id} className="group bg-gradient-to-br from-blue-900/20 via-cyan-800/30 to-purple-900/20 backdrop-blur-2xl border border-cyan-400/40 hover:border-cyan-300/70 transition-all duration-500 rounded-2xl shadow-2xl shadow-cyan-500/10 hover:shadow-cyan-400/30 hover:scale-[1.02] relative overflow-hidden">
-            {/* Card Background Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-400/20 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+          <Card key={job.id} className="group backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-cyan-400/30 hover:border-cyan-300/50 transition-all duration-500 rounded-3xl shadow-2xl hover:shadow-cyan-400/20 hover:scale-[1.02] relative overflow-hidden">
+            {/* Card Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-400/10 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
             
-            <CardHeader className="relative z-10">
+            <CardHeader className="relative z-10 p-8">
               <div className="flex justify-between items-start">
-                <div className="space-y-4">
-                  <CardTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:via-blue-200 group-hover:to-purple-200 transition-all duration-300">
+                <div className="space-y-6">
+                  <CardTitle className="text-3xl font-bold bg-gradient-to-r from-cyan-200 via-blue-200 to-indigo-200 bg-clip-text text-transparent group-hover:from-cyan-100 group-hover:via-blue-100 group-hover:to-indigo-100 transition-all duration-300">
                     {job.title}
                   </CardTitle>
                   <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-blue-500/30 to-cyan-500/30 border border-cyan-400/50">
-                      <Clock className="h-4 w-4 text-cyan-300" />
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/40 backdrop-blur-sm">
+                      <Clock className="h-4 w-4 text-cyan-200" />
                       <span className={`font-semibold ${
-                        job.type === 'Intern' ? 'text-blue-300' :
-                        job.type === 'Part-Time' ? 'text-yellow-300' :
-                        'text-green-300'
+                        job.type === 'Intern' ? 'text-blue-200' :
+                        job.type === 'Part-Time' ? 'text-yellow-200' :
+                        'text-green-200'
                       }`}>
                         {job.type}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50">
-                      <Briefcase className="h-4 w-4 text-purple-300" />
-                      <span className="text-purple-300 font-semibold">
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-400/40 backdrop-blur-sm">
+                      <Briefcase className="h-4 w-4 text-indigo-200" />
+                      <span className="text-indigo-200 font-semibold">
                         {job.level}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border border-cyan-400/50">
-                      <MapPin className="h-4 w-4 text-cyan-300" />
-                      <span className="text-cyan-300 font-semibold">{job.location}</span>
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-400/40 backdrop-blur-sm">
+                      <MapPin className="h-4 w-4 text-blue-200" />
+                      <span className="text-blue-200 font-semibold">{job.location}</span>
                     </div>
                   </div>
                 </div>
                 <Button 
                   onClick={() => handleApply(job.id)}
-                  className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:via-blue-400 hover:to-purple-400 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 hover:from-cyan-400 hover:via-blue-400 hover:to-indigo-400 text-white font-bold px-10 py-4 rounded-2xl shadow-xl shadow-cyan-500/30 hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
                 >
-                  <Zap className="h-4 w-4 mr-2" />
+                  <Zap className="h-5 w-5 mr-2" />
                   Apply Now
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="relative z-10">
-              <CardDescription className="text-gray-200 mb-6 text-lg leading-relaxed">
+            <CardContent className="relative z-10 p-8 pt-0">
+              <CardDescription className="text-cyan-100 mb-8 text-lg leading-relaxed">
                 {job.description}
               </CardDescription>
-              <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 rounded-xl p-6 border border-cyan-500/30">
-                <h4 className="text-lg font-bold text-cyan-300 mb-4 flex items-center">
-                  <Zap className="h-5 w-5 mr-2" />
+              <div className="bg-gradient-to-r from-black/20 to-black/10 rounded-2xl p-8 border border-cyan-500/20 backdrop-blur-sm">
+                <h4 className="text-xl font-bold text-cyan-200 mb-6 flex items-center">
+                  <Sparkles className="h-5 w-5 mr-3" />
                   Requirements:
                 </h4>
-                <ul className="grid gap-3">
+                <ul className="grid gap-4">
                   {job.requirements.map((req, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="leading-relaxed">{req}</span>
+                    <li key={index} className="flex items-start gap-4 text-cyan-100">
+                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="leading-relaxed text-lg">{req}</span>
                     </li>
                   ))}
                 </ul>
@@ -250,11 +245,11 @@ const JobListings: React.FC = () => {
       </div>
 
       {filteredJobs.length === 0 && (
-        <div className="relative z-10 text-center py-16 bg-gradient-to-r from-blue-900/20 to-cyan-900/20 backdrop-blur-xl rounded-2xl border border-cyan-500/30">
-          <div className="space-y-4">
-            <Zap className="h-16 w-16 text-cyan-400 mx-auto opacity-50" />
-            <p className="text-cyan-300 text-xl font-semibold">No positions match your current filters.</p>
-            <p className="text-cyan-500 text-lg">Adjust your search parameters to discover more opportunities.</p>
+        <div className="relative z-10 text-center py-20 backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 rounded-3xl border border-cyan-400/30">
+          <div className="space-y-6">
+            <Sparkles className="h-20 w-20 text-cyan-300 mx-auto opacity-50" />
+            <p className="text-cyan-200 text-2xl font-semibold">No positions match your current filters.</p>
+            <p className="text-cyan-300 text-lg">Adjust your search parameters to discover more opportunities.</p>
           </div>
         </div>
       )}
