@@ -1,3 +1,4 @@
+
 export interface MousePosition {
   x: number;
   y: number;
@@ -37,4 +38,6 @@ export interface Job {
   compensation?: string;
   commitment?: string;
   responsibilities?: string[];
+  sfCompensation?: string;
+  hydCompensation?: string;
 }

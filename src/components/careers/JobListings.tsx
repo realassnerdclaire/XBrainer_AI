@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Search, MapPin, Clock, Briefcase, Zap, Globe, Sparkles, Brain, DollarSign } from 'lucide-react';
 import { Input } from '../ui/input';
@@ -5,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import JobApplicationForm from './JobApplicationForm';
+import { baseJobs } from '../../constants/data';
 
 interface Job {
   id: string;
@@ -20,75 +22,26 @@ interface Job {
   responsibilities?: string[];
 }
 
-const baseJobs = [
-  {
-    title: 'Machine Learning / Signal Processing Intern',
-    type: 'Intern' as const,
-    focus: 'Support signal preprocessing, anomaly detection, and classification tasks across EEG and neural interface data streams. Work on early-stage R&D efforts, helping prototype and validate technical pipelines used in secure communication architecture.',
-    skills: 'Python proficiency, NumPy, SciPy, pandas, PyTorch/TensorFlow, time-series analysis, filtering, ICA, spike sorting. Ability to read and interpret EEG/BCI signals is a plus.',
-    background: 'Biomedical engineering, neuro-AI, or computational neuroscience. Familiarity with neural datasets and signal processing workflows. Research experience in BCI or related signal processing fields.',
-    compensation: '$250 USD/month stipend',
-    commitment: '15–20 hours/week',
-    responsibilities: [
-      'Preprocess EEG or neurodata streams using signal-cleaning methods (e.g., filtering, ICA)',
-      'Implement anomaly detection and event classification routines',
-      'Analyze multichannel neuro-electrical recordings',
-      'Prototype spike sorting, entropy-based signal modeling, and artifact rejection',
-      'Report performance metrics and assist in maintaining reproducible pipelines'
-    ]
-  },
-  {
-    title: 'Cybersecurity Engineer / Intern (Neuro-Context)',
-    type: 'Part-Time' as const,
-    focus: 'Secure data transmission, protocol modeling, encryption layers for brain interfaces.',
-    skills: 'Cryptography (RSA, ECC, post-quantum), TLS/IPSec fundamentals, threat modeling.',
-    background: 'CS/security, preferably with exposure to embedded or medical systems.'
-  },
-  {
-    title: 'Software/DevOps Infrastructure Intern',
-    type: 'Intern' as const,
-    focus: 'Prototype deployment tools, automate pipelines, simulate secure channels.',
-    skills: 'Docker, Linux, Python APIs, CI/CD, networking.',
-    background: 'Knowledge of secure protocol simulation (e.g., ns-3 or simulation frameworks) is optional.'
-  },
-  {
-    title: 'Neuroscientist',
-    type: 'Part-Time' as const,
-    focus: 'Research neural signal patterns, validate physiological models, and contribute to understanding brain-machine interface security implications.',
-    skills: 'Neuroscience research methods, EEG/fMRI analysis, statistical modeling, MATLAB/Python, neural data interpretation.',
-    background: 'PhD or advanced degree in Neuroscience, Cognitive Science, or related field. Experience with neural signal analysis and brain-computer interfaces.'
-  },
-  {
-    title: 'Neuroengineer',
-    type: 'Part-Time' as const,
-    focus: 'Design and optimize neural interface hardware, develop signal acquisition systems, and ensure compatibility with security protocols.',
-    skills: 'Circuit design, signal processing hardware, embedded systems, FPGA programming, biomedical instrumentation.',
-    background: 'Biomedical Engineering, Electrical Engineering, or Neurotechnology. Experience with neural interface hardware and signal acquisition systems.'
-  },
-  {
-    title: 'Hardware Interface Advisor',
-    type: 'Part-Time' as const,
-    focus: 'Provide strategic guidance on hardware-software integration, advise on neural interface standards, and ensure security protocol compatibility.',
-    skills: 'Hardware architecture, systems integration, neural interface standards, security protocol design, technical advisory.',
-    background: 'Senior-level experience in hardware design, neural interfaces, or biomedical devices. Advisory or consulting experience preferred.'
-  }
-];
-
-// Create duplicate jobs for both locations with unique IDs
-const jobs: Job[] = baseJobs.flatMap((job, index) => [
-  {
+// Create jobs with proper compensation based on location
+const jobs: Job[] = baseJobs.flatMap((job, index) => {
+  const sfJob: Job = {
     ...job,
-    id: `sf-${index + 1}`,
+    id: `sf-${job.title.replace(/\s+/g, '-').toLowerCase()}-${index}`,
     location: 'San Francisco (Remote)',
-    country: 'United States'
-  },
-  {
+    country: 'United States',
+    compensation: job.sfCompensation || undefined
+  };
+  
+  const hydJob: Job = {
     ...job,
-    id: `hyd-${index + 1}`,
+    id: `hyd-${job.title.replace(/\s+/g, '-').toLowerCase()}-${index}`,
     location: 'Hyderabad (Remote)',
-    country: 'India'
-  }
-]);
+    country: 'India',
+    compensation: job.hydCompensation || undefined
+  };
+  
+  return [sfJob, hydJob];
+});
 
 const JobListings: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -201,9 +154,9 @@ const JobListings: React.FC = () => {
                       <span className="text-cyan-800 font-semibold">{job.location}</span>
                     </div>
                     {job.compensation && (
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-green-200/40 to-emerald-200/40 border border-green-300/60 backdrop-blur-sm shadow-lg">
-                        <DollarSign className="h-4 w-4 text-green-700" />
-                        <span className="text-green-800 font-semibold">{job.compensation}</span>
+                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-slate-200/40 to-gray-200/40 border border-slate-300/60 backdrop-blur-sm shadow-lg">
+                        <DollarSign className="h-4 w-4 text-slate-700" />
+                        <span className="text-slate-800 font-semibold">{job.compensation}</span>
                       </div>
                     )}
                     {job.commitment && (

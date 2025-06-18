@@ -1,3 +1,4 @@
+
 import { Brain, Shield, Zap, Network, AlertTriangle, Lock, Search, Activity, Eye, Cpu, Database, Bot } from 'lucide-react';
 import type { ProblemCard, Phase, AICapability } from '../types';
 
@@ -123,7 +124,8 @@ export const baseJobs = [
     focus: 'Support signal preprocessing, anomaly detection, and classification tasks across EEG and neural interface data streams. Work on early-stage R&D efforts, helping prototype and validate technical pipelines used in secure communication architecture.',
     skills: 'Python proficiency, NumPy, SciPy, pandas, PyTorch/TensorFlow, time-series analysis, filtering, ICA, spike sorting. Ability to read and interpret EEG/BCI signals is a plus.',
     background: 'Biomedical engineering, neuro-AI, or computational neuroscience. Familiarity with neural datasets and signal processing workflows. Research experience in BCI or related signal processing fields.',
-    compensation: '$250 USD/month stipend',
+    sfCompensation: 'Unpaid',
+    hydCompensation: '$2,200 USD/month',
     commitment: '15–20 hours/week',
     responsibilities: [
       'Preprocess EEG or neurodata streams using signal-cleaning methods (e.g., filtering, ICA)',
