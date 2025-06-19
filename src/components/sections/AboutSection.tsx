@@ -34,21 +34,49 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="about" className="py-12 md:py-20 px-4 md:px-6 relative bg-white min-h-screen">
-      {/* Simple Moving Wave Shapes - Reduced for mobile performance */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(4)].map((_, i) => (
+      {/* Simple Brain Interface Pattern - Static for Performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+        {/* Neural Network Grid Pattern */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div
+              key={`h-${i}`}
+              className="absolute w-full h-px bg-green-300"
+              style={{ top: `${12.5 * (i + 1)}%` }}
+            />
+          ))}
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div
+              key={`v-${i}`}
+              className="absolute h-full w-px bg-green-300"
+              style={{ left: `${8.33 * (i + 1)}%` }}
+            />
+          ))}
+        </div>
+        
+        {/* Static Brain Interface Nodes */}
+        {Array.from({ length: 20 }).map((_, i) => (
           <div
-            key={i}
-            className="absolute opacity-20 md:opacity-30"
+            key={`node-${i}`}
+            className="absolute w-2 h-2 bg-green-400 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 40 + 20}px`,
-              height: `${Math.random() * 15 + 8}px`,
-              background: '#22c55e',
-              borderRadius: '50px',
-              animation: `waveMove ${Math.random() * 4 + 3}s infinite linear`,
-              animationDelay: `${Math.random() * 2}s`
+              left: `${Math.random() * 90 + 5}%`,
+              top: `${Math.random() * 80 + 10}%`,
+            }}
+          />
+        ))}
+        
+        {/* Simple Connection Lines */}
+        {Array.from({ length: 15 }).map((_, i) => (
+          <div
+            key={`line-${i}`}
+            className="absolute bg-green-300 opacity-30"
+            style={{
+              left: `${Math.random() * 80 + 10}%`,
+              top: `${Math.random() * 70 + 15}%`,
+              width: `${Math.random() * 60 + 40}px`,
+              height: '1px',
+              transform: `rotate(${Math.random() * 360}deg)`,
             }}
           />
         ))}
@@ -69,10 +97,10 @@ const AboutSection: React.FC = () => {
         {/* Core Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8 px-2">
           {coreFeatures.map((feature, index) => (
-            <Card key={index} className="bg-white/90 border-green-200 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 group">
+            <Card key={index} className="bg-white/90 border-green-200 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow duration-200 group">
               <CardContent className="p-3 md:p-4">
                 <div className="flex items-center mb-2">
-                  <div className="p-1.5 md:p-2 rounded-full bg-green-100 mr-2 group-hover:bg-green-200 transition-colors">
+                  <div className="p-1.5 md:p-2 rounded-full bg-green-100 mr-2 group-hover:bg-green-200 transition-colors duration-200">
                     <feature.icon className="h-3 w-3 md:h-4 md:w-4 text-green-600" />
                   </div>
                   <h4 className="font-semibold text-gray-800 text-xs md:text-sm">{feature.title}</h4>

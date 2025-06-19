@@ -70,34 +70,6 @@
   }
 }
 
-/* Simple wave animations for About section */
-@keyframes waveMove {
-  0% {
-    transform: translateX(-100px) translateY(0px);
-  }
-  50% {
-    transform: translateX(calc(100vw + 50px)) translateY(-10px);
-  }
-  100% {
-    transform: translateX(calc(200vw + 100px)) translateY(0px);
-  }
-}
-
-@keyframes waveDot {
-  0% {
-    transform: translateX(-50px) scale(0.5);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translateX(calc(100vw + 25px)) scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(calc(200vw + 50px)) scale(0.5);
-    opacity: 0.2;
-  }
-}
-
 /* Floral animations for Research section */
 @keyframes flowerFloat {
   0%, 100% {
