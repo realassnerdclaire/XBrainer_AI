@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Brain, Menu, X } from 'lucide-react';
 import { Switch } from '../ui/switch';
 
-const navItems = ['Technology', 'About', 'Careers', 'Briefing Request'];
+const navItems = ['About', 'Technology', 'Research', 'Careers', 'Briefing Request'];
 
 interface HeaderProps {
   mobileMenuOpen: boolean;
