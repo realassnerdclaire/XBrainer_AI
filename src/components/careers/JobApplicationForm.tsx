@@ -1,25 +1,10 @@
+
 import React, { useState } from 'react';
-import { ArrowLeft, Upload, User, Phone, MapPin, Mail, FileText, Send, Sparkles, Clock, DollarSign, Building, Users, CheckCircle } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Briefcase, Send, User, Mail, Phone, FileText, Zap } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Label } from '../ui/label';
-import { Textarea } from '../ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { useToast } from '../../hooks/use-toast';
-
-interface Job {
-  id: string;
-  title: string;
-  type: 'Intern' | 'Part-Time';
-  location: string;
-  country: string;
-  focus: string;
-  skills: string;
-  background: string;
-  compensation?: string;
-  commitment?: string;
-  responsibilities?: string[];
-}
+import { Job } from '../../types';
 
 interface JobApplicationFormProps {
   job: Job;
@@ -27,566 +12,198 @@ interface JobApplicationFormProps {
 }
 
 const JobApplicationForm: React.FC<JobApplicationFormProps> = ({ job, onBack }) => {
-  const [showApplicationForm, setShowApplicationForm] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
     email: '',
-    country: '',
-    state: '',
-    city: '',
-    zipCode: '',
-    resume: null as File | null,
-    coverLetter: null as File | null,
-    whyGoodFit: '',
-    excitingProject: ''
+    phone: '',
+    coverLetter: '',
+    resume: null as File | null
   });
-
-  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, fileType: 'resume' | 'coverLetter') => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    if (file) {
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-      if (allowedTypes.includes(file.type)) {
-        setFormData(prev => ({ ...prev, [fileType]: file }));
-      } else {
-        toast({
-          title: "Invalid file type",
-          description: "Please upload only PDF, DOC, or DOCX files.",
-          variant: "destructive",
-        });
-      }
-    }
+    setFormData(prev => ({
+      ...prev,
+      resume: file
+    }));
   };
 
-  const sendApplicationEmail = async (applicationData: any) => {
-    console.log('Sending application to clairekwon@xbrainer.ai:', applicationData);
-    
-    const emailContent = `
-New Job Application for ${job.title} - ${job.location}
-
-Personal Information:
-- Name: ${applicationData.name}
-- Phone: ${applicationData.phone}
-- Email: ${applicationData.email}
-- Location: ${applicationData.city}, ${applicationData.state}, ${applicationData.country} ${applicationData.zipCode}
-
-Application Responses:
-- Why they think they're a good fit: ${applicationData.whyGoodFit}
-- Exciting project they worked on: ${applicationData.excitingProject}
-
-Files:
-- Resume: ${applicationData.resume?.name || 'Not provided'}
-- Cover Letter: ${applicationData.coverLetter?.name || 'Not provided'}
-    `;
-
-    return Promise.resolve();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    try {
-      await sendApplicationEmail(formData);
-      setShowSuccessMessage(true);
-      
-      toast({
-        title: "Application submitted successfully!",
-        description: "We'll follow up within 3 business days.",
-      });
-    } catch (error) {
-      toast({
-        title: "Error submitting application",
-        description: "Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    }
+    console.log('Form submitted:', formData, 'for job:', job.id);
+    // Here you would typically send the data to your backend
+    alert('Application submitted successfully!');
+    onBack();
   };
-
-  const handleApplyClick = () => {
-    setShowApplicationForm(true);
-  };
-
-  const handleBackToJobDescription = () => {
-    setShowApplicationForm(false);
-  };
-
-  if (showSuccessMessage) {
-    return (
-      <div className="space-y-8 relative">
-        {/* Header */}
-        <div className="relative z-10">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
-                  Application Submitted
-                </h2>
-              </div>
-              <Button
-                onClick={onBack}
-                variant="outline"
-                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Jobs
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Success Message */}
-        <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
-          <CardContent className="p-12 text-center">
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-green-400/50 rounded-full animate-pulse blur-2xl"></div>
-                <div className="relative p-6 rounded-full bg-gradient-to-br from-green-200/50 to-emerald-300/50 backdrop-blur-sm border border-green-300/60 shadow-2xl shadow-green-300/40">
-                  <CheckCircle className="h-20 w-20 text-green-700" />
-                </div>
-              </div>
-            </div>
-            
-            <h3 className="text-3xl font-bold text-cyan-800 mb-6">Thank you for applying!</h3>
-            <p className="text-lg text-cyan-700 mb-8 max-w-2xl mx-auto">
-              We will do our best to follow up within 3 business days. Meanwhile, please take a look at some exciting technology from XBrainer AI website.
-            </p>
-            
-            <div className="flex justify-center gap-4">
-              <Button
-                onClick={() => window.open('https://xbrainer.ai', '_blank')}
-                className="bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold px-8 py-3 rounded-2xl shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
-              >
-                <Sparkles className="h-5 w-5 mr-2" />
-                Visit XBrainer AI
-              </Button>
-              <Button
-                onClick={onBack}
-                variant="outline"
-                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-8 py-3 shadow-lg backdrop-blur-sm"
-              >
-                Browse More Jobs
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  if (!showApplicationForm) {
-    return (
-      <div className="space-y-8 relative">
-        {/* Header */}
-        <div className="relative z-10">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
-                  {job.title}
-                </h1>
-                <div className="flex items-center gap-4 text-cyan-700 text-lg">
-                  <span className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5" />
-                    {job.location}
-                  </span>
-                  {job.commitment && (
-                    <span className="flex items-center gap-2">
-                      <Clock className="h-5 w-5" />
-                      {job.commitment}
-                    </span>
-                  )}
-                  {job.compensation && (
-                    <span className="flex items-center gap-2">
-                      <DollarSign className="h-5 w-5" />
-                      {job.compensation}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <Button
-                onClick={onBack}
-                variant="outline"
-                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Jobs
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Job Description */}
-        <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
-          <CardHeader className="p-8">
-            <CardTitle className="text-3xl font-bold text-cyan-800 flex items-center">
-              <Building className="h-8 w-8 mr-3 text-cyan-600" />
-              About Us
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-8 pt-0">
-            <p className="text-cyan-700 text-lg leading-relaxed mb-8">
-              XBrainer AI is a stealth-stage neurosecurity startup developing secure communication protocols for brain-machine interfaces. 
-              Our mission is to build foundational infrastructure that ensures signal integrity, identity authentication, and confidentiality 
-              in neural data transmission. We're assembling a small, high-caliber team of researchers and engineers working at the intersection 
-              of neuroscience, AI, and cybersecurity.
-            </p>
-
-            <div className="space-y-8">
-              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                <h3 className="text-2xl font-bold text-cyan-800 mb-4 flex items-center">
-                  <Sparkles className="h-6 w-6 mr-3 text-cyan-600" />
-                  Role Overview
-                </h3>
-                <p className="text-cyan-700 leading-relaxed">
-                  {job.focus}
-                </p>
-              </div>
-
-              {job.responsibilities && job.responsibilities.length > 0 && (
-                <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                  <h3 className="text-2xl font-bold text-cyan-800 mb-4">Responsibilities</h3>
-                  <ul className="text-cyan-700 space-y-3 text-lg">
-                    {job.responsibilities.map((responsibility, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full mt-3 flex-shrink-0"></div>
-                        {responsibility}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                <h3 className="text-2xl font-bold text-cyan-800 mb-4">Preferred Skills</h3>
-                <p className="text-cyan-700 leading-relaxed text-lg">{job.skills}</p>
-              </div>
-
-              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                <h3 className="text-2xl font-bold text-cyan-800 mb-4">Ideal Background</h3>
-                <p className="text-cyan-700 leading-relaxed text-lg">{job.background}</p>
-              </div>
-
-              <div className="bg-white/80 rounded-2xl p-6 border border-cyan-300/40 shadow-lg">
-                <h3 className="text-2xl font-bold text-cyan-800 mb-4">What We Offer</h3>
-                <ul className="text-cyan-700 space-y-3 text-lg">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-3 flex-shrink-0"></div>
-                    Flexible remote schedule
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-3 flex-shrink-0"></div>
-                    Direct mentorship from the founder and advisors
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-3 flex-shrink-0"></div>
-                    Ability to work on a technically challenging, high-impact problem
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-3 flex-shrink-0"></div>
-                    Opportunity for conversion to a full-time, paid role with equity as the company raises external funding
-                  </li>
-                </ul>
-              </div>
-
-              {job.compensation && (
-                <div className="bg-gradient-to-r from-amber-200/40 to-orange-200/40 rounded-2xl p-6 border border-amber-300/60 shadow-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <DollarSign className="h-6 w-6 text-amber-700" />
-                    <span className="text-lg font-bold text-amber-800">Compensation</span>
-                  </div>
-                  <p className="text-amber-800 font-semibold">
-                    {job.compensation}
-                    {job.compensation === 'Unpaid' && '; potential for full-time paid role with salary + equity upon funding'}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="flex justify-center pt-8">
-              <Button
-                onClick={handleApplyClick}
-                className="bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold px-12 py-4 rounded-2xl shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm text-lg"
-              >
-                <Send className="h-5 w-5 mr-3 animate-pulse" />
-                Apply for This Position
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-8 relative">
-      {/* Header */}
-      <div className="relative z-10">
-        <div className="backdrop-blur-xl bg-gradient-to-br from-white/80 to-white/70 rounded-3xl p-8 border border-cyan-300/50 shadow-2xl shadow-cyan-200/20">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-4">
-                Apply for {job.title}
-              </h2>
-              <div className="flex items-center gap-4 text-cyan-700">
-                <span className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  {job.location}
-                </span>
-                <span className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  {job.type}
-                </span>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Button
-                onClick={handleBackToJobDescription}
-                variant="outline"
-                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Description
-              </Button>
-              <Button
-                onClick={onBack}
-                variant="outline"
-                className="bg-white/50 border-cyan-300/60 text-cyan-700 hover:bg-cyan-100/50 hover:border-cyan-400/70 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Jobs
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Back Button */}
+      <Button
+        onClick={onBack}
+        variant="ghost"
+        className="mb-6 text-cyan-700 hover:text-cyan-600 hover:bg-cyan-100/50 transition-all duration-300"
+      >
+        <ArrowLeft className="h-4 w-4 mr-2" />
+        Back to Jobs
+      </Button>
 
-      {/* Application Form */}
-      <Card className="bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
+      {/* Job Header */}
+      <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
         <CardHeader className="p-8">
-          <CardTitle className="text-2xl font-bold text-cyan-800 flex items-center">
-            <Sparkles className="h-6 w-6 mr-3 text-cyan-600 animate-pulse" />
-            Application Details
+          <CardTitle className="text-4xl font-bold bg-gradient-to-r from-cyan-700 via-blue-600 to-cyan-800 bg-clip-text text-transparent mb-6">
+            {job.title}
           </CardTitle>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-200/40 to-blue-200/40 border border-cyan-300/60 backdrop-blur-sm shadow-lg">
+              <Clock className="h-4 w-4 text-cyan-700" />
+              <span className={`font-semibold ${
+                job.type === 'Intern' ? 'text-blue-700' : 'text-green-700'
+              }`}>
+                {job.type}
+              </span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-300/40 to-blue-300/40 border border-cyan-400/60 backdrop-blur-sm shadow-lg">
+              <MapPin className="h-4 w-4 text-cyan-700" />
+              <span className="text-cyan-800 font-semibold">{job.location}</span>
+            </div>
+            {job.commitment && (
+              <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-purple-200/40 to-violet-200/40 border border-purple-300/60 backdrop-blur-sm shadow-lg">
+                <Clock className="h-4 w-4 text-purple-700" />
+                <span className="text-purple-800 font-semibold">{job.commitment}</span>
+              </div>
+            )}
+          </div>
         </CardHeader>
-        <CardContent className="p-8 pt-0">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Personal Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-cyan-800 font-semibold flex items-center">
-                  <User className="h-4 w-4 mr-2" />
-                  Full Name *
-                </Label>
+      </Card>
+
+      {/* Job Details */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Job Information */}
+        <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
+          <CardHeader>
+            <CardTitle className="text-2xl text-cyan-800 flex items-center">
+              <Briefcase className="h-6 w-6 mr-2" />
+              Position Details
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div>
+              <h4 className="font-semibold text-cyan-700 mb-2">Focus Area</h4>
+              <p className="text-gray-700">{job.focus}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-cyan-700 mb-2">Required Skills</h4>
+              <p className="text-gray-700">{job.skills}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-cyan-700 mb-2">Background</h4>
+              <p className="text-gray-700">{job.background}</p>
+            </div>
+            {job.responsibilities && job.responsibilities.length > 0 && (
+              <div>
+                <h4 className="font-semibold text-cyan-700 mb-2">Key Responsibilities</h4>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  {job.responsibilities.map((responsibility, index) => (
+                    <li key={index}>{responsibility}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Application Form */}
+        <Card className="backdrop-blur-xl bg-white border border-cyan-300/50 rounded-3xl shadow-2xl shadow-cyan-200/20">
+          <CardHeader>
+            <CardTitle className="text-2xl text-cyan-800 flex items-center">
+              <Send className="h-6 w-6 mr-2" />
+              Apply Now
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="relative">
+                <User className="absolute left-3 top-4 h-4 w-4 text-cyan-700" />
                 <Input
-                  id="name"
+                  type="text"
                   name="name"
+                  placeholder="Full Name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                  placeholder="Enter your full name"
+                  className="pl-10 bg-white/50 border-cyan-300/60 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 rounded-2xl h-12"
                 />
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-cyan-800 font-semibold flex items-center">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Phone Number *
-                </Label>
+
+              <div className="relative">
+                <Mail className="absolute left-3 top-4 h-4 w-4 text-cyan-700" />
                 <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-              
-              <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="email" className="text-cyan-800 font-semibold flex items-center">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Email Address *
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
                   type="email"
+                  name="email"
+                  placeholder="Email Address"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                  placeholder="Enter your email address"
+                  className="pl-10 bg-white/50 border-cyan-300/60 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 rounded-2xl h-12"
                 />
               </div>
-            </div>
 
-            {/* Address Information */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-cyan-800 flex items-center">
-                <MapPin className="h-5 w-5 mr-2" />
-                Address Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="country" className="text-cyan-800 font-semibold">Country *</Label>
-                  <Input
-                    id="country"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                    placeholder="Enter your country"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="state" className="text-cyan-800 font-semibold">State/Province *</Label>
-                  <Input
-                    id="state"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                    placeholder="Enter your state/province"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="city" className="text-cyan-800 font-semibold">City *</Label>
-                  <Input
-                    id="city"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                    placeholder="Enter your city"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="zipCode" className="text-cyan-800 font-semibold">ZIP/Postal Code *</Label>
-                  <Input
-                    id="zipCode"
-                    name="zipCode"
-                    value={formData.zipCode}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg"
-                    placeholder="Enter your ZIP/postal code"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* File Uploads */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-cyan-800 flex items-center">
-                <Upload className="h-5 w-5 mr-2" />
-                Documents
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <Label htmlFor="resume" className="text-cyan-800 font-semibold">Resume * (PDF, DOC, DOCX)</Label>
-                  <div className="relative">
-                    <Input
-                      id="resume"
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) => handleFileChange(e, 'resume')}
-                      required
-                      className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
-                    />
-                  </div>
-                  {formData.resume && (
-                    <p className="text-sm text-cyan-700 bg-cyan-100/50 rounded-lg p-2">
-                      Selected: {formData.resume.name}
-                    </p>
-                  )}
-                </div>
-                
-                <div className="space-y-4">
-                  <Label htmlFor="coverLetter" className="text-cyan-800 font-semibold">Cover Letter (PDF, DOC, DOCX)</Label>
-                  <div className="relative">
-                    <Input
-                      id="coverLetter"
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) => handleFileChange(e, 'coverLetter')}
-                      className="bg-white border-cyan-300/60 rounded-2xl h-12 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:bg-cyan-200/50 file:text-cyan-800 file:font-semibold"
-                    />
-                  </div>
-                  {formData.coverLetter && (
-                    <p className="text-sm text-cyan-700 bg-cyan-100/50 rounded-lg p-2">
-                      Selected: {formData.coverLetter.name}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Additional Questions */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-cyan-800 flex items-center">
-                <FileText className="h-5 w-5 mr-2" />
-                Additional Questions
-              </h3>
-              
-              <div className="space-y-4">
-                <Label htmlFor="whyGoodFit" className="text-cyan-800 font-semibold">Why do you think you are a good fit? *</Label>
-                <Textarea
-                  id="whyGoodFit"
-                  name="whyGoodFit"
-                  value={formData.whyGoodFit}
+              <div className="relative">
+                <Phone className="absolute left-3 top-4 h-4 w-4 text-cyan-700" />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
                   onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="bg-white border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg resize-none"
-                  placeholder="Tell us why you believe you're a great fit for this role..."
+                  className="pl-10 bg-white/50 border-cyan-300/60 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 rounded-2xl h-12"
                 />
               </div>
-              
-              <div className="space-y-4">
-                <Label htmlFor="excitingProject" className="text-cyan-800 font-semibold">Tell me one exciting project you worked on *</Label>
-                <Textarea
-                  id="excitingProject"
-                  name="excitingProject"
-                  value={formData.excitingProject}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="bg-white border-cyan-300/60 rounded-2xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 shadow-lg resize-none"
-                  placeholder="Describe an exciting project you've worked on and what made it special..."
-                />
-              </div>
-            </div>
 
-            {/* Submit Button */}
-            <div className="flex justify-center pt-6">
+              <div className="relative">
+                <FileText className="absolute left-3 top-4 h-4 w-4 text-cyan-700" />
+                <textarea
+                  name="coverLetter"
+                  placeholder="Tell us why you're interested in this role..."
+                  value={formData.coverLetter}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full pl-10 pt-4 pb-3 pr-3 bg-white/50 border border-cyan-300/60 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 rounded-2xl resize-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-cyan-700 mb-2">
+                  Resume (PDF or DOC)
+                </label>
+                <Input
+                  type="file"
+                  onChange={handleFileChange}
+                  accept=".pdf,.doc,.docx"
+                  className="bg-white/50 border-cyan-300/60 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/50 rounded-2xl"
+                />
+              </div>
+
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold px-12 py-4 rounded-2xl shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm text-lg"
+                className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold py-4 rounded-2xl shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60 transition-all duration-300 transform hover:scale-105"
               >
-                <Send className="h-5 w-5 mr-3 animate-pulse" />
+                <Zap className="h-5 w-5 mr-2" />
                 Submit Application
               </Button>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
