@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
         </button>
 
         {/* Status Indicator */}
-        <div className="hidden md:flex items-center space-x-2 text-sm text-slate-400">
+        <div className="hidden lg:flex items-center space-x-2 text-sm text-slate-400">
           <div className="relative">
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
             <div className="absolute inset-0 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
