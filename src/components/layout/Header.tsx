@@ -34,56 +34,49 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
   };
 
   return (
-    <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 border-b border-cyan-500/50">
+    <header className="p-3 md:p-6 backdrop-blur-xl bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 border-b border-cyan-500/50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-3 cursor-pointer" onClick={handleLogoClick}>
+        <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={handleLogoClick}>
           <div className="relative">
-            <Brain className="h-8 w-8 text-cyan-400" />
+            <Brain className="h-6 w-6 md:h-8 md:w-8 text-cyan-400" />
             <div className="absolute inset-0 bg-cyan-400/60 rounded-full animate-ping"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-40 animate-pulse"></div>
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="text-lg md:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             XBrainer AI
           </span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6">
           {navItems.map((item) => (
             <button
               key={item}
               onClick={() => handleNavClick(item)}
-              className="text-gray-300 hover:text-white transition-all duration-300 relative group cursor-pointer px-4 py-2 bg-transparent border-none"
+              className="text-gray-300 hover:text-white transition-all duration-300 relative group cursor-pointer px-3 py-2 bg-transparent border-none text-sm"
             >
               <span className="relative z-10">{item}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-cyan-500/60 group-hover:to-purple-500/60 transition-all duration-300 transform scale-95 group-hover:scale-100"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 to-purple-400/0 rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-cyan-400/50 group-hover:to-purple-400/50 transition-all duration-300 shadow-xl group-hover:shadow-cyan-500/70"></div>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 group-hover:w-full shadow-lg group-hover:shadow-cyan-400/70"></div>
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" style={{
-                background: 'radial-gradient(circle at center, rgba(0, 255, 255, 0.4) 0%, rgba(128, 0, 255, 0.4) 50%, transparent 100%)',
-                filter: 'blur(12px)'
-              }}></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 rounded-lg opacity-0 group-hover:opacity-100 group-hover:from-cyan-500/60 group-hover:to-purple-500/60 transition-all duration-300"></div>
             </button>
           ))}
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white relative z-10"
+          className="lg:hidden text-white relative z-10 p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
 
-        {/* Stealth Mode Toggle - Now visible on all screen sizes */}
-        <div className="flex items-center space-x-3 text-sm">
+        {/* Stealth Mode Toggle - Hidden on mobile */}
+        <div className="hidden md:flex items-center space-x-3 text-sm">
           <div className="flex items-center space-x-2">
             <div className="relative">
               <div className={`w-2 h-2 rounded-full ${stealthMode ? 'bg-yellow-400 animate-pulse' : 'bg-gray-400'}`}></div>
               {stealthMode && <div className="absolute inset-0 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>}
             </div>
             <span className={`font-mono text-xs ${stealthMode ? 'bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent' : 'text-gray-400'}`}>
-              STEALTH MODE
+              STEALTH
             </span>
           </div>
           <Switch
@@ -96,8 +89,8 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-6 pb-6 border-t border-purple-500/30 backdrop-blur-xl bg-black/30 rounded-lg">
-          <nav className="flex flex-col space-y-4 mt-6">
+        <div className="lg:hidden mt-4 pb-4 border-t border-purple-500/30 backdrop-blur-xl bg-black/30 rounded-lg">
+          <nav className="flex flex-col space-y-2 mt-4">
             {navItems.map((item) => (
               <button
                 key={item}
@@ -105,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
                   handleNavClick(item);
                   setMobileMenuOpen(false);
                 }}
-                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-2 rounded-lg hover:bg-purple-900/40 text-left bg-transparent border-none"
+                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 p-3 rounded-lg hover:bg-purple-900/40 text-left bg-transparent border-none"
               >
                 {item}
               </button>
@@ -113,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
           </nav>
           
           {/* Mobile Stealth Mode Toggle */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-purple-500/30">
+          <div className="flex items-center justify-between mt-4 pt-3 border-t border-purple-500/30">
             <div className="flex items-center space-x-2">
               <div className="relative">
                 <div className={`w-2 h-2 rounded-full ${stealthMode ? 'bg-yellow-400 animate-pulse' : 'bg-gray-400'}`}></div>

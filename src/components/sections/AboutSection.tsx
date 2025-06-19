@@ -33,19 +33,18 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 relative bg-white min-h-screen">
-      {/* Simple Moving Wave Shapes */}
+    <section id="about" className="py-12 md:py-20 px-4 md:px-6 relative bg-white min-h-screen">
+      {/* Simple Moving Wave Shapes - Reduced for mobile performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Simple wave shapes moving across screen */}
-        {[...Array(8)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="absolute opacity-30"
+            className="absolute opacity-20 md:opacity-30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 60 + 40}px`,
-              height: `${Math.random() * 20 + 10}px`,
+              width: `${Math.random() * 40 + 20}px`,
+              height: `${Math.random() * 15 + 8}px`,
               background: '#22c55e',
               borderRadius: '50px',
               animation: `waveMove ${Math.random() * 4 + 3}s infinite linear`,
@@ -53,48 +52,30 @@ const AboutSection: React.FC = () => {
             }}
           />
         ))}
-        
-        {/* Additional smaller wave dots */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={`dot-${i}`}
-            className="absolute opacity-40"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 8 + 4}px`,
-              height: `${Math.random() * 8 + 4}px`,
-              background: '#34d399',
-              borderRadius: '50%',
-              animation: `waveDot ${Math.random() * 3 + 2}s infinite linear`,
-              animationDelay: `${Math.random() * 3}s`
-            }}
-          />
-        ))}
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+        <div className="text-center mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3 text-gray-900">
             XBrainer AI
           </h2>
-          <div className="w-16 h-1 bg-green-500 mx-auto rounded-full mb-4"></div>
-          <p className="text-base text-gray-700 max-w-2xl mx-auto">
+          <div className="w-12 md:w-16 h-1 bg-green-500 mx-auto rounded-full mb-3 md:mb-4"></div>
+          <p className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto px-4">
             Neural infrastructure for brain-machine interfaces.
           </p>
         </div>
 
         {/* Core Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8 px-2">
           {coreFeatures.map((feature, index) => (
             <Card key={index} className="bg-white/90 border-green-200 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 group">
-              <CardContent className="p-3">
+              <CardContent className="p-3 md:p-4">
                 <div className="flex items-center mb-2">
-                  <div className="p-1.5 rounded-full bg-green-100 mr-2 group-hover:bg-green-200 transition-colors">
-                    <feature.icon className="h-4 w-4 text-green-600" />
+                  <div className="p-1.5 md:p-2 rounded-full bg-green-100 mr-2 group-hover:bg-green-200 transition-colors">
+                    <feature.icon className="h-3 w-3 md:h-4 md:w-4 text-green-600" />
                   </div>
-                  <h4 className="font-semibold text-gray-800 text-sm">{feature.title}</h4>
+                  <h4 className="font-semibold text-gray-800 text-xs md:text-sm">{feature.title}</h4>
                 </div>
                 <p className="text-gray-600 text-xs leading-relaxed">{feature.description}</p>
               </CardContent>
@@ -103,13 +84,13 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Mission Statement */}
-        <Card className="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-300 shadow-lg">
-          <CardContent className="p-4 text-center">
-            <div className="flex items-center justify-center mb-2">
-              <AlertTriangle className="h-5 w-5 text-green-600 mr-2" />
-              <h3 className="text-base font-bold text-gray-900">Mission</h3>
+        <Card className="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-300 shadow-lg mx-2">
+          <CardContent className="p-4 md:p-6 text-center">
+            <div className="flex items-center justify-center mb-2 md:mb-3">
+              <AlertTriangle className="h-4 w-4 md:h-5 md:w-5 text-green-600 mr-2" />
+              <h3 className="text-sm md:text-base font-bold text-gray-900">Mission</h3>
             </div>
-            <p className="text-gray-800 font-medium text-sm">
+            <p className="text-gray-800 font-medium text-xs md:text-sm">
               Building <span className="text-green-600 font-bold">containment and control</span> 
               for safe BMI systems.
             </p>
