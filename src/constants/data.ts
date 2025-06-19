@@ -1,3 +1,4 @@
+
 import { Job } from '../types';
 import { Brain, Shield, Lock, Search, Zap, CheckCircle, Microscope, Server, Users } from 'lucide-react';
 
@@ -114,6 +115,25 @@ export const phases = [
 
 export const baseJobs: Job[] = [
   {
+    id: 'machine-engineer-intern',
+    title: 'Machine Engineer Intern',
+    type: 'Intern',
+    location: '',
+    country: '',
+    focus: 'Design and optimize hardware components for neural interface systems.',
+    skills: 'Mechanical engineering, CAD software, hardware prototyping',
+    background: 'Mechanical or electrical engineering studies',
+    commitment: '15-20 hours/week',
+    sfCompensation: 'Unpaid',
+    hydCompensation: '2,200 INR per month',
+    responsibilities: [
+      'Design mechanical components for neural interfaces',
+      'Create prototypes and test hardware reliability',
+      'Collaborate with engineering teams',
+      'Document design specifications'
+    ]
+  },
+  {
     id: 'ai-research-analyst',
     title: 'AI Research Analyst',
     type: 'Intern',
@@ -138,17 +158,17 @@ export const baseJobs: Job[] = [
     type: 'Part-Time',
     location: '',
     country: '',
-    focus: 'Design and optimize neural interface hardware, develop signal acquisition systems, and ensure compatibility with security protocols.',
-    skills: 'Biomedical engineering, signal processing, hardware design, neural interface protocols',
+    focus: 'Design and optimize neural interface hardware, develop signal acquisition systems.',
+    skills: 'Biomedical engineering, signal processing, hardware design',
     background: 'Biomedical engineering, electrical engineering, or neuroscience',
     commitment: '15-20 hours/week',
     sfCompensation: 'Applications open July 5, 2025',
     hydCompensation: 'Applications open July 5, 2025',
     responsibilities: [
       'Design neural interface hardware components',
-      'Develop signal acquisition and processing systems',
-      'Ensure hardware-security protocol integration',
-      'Optimize system performance and reliability'
+      'Develop signal acquisition systems',
+      'Ensure hardware-security integration',
+      'Optimize system performance'
     ]
   },
   {
@@ -157,17 +177,17 @@ export const baseJobs: Job[] = [
     type: 'Part-Time',
     location: '',
     country: '',
-    focus: 'Provide strategic guidance on hardware-software integration, advise on neural interface standards, and ensure security protocol compatibility.',
-    skills: 'Hardware design, system integration, neural interface standards, security protocols',
+    focus: 'Provide strategic guidance on hardware-software integration and neural interface standards.',
+    skills: 'Hardware design, system integration, neural interface standards',
     background: 'Hardware engineering, systems architecture, or neural interface development',
     commitment: '10-15 hours/week',
     sfCompensation: 'Applications open July 5, 2025',
     hydCompensation: 'Applications open July 5, 2025',
     responsibilities: [
       'Provide strategic hardware integration guidance',
-      'Review and advise on neural interface standards',
+      'Review neural interface standards',
       'Ensure compatibility between hardware and security protocols',
-      'Mentor engineering team on best practices'
+      'Mentor engineering team'
     ]
   },
   {
@@ -176,75 +196,36 @@ export const baseJobs: Job[] = [
     type: 'Intern',
     location: '',
     country: '',
-    focus: 'Design secure communication layers for neural signal transmission, develop encryption frameworks, and ensure authentication schemes for brain-machine interfaces.',
+    focus: 'Design secure communication layers for neural signal transmission and develop encryption frameworks.',
     skills: 'Python, C/C++, Go, cryptography, protocol security, neural data encryption',
     background: 'Computer science, cybersecurity, or applied cryptography',
     commitment: '15-20 hours/week',
     sfCompensation: 'Unpaid',
     hydCompensation: '2,200 INR per month',
     responsibilities: [
-      'Prototype secure communication layers for real-time neural input/output',
-      'Design and simulate protocol flow for encrypted neurodata transmission',
-      'Research lightweight cryptographic algorithms (post-quantum, homomorphic, biometric-based)',
-      'Assist in modeling authentication schemes for brain-signal signatures',
-      'Contribute to internal security audits and protocol validation'
+      'Prototype secure communication layers',
+      'Design encrypted neurodata transmission protocols',
+      'Research lightweight cryptographic algorithms',
+      'Assist in modeling authentication schemes'
     ]
   },
   {
-    id: 'software-devops-infrastructure-intern-sf',
+    id: 'software-devops-infrastructure-intern',
     title: 'Software/DevOps Infrastructure Intern',
     type: 'Intern',
     location: '',
     country: '',
-    focus: 'Build and maintain automated CI/CD pipelines, create containerized workflows, and support infrastructure for AI-based neural security platforms.',
+    focus: 'Build and maintain automated CI/CD pipelines and support infrastructure for AI-based neural security platforms.',
     skills: 'Python, shell scripting, Docker, CI/CD tools, cloud platforms',
     background: 'Computer engineering, DevOps, or infrastructure automation',
     commitment: '15-20 hours/week',
     sfCompensation: 'Unpaid',
-    hydCompensation: 'N/A',
-    responsibilities: [
-      'Design and implement lightweight CI/CD pipelines for rapid experimentation',
-      'Automate build/test/deploy operations across multi-agent research systems',
-      'Create containerized testbeds for simulating secure neural data channels',
-      'Support infrastructure configuration for distributed BCI simulation environments'
-    ]
-  },
-  {
-    id: 'software-devops-infrastructure-intern-hyd',
-    title: 'Software/DevOps Infrastructure Intern',
-    type: 'Intern',
-    location: '',
-    country: '',
-    focus: 'Build and maintain automated CI/CD pipelines, create containerized workflows, and support infrastructure for AI-based neural security platforms.',
-    skills: 'Python, shell scripting, Docker, CI/CD tools, cloud platforms',
-    background: 'Computer engineering, DevOps, or infrastructure automation',
-    commitment: '15-20 hours/week',
-    sfCompensation: 'N/A',
     hydCompensation: '2,200 INR per month',
     responsibilities: [
-      'Build and maintain automated CI/CD pipelines',
-      'Create containerized workflows using Docker or similar tools',
-      'Simulate secure data transfer environments for prototype testing',
-      'Support infrastructure reliability and reproducibility across modules'
-    ]
-  },
-  {
-    id: 'neuroscientist',
-    title: 'Neuroscientist',
-    type: 'Part-Time',
-    location: '',
-    country: '',
-    focus: 'Research neural signal patterns, validate physiological models, and contribute to understanding brain-machine interface security implications.',
-    skills: 'EEG, MEG, neurophysiological data analysis, Python, MATLAB, R',
-    background: 'Neuroscience, biomedical engineering, or cognitive science',
-    commitment: '15-20 hours/week',
-    sfCompensation: 'Applications open July 5, 2025',
-    hydCompensation: 'Applications open July 5, 2025',
-    responsibilities: [
-      'Analyze and interpret neural data (EEG or similar signal types)',
-      'Validate statistical or computational models of neural physiology',
-      'Collaborate with AI and cybersecurity researchers to inform protocol-level design',
-      'Investigate the impact of neural variability on cognitive authentication and transmission systems'
+      'Design and implement CI/CD pipelines',
+      'Automate build/test/deploy operations',
+      'Create containerized testbeds',
+      'Support infrastructure configuration'
     ]
   }
 ];
