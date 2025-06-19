@@ -38,91 +38,90 @@ const AboutSection: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-            About XBrainer AI
+            About Claire Kwon
           </h1>
           <div className="w-20 h-1 bg-green-500 mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Leading the future of safe and secure brain-machine interfaces through advanced neural infrastructure and containment protocols.
+            Pioneering the future of safe and secure brain-machine interfaces through advanced neural infrastructure and containment protocols.
           </p>
         </div>
 
-        {/* Company Overview */}
+        {/* Professional Overview */}
         <Card className="mb-16 bg-white border border-gray-200 shadow-lg">
           <CardContent className="p-10">
             <div className="flex items-center mb-8">
               <div className="p-4 rounded-full bg-blue-100 mr-4">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900">Our Company</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Professional Background</h2>
             </div>
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
               <p className="text-xl mb-6">
-                XBrainer AI is a pioneering company at the forefront of brain-machine interface technology, 
+                Claire Kwon is a visionary professional at the forefront of brain-machine interface technology, 
                 specializing in the development of secure, reliable, and ethically-designed neural systems. 
-                Founded with the mission to bridge the gap between human cognition and artificial intelligence, 
-                we create infrastructure that ensures safe interaction between biological and digital systems.
+                With extensive experience in bridging the gap between human cognition and artificial intelligence, 
+                she creates infrastructure that ensures safe interaction between biological and digital systems.
               </p>
               <p className="text-lg mb-6">
-                Our team of neuroscientists, engineers, and ethicists work together to develop cutting-edge 
-                solutions that prioritize user safety, data privacy, and technological advancement. We believe 
+                Her expertise spans neuroscience, engineering, and ethics, working to develop cutting-edge 
+                solutions that prioritize user safety, data privacy, and technological advancement. She believes 
                 that the future of human-computer interaction lies in seamless, secure neural interfaces that 
                 enhance human capabilities while maintaining strict safety protocols.
               </p>
               <p className="text-lg">
-                With headquarters in Silicon Valley and research partnerships with leading universities worldwide, 
-                XBrainer AI is committed to responsible innovation in the rapidly evolving field of 
+                Based in Silicon Valley with research partnerships with leading universities worldwide, 
+                Claire is committed to responsible innovation in the rapidly evolving field of 
                 brain-computer interfaces.
               </p>
             </div>
           </CardContent>
         </Card>
 
-        {/* Founder Section */}
+        {/* Personal Profile */}
         <Card className="mb-16 bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 shadow-lg">
           <CardContent className="p-10">
             <div className="flex items-center mb-8">
               <div className="p-4 rounded-full bg-green-100 mr-4">
                 <Award className="h-8 w-8 text-green-600" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900">Our Founder</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Claire Kwon</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Dr. Sarah Chen</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Professional Leader</h3>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  <strong>CEO & Chief Technology Officer</strong>
+                  <strong>Neurotechnology Specialist & Innovation Leader</strong>
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Dr. Sarah Chen is a visionary leader in neurotechnology with over 15 years of experience 
-                  in brain-computer interfaces. She holds a Ph.D. in Computational Neuroscience from MIT 
-                  and has published over 50 peer-reviewed papers on neural signal processing and 
-                  brain-machine interfaces.
+                  Claire Kwon is a distinguished professional in neurotechnology with extensive experience 
+                  in brain-computer interfaces. She brings deep expertise in neural signal processing, 
+                  computational neuroscience, and the development of secure brain-machine interface systems.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Before founding XBrainer AI, Dr. Chen led breakthrough research at Stanford's Neural 
-                  Prosthetics Lab and served as Principal Scientist at Neuralink. Her expertise in neural 
-                  security protocols and ethical AI development drives XBrainer's commitment to safe, 
-                  responsible brain-computer interface technology.
+                  Her work focuses on breakthrough research in neural prosthetics and ethical AI development, 
+                  driving innovation in safe, responsible brain-computer interface technology. Claire's 
+                  expertise in neural security protocols positions her at the forefront of next-generation 
+                  neurotechnology solutions.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold text-gray-800 mb-4">Key Achievements</h4>
+                <h4 className="text-xl font-semibold text-gray-800 mb-4">Key Expertise</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">•</span>
-                    Pioneer in neural signal authentication protocols
+                    Neural signal processing and authentication
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">•</span>
-                    IEEE Fellow for contributions to biomedical engineering
+                    Brain-computer interface development
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">•</span>
-                    Winner of the 2022 Neurotechnology Innovation Award
+                    Ethical AI and neurotechnology safety
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">•</span>
-                    Advisory board member for ethical AI initiatives
+                    Advanced neural security protocols
                   </li>
                 </ul>
               </div>
@@ -130,7 +129,7 @@ const AboutSection: React.FC = () => {
           </CardContent>
         </Card>
 
-        {/* Core Features Grid */}
+        {/* Core Technologies Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Core Technologies</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,27 +180,27 @@ const AboutSection: React.FC = () => {
           </Card>
         </div>
 
-        {/* Company Values */}
+        {/* Professional Values */}
         <Card className="bg-gray-900 text-white shadow-lg">
           <CardContent className="p-10 text-center">
-            <h2 className="text-3xl font-bold mb-8">Our Values</h2>
+            <h2 className="text-3xl font-bold mb-8">Professional Values</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-green-400">Safety First</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Every system we develop prioritizes user safety and includes multiple failsafe mechanisms.
+                  Every system prioritizes user safety and includes multiple failsafe mechanisms.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-blue-400">Ethical Innovation</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  We advance technology responsibly, considering the broader implications for humanity.
+                  Advancing technology responsibly, considering the broader implications for humanity.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-purple-400">Transparency</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Our research and development processes are open, auditable, and community-driven.
+                  Research and development processes are open, auditable, and community-driven.
                 </p>
               </div>
             </div>
