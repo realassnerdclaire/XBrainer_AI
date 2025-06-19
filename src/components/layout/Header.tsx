@@ -1,7 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Brain, Menu, X } from 'lucide-react';
-import { navItems } from '../../constants/data';
+import { Switch } from '../ui/switch';
+
+const navItems = ['Technology', 'About', 'Careers', 'Briefing Request'];
 
 interface HeaderProps {
   mobileMenuOpen: boolean;
@@ -9,6 +11,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const [stealthMode, setStealthMode] = useState(true);
+
   const handleNavClick = (item: string) => {
     if (item === 'Briefing Request') {
       window.open('https://tally.so/r/nGaDPo', '_blank');
@@ -66,13 +70,22 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        {/* Status Indicator */}
-        <div className="hidden lg:flex items-center space-x-2 text-sm text-slate-400">
-          <div className="relative">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-            <div className="absolute inset-0 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+        {/* Stealth Mode Toggle - Now visible on all screen sizes */}
+        <div className="flex items-center space-x-3 text-sm">
+          <div className="flex items-center space-x-2">
+            <div className="relative">
+              <div className={`w-2 h-2 rounded-full ${stealthMode ? 'bg-yellow-400 animate-pulse' : 'bg-gray-400'}`}></div>
+              {stealthMode && <div className="absolute inset-0 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>}
+            </div>
+            <span className={`font-mono text-xs ${stealthMode ? 'bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent' : 'text-gray-400'}`}>
+              STEALTH MODE
+            </span>
           </div>
-          <span className="font-mono bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">STEALTH MODE</span>
+          <Switch
+            checked={stealthMode}
+            onCheckedChange={setStealthMode}
+            className="data-[state=checked]:bg-yellow-500 data-[state=unchecked]:bg-gray-600"
+          />
         </div>
       </div>
 
@@ -93,6 +106,24 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
               </button>
             ))}
           </nav>
+          
+          {/* Mobile Stealth Mode Toggle */}
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-purple-500/30">
+            <div className="flex items-center space-x-2">
+              <div className="relative">
+                <div className={`w-2 h-2 rounded-full ${stealthMode ? 'bg-yellow-400 animate-pulse' : 'bg-gray-400'}`}></div>
+                {stealthMode && <div className="absolute inset-0 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>}
+              </div>
+              <span className={`font-mono text-xs ${stealthMode ? 'bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent' : 'text-gray-400'}`}>
+                STEALTH MODE
+              </span>
+            </div>
+            <Switch
+              checked={stealthMode}
+              onCheckedChange={setStealthMode}
+              className="data-[state=checked]:bg-yellow-500 data-[state=unchecked]:bg-gray-600"
+            />
+          </div>
         </div>
       )}
     </header>
