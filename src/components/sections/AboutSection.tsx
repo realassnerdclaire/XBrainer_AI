@@ -1,209 +1,235 @@
 
 import React from 'react';
 import { Card, CardContent } from '../ui/card';
-import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, Users, Target, Lightbulb, Award } from 'lucide-react';
+import { Shield, Cpu, Lock, Timer, Network, AlertTriangle } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
-  const coreFeatures = [
-    {
-      icon: Shield,
-      title: "Signal Authentication",
-      description: "Entropy-based verification systems that ensure neural signal integrity and prevent unauthorized access to brain-computer interfaces."
-    },
-    {
-      icon: Timer,
-      title: "Interruptible Routing", 
-      description: "Real-time signal control mechanisms that allow for immediate intervention and safety protocols in neural networks."
-    },
-    {
-      icon: Lock,
-      title: "Device-bound Security",
-      description: "Advanced cryptographic primitives that create unbreakable bonds between neural devices and authorized users."
-    },
-    {
-      icon: Cpu,
-      title: "Policy Scheduling",
-      description: "Sophisticated execution timing management that optimizes neural processing while maintaining safety boundaries."
-    },
-    {
-      icon: Network,
-      title: "Cross-modal Integration",
-      description: "Seamless compatibility across EEG, ECoG, and other neural recording modalities for comprehensive brain monitoring."
-    }
-  ];
-
   return (
     <main className="w-full bg-gray-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-            About Claire Kwon
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-green-600">
+            About XBrainer AI
           </h1>
           <div className="w-20 h-1 bg-green-500 mx-auto rounded-full mb-8"></div>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Pioneering the future of safe and secure brain-machine interfaces through advanced neural infrastructure and containment protocols.
-          </p>
         </div>
 
-        {/* Professional Overview */}
+        {/* Control-Layer Runtime Card */}
+        <Card className="mb-16 bg-white border border-gray-200 shadow-lg">
+          <CardContent className="p-10 text-center">
+            <div className="flex items-center justify-center mb-6">
+              <div className="p-4 rounded-full bg-green-100 mr-4">
+                <Shield className="h-8 w-8 text-green-600" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Control-Layer Runtime for Neural Interfaces</h2>
+            <p className="text-lg text-gray-700">
+              We enforce real-time execution policies between signal input and actuator output.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Company Description */}
         <Card className="mb-16 bg-white border border-gray-200 shadow-lg">
           <CardContent className="p-10">
-            <div className="flex items-center mb-8">
-              <div className="p-4 rounded-full bg-blue-100 mr-4">
-                <Users className="h-8 w-8 text-blue-600" />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900">Professional Background</h2>
-            </div>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-              <p className="text-xl mb-6">
-                Claire Kwon is a visionary professional at the forefront of brain-machine interface technology, 
-                specializing in the development of secure, reliable, and ethically-designed neural systems. 
-                With extensive experience in bridging the gap between human cognition and artificial intelligence, 
-                she creates infrastructure that ensures safe interaction between biological and digital systems.
-              </p>
-              <p className="text-lg mb-6">
-                Her expertise spans neuroscience, engineering, and ethics, working to develop cutting-edge 
-                solutions that prioritize user safety, data privacy, and technological advancement. She believes 
-                that the future of human-computer interaction lies in seamless, secure neural interfaces that 
-                enhance human capabilities while maintaining strict safety protocols.
-              </p>
-              <p className="text-lg">
-                Based in Silicon Valley with research partnerships with leading universities worldwide, 
-                Claire is committed to responsible innovation in the rapidly evolving field of 
-                brain-computer interfaces.
-              </p>
-            </div>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              XBrainer AI is developing a <span className="text-green-600 font-semibold">low-level control and policy enforcement layer</span> for brain-machine 
+              interfaces (BMIs), designed to sit between raw neural input and downstream execution environments. 
+              Our platform focuses on <span className="text-green-600 font-semibold">runtime integrity, signal containment, and deterministic execution routing</span> 
+              {' '}across both invasive and non-invasive neurotechnology stacks.
+            </p>
           </CardContent>
         </Card>
 
-        {/* Personal Profile */}
-        <Card className="mb-16 bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 shadow-lg">
-          <CardContent className="p-10">
-            <div className="flex items-center mb-8">
-              <div className="p-4 rounded-full bg-green-100 mr-4">
-                <Award className="h-8 w-8 text-green-600" />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900">Claire Kwon</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Professional Leader</h3>
-                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                  <strong>Neurotechnology Specialist & Innovation Leader</strong>
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Claire Kwon is a distinguished professional in neurotechnology with extensive experience 
-                  in brain-computer interfaces. She brings deep expertise in neural signal processing, 
-                  computational neuroscience, and the development of secure brain-machine interface systems.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Her work focuses on breakthrough research in neural prosthetics and ethical AI development, 
-                  driving innovation in safe, responsible brain-computer interface technology. Claire's 
-                  expertise in neural security protocols positions her at the forefront of next-generation 
-                  neurotechnology solutions.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold text-gray-800 mb-4">Key Expertise</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
-                    Neural signal processing and authentication
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
-                    Brain-computer interface development
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
-                    Ethical AI and neurotechnology safety
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
-                    Advanced neural security protocols
-                  </li>
-                </ul>
-              </div>
-            </div>
+        {/* Infrastructure Layer Focus */}
+        <Card className="mb-16 bg-green-50 border border-green-200 shadow-lg">
+          <CardContent className="p-10 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Infrastructure Layer Focus</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              We target the infrastructure layer — <span className="text-green-600 font-semibold">beneath cognitive decoders and above acquisition hardware</span> — where current 
+              neurostacks lack architectural defenses.
+            </p>
           </CardContent>
         </Card>
 
-        {/* Core Technologies Grid */}
+        {/* Core Components */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Core Technologies</h2>
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Core Components</h2>
+          <p className="text-center text-gray-600 mb-12">Five specialized modules addressing critical BMI infrastructure challenges</p>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreFeatures.map((feature, index) => (
-              <Card key={index} className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="p-4 rounded-full bg-green-100 mr-4">
-                      <feature.icon className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="font-semibold text-gray-800 text-xl">{feature.title}</h3>
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-full bg-green-100 mr-4">
+                    <Shield className="h-6 w-6 text-green-600" />
                   </div>
-                  <p className="text-gray-600 text-base leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <div>
+                    <h3 className="font-semibold text-gray-800 text-sm uppercase tracking-wide text-green-600">SIGNAL AUTHENTICATION</h3>
+                    <h4 className="font-bold text-gray-900">Signal-level Authentication</h4>
+                  </div>
+                </div>
+                <p className="text-sm text-green-600 mb-2 italic">How do we verify neural signal authenticity?</p>
+                <p className="text-gray-600 text-sm">
+                  Entropy-based verification, spectrum-domain irregularity detection, and temporal consistency scoring
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-full bg-green-100 mr-4">
+                    <Network className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 text-sm uppercase tracking-wide text-green-600">ROUTING LOGIC</h3>
+                    <h4 className="font-bold text-gray-900">Interruptible Routing Logic</h4>
+                  </div>
+                </div>
+                <p className="text-sm text-green-600 mb-2 italic">How do we control signal flow in real-time?</p>
+                <p className="text-gray-600 text-sm">
+                  Capable of halting, delaying, or redirecting real-time signal propagation across trust boundaries
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-full bg-green-100 mr-4">
+                    <Lock className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 text-sm uppercase tracking-wide text-green-600">DEVICE SECURITY</h3>
+                    <h4 className="font-bold text-gray-900">Device-bound Permissions</h4>
+                  </div>
+                </div>
+                <p className="text-sm text-green-600 mb-2 italic">How do we ensure device-level trust?</p>
+                <p className="text-gray-600 text-sm">
+                  Leveraging embedded cryptographic primitives for handshake protocols and per-session authentication
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-full bg-green-100 mr-4">
+                    <Cpu className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 text-sm uppercase tracking-wide text-green-600">POLICY MANAGEMENT</h3>
+                    <h4 className="font-bold text-gray-900">Policy-governed Scheduling</h4>
+                  </div>
+                </div>
+                <p className="text-sm text-green-600 mb-2 italic">How do we manage execution priorities?</p>
+                <p className="text-gray-600 text-sm">
+                  Managing execution timing, concurrency limits, and actuator-level arbitration
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border border-gray-200 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-full bg-green-100 mr-4">
+                    <Network className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 text-sm uppercase tracking-wide text-green-600">HARDWARE INTEGRATION</h3>
+                    <h4 className="font-bold text-gray-900">Cross-modal Integration</h4>
+                  </div>
+                </div>
+                <p className="text-sm text-green-600 mb-2 italic">How do we support multiple interface types?</p>
+                <p className="text-gray-600 text-sm">
+                  Enabling compatibility with EEG, ECoG, and planned sub-cranial hardware interfaces
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
 
-        {/* Mission & Vision */}
+        {/* Risk Profile & Safety */}
+        <Card className="mb-16 bg-red-50 border border-red-200 shadow-lg">
+          <CardContent className="p-10">
+            <div className="flex items-center justify-center mb-6">
+              <AlertTriangle className="h-8 w-8 text-red-600 mr-4" />
+              <h2 className="text-3xl font-bold text-gray-900">Risk Profile & Safety</h2>
+            </div>
+            <p className="text-lg text-gray-700 leading-relaxed text-center">
+              The risk profile of BMI systems continues to expand with the proliferation of actuator-coupled use cases—ranging 
+              from <span className="text-red-600 font-semibold">neuroprosthetic control to closed-loop seizure suppression</span>. Our system is designed to enforce minimal trust 
+              assumptions across all layers, <span className="text-gray-800 font-semibold">especially where misclassification or unvalidated signal propagation could result in 
+              physical harm</span>.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Leadership */}
+        <Card className="mb-16 bg-green-50 border border-green-200 shadow-lg">
+          <CardContent className="p-10 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Leadership</h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Founder <span className="text-green-600 font-semibold">Claire Kwon</span> combines backgrounds in applied mathematics, distributed AI architecture, and neuro-adjacent system security. Motivated by her own experience navigating post-stroke and epilepsy-related interventions, she leads the development of this infrastructure with a focus on <span className="text-green-600 font-semibold">system robustness and reliability under adverse conditions</span>.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Current Status & Documentation */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <Card className="bg-green-50 border border-green-200 shadow-lg">
-            <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-              <div className="flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-green-600 mr-4" />
-                <h2 className="text-2xl font-bold text-gray-900">Mission</h2>
-              </div>
-              <p className="text-gray-800 font-medium text-lg leading-relaxed">
-                Building <span className="text-green-600 font-bold">containment and control</span> 
-                {' '}systems for safe, secure, and ethical brain-machine interfaces that enhance human 
-                capabilities while maintaining strict safety boundaries.
+          <Card className="bg-blue-50 border border-blue-200 shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Current Status</h3>
+              <p className="text-gray-700">
+                XBrainer AI is currently in <span className="font-semibold">stealth</span>, with prototype development and early-stage evaluation partners in hardware security and neural signal processing.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-blue-50 border border-blue-200 shadow-lg">
-            <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-              <div className="flex items-center justify-center mb-6">
-                <Lightbulb className="h-8 w-8 text-blue-600 mr-4" />
-                <h2 className="text-2xl font-bold text-gray-900">Vision</h2>
-              </div>
-              <p className="text-gray-800 font-medium text-lg leading-relaxed">
-                To create a future where humans and AI collaborate seamlessly through 
-                <span className="text-blue-600 font-bold"> secure neural interfaces</span>, 
-                unlocking unprecedented possibilities for human enhancement and technological advancement.
+          <Card className="bg-purple-50 border border-purple-200 shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Documentation</h3>
+              <p className="text-gray-700">
+                Briefing materials and technical documentation are available <span className="font-semibold">under NDA</span>.
               </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Professional Values */}
-        <Card className="bg-gray-900 text-white shadow-lg">
+        {/* Request Technical Briefing */}
+        <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg">
           <CardContent className="p-10 text-center">
-            <h2 className="text-3xl font-bold mb-8">Professional Values</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-green-400">Safety First</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Every system prioritizes user safety and includes multiple failsafe mechanisms.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-blue-400">Ethical Innovation</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Advancing technology responsibly, considering the broader implications for humanity.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-purple-400">Transparency</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Research and development processes are open, auditable, and community-driven.
-                </p>
+            <div className="flex items-center justify-center mb-6">
+              <div className="p-4 rounded-full bg-white/20 mr-4">
+                <Shield className="h-10 w-10 text-white" />
               </div>
             </div>
+            <h2 className="text-3xl font-bold mb-4">Request Technical Briefing</h2>
+            <p className="text-xl mb-8 opacity-90">
+              Access prototype documentation, technical specifications, and evaluation partnerships
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <span className="px-4 py-2 bg-white/20 rounded-full text-sm">🔒 NDA Required</span>
+              <span className="px-4 py-2 bg-white/20 rounded-full text-sm">⚡ Prototype Access</span>
+              <span className="px-4 py-2 bg-white/20 rounded-full text-sm">📋 Technical Docs</span>
+            </div>
+            <button className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              Submit Request
+            </button>
+          </CardContent>
+        </Card>
+
+        {/* Our Mission */}
+        <Card className="mt-16 bg-white border border-gray-200 shadow-lg">
+          <CardContent className="p-10 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              We are <span className="text-red-600 font-bold">not building</span> intent decoders or cognitive inference systems.<br />
+              We are building a <span className="text-green-600 font-bold">containment and control layer</span> for safe, enforceable, and interpretable 
+              signal flow in BMI systems.
+            </p>
           </CardContent>
         </Card>
       </div>
