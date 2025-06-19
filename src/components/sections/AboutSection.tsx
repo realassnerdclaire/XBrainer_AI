@@ -32,171 +32,44 @@ const AboutSection: React.FC = () => {
     }
   ];
 
-  // Generate different EEG frequency band patterns
-  const generateBetaWave = (width: number, offset: number = 0) => {
-    let path = `M0,50`;
-    for (let x = 0; x <= width; x += 1) {
-      const y = 50 + 8 * Math.sin((x + offset) * 0.3) + 
-                4 * Math.sin((x + offset) * 0.8) +
-                2 * Math.sin((x + offset) * 1.2);
-      path += ` L${x},${y}`;
-    }
-    return path;
-  };
-
-  const generateAlphaWave = (width: number, offset: number = 0) => {
-    let path = `M0,50`;
-    for (let x = 0; x <= width; x += 1) {
-      const y = 50 + 12 * Math.sin((x + offset) * 0.15) + 
-                6 * Math.sin((x + offset) * 0.4);
-      path += ` L${x},${y}`;
-    }
-    return path;
-  };
-
-  const generateThetaWave = (width: number, offset: number = 0) => {
-    let path = `M0,50`;
-    for (let x = 0; x <= width; x += 1) {
-      const y = 50 + 18 * Math.sin((x + offset) * 0.08) + 
-                8 * Math.sin((x + offset) * 0.2) +
-                4 * Math.sin((x + offset) * 0.35);
-      path += ` L${x},${y}`;
-    }
-    return path;
-  };
-
-  const generateDeltaWave = (width: number, offset: number = 0) => {
-    let path = `M0,50`;
-    for (let x = 0; x <= width; x += 1) {
-      const y = 50 + 25 * Math.sin((x + offset) * 0.04) + 
-                10 * Math.sin((x + offset) * 0.1);
-      path += ` L${x},${y}`;
-    }
-    return path;
-  };
-
   return (
     <section id="about" className="py-20 px-6 relative bg-white min-h-screen">
-      {/* EEG Waveform Background */}
+      {/* Simple Moving Wave Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-20 h-full">
-            {[...Array(20)].map((_, i) => (
-              <div key={i} className="border-r border-green-300"></div>
-            ))}
-          </div>
-          <div className="absolute inset-0">
-            {[...Array(15)].map((_, i) => (
-              <div key={i} className="border-b border-green-300" style={{ top: `${(i + 1) * 6.67}%` }}></div>
-            ))}
-          </div>
-        </div>
-
-        {/* Beta Waves (12-30 Hz) */}
-        <div className="absolute w-full top-[15%] h-[100px]">
-          <svg width="100%" height="100" className="opacity-40">
-            <path
-              d={generateBetaWave(400)}
-              stroke="#34d399"
-              strokeWidth="1.5"
-              fill="none"
-              style={{
-                animation: `eegFlow 4s linear infinite`,
-                strokeDasharray: '800',
-                strokeDashoffset: '800'
-              }}
-            />
-          </svg>
-          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
-            Beta [12-30 Hz]
-          </div>
-        </div>
-
-        {/* Alpha Waves (8-12 Hz) */}
-        <div className="absolute w-full top-[35%] h-[100px]">
-          <svg width="100%" height="100" className="opacity-50">
-            <path
-              d={generateAlphaWave(400)}
-              stroke="#22c55e"
-              strokeWidth="2"
-              fill="none"
-              style={{
-                animation: `eegFlow 5s linear infinite 0.5s`,
-                strokeDasharray: '800',
-                strokeDashoffset: '800'
-              }}
-            />
-          </svg>
-          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
-            Alpha [8-12 Hz]
-          </div>
-        </div>
-
-        {/* Theta Waves (4-8 Hz) */}
-        <div className="absolute w-full top-[55%] h-[100px]">
-          <svg width="100%" height="100" className="opacity-45">
-            <path
-              d={generateThetaWave(400)}
-              stroke="#16a34a"
-              strokeWidth="2.5"
-              fill="none"
-              style={{
-                animation: `eegFlow 6s linear infinite 1s`,
-                strokeDasharray: '800',
-                strokeDashoffset: '800'
-              }}
-            />
-          </svg>
-          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
-            Theta [4-8 Hz]
-          </div>
-        </div>
-
-        {/* Delta Waves (0-4 Hz) */}
-        <div className="absolute w-full top-[75%] h-[100px]">
-          <svg width="100%" height="100" className="opacity-40">
-            <path
-              d={generateDeltaWave(400)}
-              stroke="#15803d"
-              strokeWidth="3"
-              fill="none"
-              style={{
-                animation: `eegFlow 8s linear infinite 1.5s`,
-                strokeDasharray: '800',
-                strokeDashoffset: '800'
-              }}
-            />
-          </svg>
-          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
-            Delta [0-4 Hz]
-          </div>
-        </div>
-
-        {/* Additional moving waveforms for depth */}
-        {[...Array(3)].map((_, i) => (
+        {/* Simple wave shapes moving across screen */}
+        {[...Array(8)].map((_, i) => (
           <div
-            key={`bg-wave-${i}`}
-            className="absolute w-full"
+            key={i}
+            className="absolute opacity-30"
             style={{
-              top: `${25 + i * 15}%`,
-              height: '80px'
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 60 + 40}px`,
+              height: `${Math.random() * 20 + 10}px`,
+              background: '#22c55e',
+              borderRadius: '50px',
+              animation: `waveMove ${Math.random() * 4 + 3}s infinite linear`,
+              animationDelay: `${Math.random() * 2}s`
             }}
-          >
-            <svg width="100%" height="80" className="opacity-20">
-              <path
-                d={generateAlphaWave(400, i * 100)}
-                stroke="#6ee7b7"
-                strokeWidth="1"
-                fill="none"
-                style={{
-                  animation: `eegFlow ${3 + i}s linear infinite ${i * 0.3}s`,
-                  strokeDasharray: '400',
-                  strokeDashoffset: '400'
-                }}
-              />
-            </svg>
-          </div>
+          />
+        ))}
+        
+        {/* Additional smaller wave dots */}
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={`dot-${i}`}
+            className="absolute opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 8 + 4}px`,
+              height: `${Math.random() * 8 + 4}px`,
+              background: '#34d399',
+              borderRadius: '50%',
+              animation: `waveDot ${Math.random() * 3 + 2}s infinite linear`,
+              animationDelay: `${Math.random() * 3}s`
+            }}
+          />
         ))}
       </div>
 
