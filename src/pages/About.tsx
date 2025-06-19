@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent } from '../components/ui/card';
-import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, ArrowLeft, Activity, FileText } from 'lucide-react';
+import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, ArrowLeft, Activity, FileText, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -43,6 +42,10 @@ const About: React.FC = () => {
     }
   ];
 
+  const handleTechnicalBriefing = () => {
+    window.open('https://tally.so/r/mD9DRq', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Navigation Back */}
@@ -56,63 +59,98 @@ const About: React.FC = () => {
         </Link>
       </div>
 
-      {/* Nature-inspired header with EEG signal pattern */}
+      {/* Nature-inspired header with Enhanced EEG signal pattern */}
       <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-20 px-6 relative overflow-hidden">
-        {/* Animated EEG Signal Lines */}
-        <div className="absolute inset-0 opacity-10">
-          {/* Multiple EEG signal paths */}
-          <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none">
-            {/* Signal Line 1 - Top */}
+        {/* Enhanced Animated EEG Signal Lines - Longer, Bigger, Faster */}
+        <div className="absolute inset-0 opacity-15">
+          {/* Multiple EEG signal paths - Extended and Enhanced */}
+          <svg className="w-full h-full" viewBox="0 0 2400 800" preserveAspectRatio="none">
+            {/* Signal Line 1 - Top - Extended */}
             <path
-              d="M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100"
+              d="M0,200 Q100,160 200,200 T400,200 Q500,240 600,200 T800,200 Q900,160 1000,200 T1200,200 Q1300,240 1400,200 T1600,200 Q1700,160 1800,200 T2000,200 Q2100,240 2200,200 L2400,200"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="4"
+              fill="none"
+              className="text-green-500"
+            >
+              <animate
+                attributeName="d"
+                dur="2s"
+                repeatCount="indefinite"
+                values="M0,200 Q100,160 200,200 T400,200 Q500,240 600,200 T800,200 Q900,160 1000,200 T1200,200 Q1300,240 1400,200 T1600,200 Q1700,160 1800,200 T2000,200 Q2100,240 2200,200 L2400,200;
+                        M0,200 Q100,240 200,200 T400,200 Q500,160 600,200 T800,200 Q900,280 1000,200 T1200,200 Q1300,140 1400,200 T1600,200 Q1700,260 1800,200 T2000,200 Q2100,170 2200,200 L2400,200;
+                        M0,200 Q100,160 200,200 T400,200 Q500,240 600,200 T800,200 Q900,160 1000,200 T1200,200 Q1300,240 1400,200 T1600,200 Q1700,160 1800,200 T2000,200 Q2100,240 2200,200 L2400,200"
+              />
+            </path>
+
+            {/* Signal Line 2 - Middle - Extended */}
+            <path
+              d="M0,400 Q80,360 160,400 T320,400 Q400,440 480,400 T640,400 Q720,360 800,400 T960,400 Q1040,440 1120,400 T1280,400 Q1360,360 1440,400 T1600,400 Q1680,440 1760,400 T1920,400 Q2000,360 2080,400 T2240,400 L2400,400"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+              className="text-emerald-500"
+            >
+              <animate
+                attributeName="d"
+                dur="1.8s"
+                repeatCount="indefinite"
+                values="M0,400 Q80,360 160,400 T320,400 Q400,440 480,400 T640,400 Q720,360 800,400 T960,400 Q1040,440 1120,400 T1280,400 Q1360,360 1440,400 T1600,400 Q1680,440 1760,400 T1920,400 Q2000,360 2080,400 T2240,400 L2400,400;
+                        M0,400 Q80,480 160,400 T320,400 Q400,320 480,400 T640,400 Q720,460 800,400 T960,400 Q1040,340 1120,400 T1280,400 Q1360,440 1440,400 T1600,400 Q1680,360 1760,400 T1920,400 Q2000,420 2080,400 T2240,400 L2400,400;
+                        M0,400 Q80,360 160,400 T320,400 Q400,440 480,400 T640,400 Q720,360 800,400 T960,400 Q1040,440 1120,400 T1280,400 Q1360,360 1440,400 T1600,400 Q1680,440 1760,400 T1920,400 Q2000,360 2080,400 T2240,400 L2400,400"
+              />
+            </path>
+
+            {/* Signal Line 3 - Bottom - Extended */}
+            <path
+              d="M0,600 Q120,560 240,600 T480,600 Q600,640 720,600 T960,600 Q1080,560 1200,600 T1440,600 Q1560,640 1680,600 T1920,600 Q2040,560 2160,600 T2400,600"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+              className="text-teal-500"
+            >
+              <animate
+                attributeName="d"
+                dur="2.2s"
+                repeatCount="indefinite"
+                values="M0,600 Q120,560 240,600 T480,600 Q600,640 720,600 T960,600 Q1080,560 1200,600 T1440,600 Q1560,640 1680,600 T1920,600 Q2040,560 2160,600 T2400,600;
+                        M0,600 Q120,640 240,600 T480,600 Q600,520 720,600 T960,600 Q1080,680 1200,600 T1440,600 Q1560,540 1680,600 T1920,600 Q2040,660 2160,600 T2400,600;
+                        M0,600 Q120,560 240,600 T480,600 Q600,640 720,600 T960,600 Q1080,560 1200,600 T1440,600 Q1560,640 1680,600 T1920,600 Q2040,560 2160,600 T2400,600"
+              />
+            </path>
+
+            {/* Additional High-Frequency Signal Lines */}
+            <path
+              d="M0,300 Q50,280 100,300 Q150,320 200,300 Q250,280 300,300 Q350,320 400,300 Q450,280 500,300 Q550,320 600,300 Q650,280 700,300 Q750,320 800,300 Q850,280 900,300 Q950,320 1000,300 Q1050,280 1100,300 Q1150,320 1200,300 Q1250,280 1300,300 Q1350,320 1400,300 Q1450,280 1500,300 Q1550,320 1600,300 Q1650,280 1700,300 Q1750,320 1800,300 Q1850,280 1900,300 Q1950,320 2000,300 Q2050,280 2100,300 Q2150,320 2200,300 Q2250,280 2300,300 L2400,300"
+              stroke="currentColor"
+              strokeWidth="3"
               fill="none"
               className="text-green-400"
             >
               <animate
                 attributeName="d"
-                dur="4s"
+                dur="1.5s"
                 repeatCount="indefinite"
-                values="M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100;
-                        M0,100 Q50,120 100,100 T200,100 Q250,80 300,100 T400,100 Q450,140 500,100 T600,100 Q650,70 700,100 T800,100 Q850,130 900,100 T1000,100 Q1050,85 1100,100 L1200,100;
-                        M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100"
+                values="M0,300 Q50,280 100,300 Q150,320 200,300 Q250,280 300,300 Q350,320 400,300 Q450,280 500,300 Q550,320 600,300 Q650,280 700,300 Q750,320 800,300 Q850,280 900,300 Q950,320 1000,300 Q1050,280 1100,300 Q1150,320 1200,300 Q1250,280 1300,300 Q1350,320 1400,300 Q1450,280 1500,300 Q1550,320 1600,300 Q1650,280 1700,300 Q1750,320 1800,300 Q1850,280 1900,300 Q1950,320 2000,300 Q2050,280 2100,300 Q2150,320 2200,300 Q2250,280 2300,300 L2400,300;
+                        M0,300 Q50,340 100,300 Q150,260 200,300 Q250,350 300,300 Q350,250 400,300 Q450,330 500,300 Q550,270 600,300 Q650,345 700,300 Q750,255 800,300 Q850,335 900,300 Q950,265 1000,300 Q1050,340 1100,300 Q1150,260 1200,300 Q1250,350 1300,300 Q1350,250 1400,300 Q1450,330 1500,300 Q1550,270 1600,300 Q1650,345 1700,300 Q1750,255 1800,300 Q1850,335 1900,300 Q1950,265 2000,300 Q2050,340 2100,300 Q2150,260 2200,300 Q2250,350 2300,300 L2400,300;
+                        M0,300 Q50,280 100,300 Q150,320 200,300 Q250,280 300,300 Q350,320 400,300 Q450,280 500,300 Q550,320 600,300 Q650,280 700,300 Q750,320 800,300 Q850,280 900,300 Q950,320 1000,300 Q1050,280 1100,300 Q1150,320 1200,300 Q1250,280 1300,300 Q1350,320 1400,300 Q1450,280 1500,300 Q1550,320 1600,300 Q1650,280 1700,300 Q1750,320 1800,300 Q1850,280 1900,300 Q1950,320 2000,300 Q2050,280 2100,300 Q2150,320 2200,300 Q2250,280 2300,300 L2400,300"
               />
             </path>
 
-            {/* Signal Line 2 - Middle */}
             <path
-              d="M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200"
+              d="M0,500 Q40,480 80,500 Q120,520 160,500 Q200,480 240,500 Q280,520 320,500 Q360,480 400,500 Q440,520 480,500 Q520,480 560,500 Q600,520 640,500 Q680,480 720,500 Q760,520 800,500 Q840,480 880,500 Q920,520 960,500 Q1000,480 1040,500 Q1080,520 1120,500 Q1160,480 1200,500 Q1240,520 1280,500 Q1320,480 1360,500 Q1400,520 1440,500 Q1480,480 1520,500 Q1560,520 1600,500 Q1640,480 1680,500 Q1720,520 1760,500 Q1800,480 1840,500 Q1880,520 1920,500 Q1960,480 2000,500 Q2040,520 2080,500 Q2120,480 2160,500 Q2200,520 2240,500 Q2280,480 2320,500 Q2360,520 2400,500"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
               fill="none"
               className="text-emerald-400"
             >
               <animate
                 attributeName="d"
-                dur="3.5s"
+                dur="1.3s"
                 repeatCount="indefinite"
-                values="M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200;
-                        M0,200 Q30,240 80,200 T180,200 Q230,160 280,200 T380,200 Q430,230 480,200 T580,200 Q630,170 680,200 T780,200 Q830,220 880,200 T980,200 Q1030,180 1080,200 L1200,200;
-                        M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200"
-              />
-            </path>
-
-            {/* Signal Line 3 - Bottom */}
-            <path
-              d="M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-              className="text-teal-400"
-            >
-              <animate
-                attributeName="d"
-                dur="5s"
-                repeatCount="indefinite"
-                values="M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300;
-                        M0,300 Q40,320 90,300 T190,300 Q240,260 290,300 T390,300 Q440,340 490,300 T590,300 Q640,270 690,300 T790,300 Q840,330 890,300 T990,300 Q1040,280 1090,300 L1200,300;
-                        M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300"
+                values="M0,500 Q40,480 80,500 Q120,520 160,500 Q200,480 240,500 Q280,520 320,500 Q360,480 400,500 Q440,520 480,500 Q520,480 560,500 Q600,520 640,500 Q680,480 720,500 Q760,520 800,500 Q840,480 880,500 Q920,520 960,500 Q1000,480 1040,500 Q1080,520 1120,500 Q1160,480 1200,500 Q1240,520 1280,500 Q1320,480 1360,500 Q1400,520 1440,500 Q1480,535 1520,500 Q1560,465 1600,500 Q1640,540 1680,500 Q1720,460 1760,500 Q1800,550 1840,500 Q1880,450 1920,500 Q1960,530 2000,500 Q2040,470 2080,500 Q2120,545 2160,500 Q2200,455 2240,500 Q2280,535 2320,500 Q2360,465 2400,500;
+                        M0,500 Q40,540 80,500 Q120,460 160,500 Q200,550 240,500 Q280,450 320,500 Q360,530 400,500 Q440,470 480,500 Q520,545 560,500 Q600,455 640,500 Q680,535 720,500 Q760,465 800,500 Q840,540 880,500 Q920,460 960,500 Q1000,550 1040,500 Q1080,450 1120,500 Q1160,530 1200,500 Q1240,470 1280,500 Q1320,545 1360,500 Q1400,455 1440,500 Q1480,535 1520,500 Q1560,465 1600,500 Q1640,540 1680,500 Q1720,460 1760,500 Q1800,550 1840,500 Q1880,450 1920,500 Q1960,530 2000,500 Q2040,470 2080,500 Q2120,545 2160,500 Q2200,455 2240,500 Q2280,535 2320,500 Q2360,465 2400,500;
+                        M0,500 Q40,480 80,500 Q120,520 160,500 Q200,480 240,500 Q280,520 320,500 Q360,480 400,500 Q440,520 480,500 Q520,480 560,500 Q600,520 640,500 Q680,480 720,500 Q760,520 800,500 Q840,480 880,500 Q920,520 960,500 Q1000,480 1040,500 Q1080,520 1120,500 Q1160,480 1200,500 Q1240,520 1280,500 Q1320,480 1360,500 Q1400,520 1440,500 Q1480,480 1520,500 Q1560,520 1600,500 Q1640,480 1680,500 Q1720,520 1760,500 Q1800,480 1840,500 Q1880,520 1920,500 Q1960,480 2000,500 Q2040,520 2080,500 Q2120,480 2160,500 Q2200,520 2240,500 Q2280,480 2320,500 Q2360,520 2400,500"
               />
             </path>
           </svg>
@@ -120,13 +158,13 @@ const About: React.FC = () => {
 
         {/* Decorative brain activity pulses */}
         <div className="absolute top-10 left-10 opacity-20">
-          <Activity className="h-16 w-16 text-green-400 animate-pulse" />
+          <Brain className="h-16 w-16 text-green-400 animate-pulse" />
         </div>
         <div className="absolute top-20 right-20 opacity-15">
           <Activity className="h-12 w-12 text-emerald-500 animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
         <div className="absolute bottom-10 left-1/4 opacity-10">
-          <Activity className="h-20 w-20 text-green-600 animate-pulse" style={{ animationDelay: '2s' }} />
+          <Brain className="h-20 w-20 text-green-600 animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
@@ -143,7 +181,7 @@ const About: React.FC = () => {
             <CardContent className="p-8">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4">
-                  <Activity className="h-8 w-8 text-green-600" />
+                  <Brain className="h-8 w-8 text-green-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Control-Layer Runtime for Neural Interfaces</h2>
                 <p className="text-lg text-gray-700 font-medium">
@@ -281,7 +319,7 @@ const About: React.FC = () => {
             </Card>
           </div>
 
-          {/* Enhanced Contact/CTA Section */}
+          {/* Enhanced Contact/CTA Section - Connected to Tally */}
           <div className="border-t-4 border-green-500 pt-12">
             <Card className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 border-none shadow-lg">
               <CardContent className="p-8">
@@ -293,11 +331,17 @@ const About: React.FC = () => {
                   <p className="text-green-100 mb-6 text-lg">
                     Access prototype documentation, technical specifications, and evaluation partnerships
                   </p>
-                  <div className="flex flex-wrap justify-center gap-4 text-sm">
+                  <div className="flex flex-wrap justify-center gap-4 text-sm mb-6">
                     <span className="bg-white/20 text-white px-4 py-2 rounded-full">🔒 NDA Required</span>
                     <span className="bg-white/20 text-white px-4 py-2 rounded-full">🔬 Prototype Access</span>
                     <span className="bg-white/20 text-white px-4 py-2 rounded-full">📋 Technical Docs</span>
                   </div>
+                  <button 
+                    onClick={handleTechnicalBriefing}
+                    className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors duration-300 shadow-lg"
+                  >
+                    Submit Request
+                  </button>
                 </div>
               </CardContent>
             </Card>
