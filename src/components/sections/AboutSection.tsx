@@ -32,13 +32,44 @@ const AboutSection: React.FC = () => {
     }
   ];
 
-  // Generate EEG waveform path
-  const generateEEGPath = (amplitude: number, frequency: number, offset: number = 0) => {
-    let path = "M0,50";
-    for (let x = 0; x <= 400; x += 2) {
-      const y = 50 + amplitude * Math.sin((x + offset) * frequency * 0.02) + 
-                (amplitude * 0.3) * Math.sin((x + offset) * frequency * 0.05) +
-                (amplitude * 0.2) * Math.sin((x + offset) * frequency * 0.08);
+  // Generate different EEG frequency band patterns
+  const generateBetaWave = (width: number, offset: number = 0) => {
+    let path = `M0,50`;
+    for (let x = 0; x <= width; x += 1) {
+      const y = 50 + 8 * Math.sin((x + offset) * 0.3) + 
+                4 * Math.sin((x + offset) * 0.8) +
+                2 * Math.sin((x + offset) * 1.2);
+      path += ` L${x},${y}`;
+    }
+    return path;
+  };
+
+  const generateAlphaWave = (width: number, offset: number = 0) => {
+    let path = `M0,50`;
+    for (let x = 0; x <= width; x += 1) {
+      const y = 50 + 12 * Math.sin((x + offset) * 0.15) + 
+                6 * Math.sin((x + offset) * 0.4);
+      path += ` L${x},${y}`;
+    }
+    return path;
+  };
+
+  const generateThetaWave = (width: number, offset: number = 0) => {
+    let path = `M0,50`;
+    for (let x = 0; x <= width; x += 1) {
+      const y = 50 + 18 * Math.sin((x + offset) * 0.08) + 
+                8 * Math.sin((x + offset) * 0.2) +
+                4 * Math.sin((x + offset) * 0.35);
+      path += ` L${x},${y}`;
+    }
+    return path;
+  };
+
+  const generateDeltaWave = (width: number, offset: number = 0) => {
+    let path = `M0,50`;
+    for (let x = 0; x <= width; x += 1) {
+      const y = 50 + 25 * Math.sin((x + offset) * 0.04) + 
+                10 * Math.sin((x + offset) * 0.1);
       path += ` L${x},${y}`;
     }
     return path;
@@ -46,86 +77,126 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="about" className="py-20 px-6 relative bg-white min-h-screen">
-      {/* EEG Graph Background */}
+      {/* EEG Waveform Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div className="grid grid-cols-20 h-full">
             {[...Array(20)].map((_, i) => (
-              <div key={i} className="border-r border-green-400"></div>
+              <div key={i} className="border-r border-green-300"></div>
             ))}
           </div>
           <div className="absolute inset-0">
             {[...Array(15)].map((_, i) => (
-              <div key={i} className="border-b border-green-400" style={{ top: `${(i + 1) * 6.67}%` }}></div>
+              <div key={i} className="border-b border-green-300" style={{ top: `${(i + 1) * 6.67}%` }}></div>
             ))}
           </div>
         </div>
 
-        {/* Moving EEG Waveforms */}
-        {[...Array(8)].map((_, i) => (
+        {/* Beta Waves (12-30 Hz) */}
+        <div className="absolute w-full top-[15%] h-[100px]">
+          <svg width="100%" height="100" className="opacity-40">
+            <path
+              d={generateBetaWave(400)}
+              stroke="#34d399"
+              strokeWidth="1.5"
+              fill="none"
+              style={{
+                animation: `eegFlow 4s linear infinite`,
+                strokeDasharray: '800',
+                strokeDashoffset: '800'
+              }}
+            />
+          </svg>
+          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
+            Beta [12-30 Hz]
+          </div>
+        </div>
+
+        {/* Alpha Waves (8-12 Hz) */}
+        <div className="absolute w-full top-[35%] h-[100px]">
+          <svg width="100%" height="100" className="opacity-50">
+            <path
+              d={generateAlphaWave(400)}
+              stroke="#22c55e"
+              strokeWidth="2"
+              fill="none"
+              style={{
+                animation: `eegFlow 5s linear infinite 0.5s`,
+                strokeDasharray: '800',
+                strokeDashoffset: '800'
+              }}
+            />
+          </svg>
+          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
+            Alpha [8-12 Hz]
+          </div>
+        </div>
+
+        {/* Theta Waves (4-8 Hz) */}
+        <div className="absolute w-full top-[55%] h-[100px]">
+          <svg width="100%" height="100" className="opacity-45">
+            <path
+              d={generateThetaWave(400)}
+              stroke="#16a34a"
+              strokeWidth="2.5"
+              fill="none"
+              style={{
+                animation: `eegFlow 6s linear infinite 1s`,
+                strokeDasharray: '800',
+                strokeDashoffset: '800'
+              }}
+            />
+          </svg>
+          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
+            Theta [4-8 Hz]
+          </div>
+        </div>
+
+        {/* Delta Waves (0-4 Hz) */}
+        <div className="absolute w-full top-[75%] h-[100px]">
+          <svg width="100%" height="100" className="opacity-40">
+            <path
+              d={generateDeltaWave(400)}
+              stroke="#15803d"
+              strokeWidth="3"
+              fill="none"
+              style={{
+                animation: `eegFlow 8s linear infinite 1.5s`,
+                strokeDasharray: '800',
+                strokeDashoffset: '800'
+              }}
+            />
+          </svg>
+          <div className="absolute left-4 top-2 text-xs text-green-600 font-medium opacity-60">
+            Delta [0-4 Hz]
+          </div>
+        </div>
+
+        {/* Additional moving waveforms for depth */}
+        {[...Array(3)].map((_, i) => (
           <div
-            key={i}
+            key={`bg-wave-${i}`}
             className="absolute w-full"
             style={{
-              top: `${10 + i * 10}%`,
-              height: '100px'
+              top: `${25 + i * 15}%`,
+              height: '80px'
             }}
           >
-            <svg width="100%" height="100" className="opacity-60">
+            <svg width="100%" height="80" className="opacity-20">
               <path
-                d={generateEEGPath(15 + i * 3, 0.8 + i * 0.2)}
-                stroke="#10b981"
-                strokeWidth="2"
+                d={generateAlphaWave(400, i * 100)}
+                stroke="#6ee7b7"
+                strokeWidth="1"
                 fill="none"
-                className="animate-pulse"
                 style={{
-                  animation: `eegSignal ${2 + i * 0.3}s linear infinite ${i * 0.2}s`,
+                  animation: `eegFlow ${3 + i}s linear infinite ${i * 0.3}s`,
                   strokeDasharray: '400',
                   strokeDashoffset: '400'
                 }}
               />
             </svg>
           </div>
-        ))}
-
-        {/* Additional brain wave patterns */}
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={`wave-${i}`}
-            className="absolute w-full"
-            style={{
-              top: `${20 + i * 18}%`,
-              height: '80px'
-            }}
-          >
-            <svg width="100%" height="80" className="opacity-40">
-              <path
-                d={generateEEGPath(8 + i * 2, 1.2 + i * 0.4, i * 50)}
-                stroke="#059669"
-                strokeWidth="1.5"
-                fill="none"
-                style={{
-                  animation: `eegSignal ${3 + i * 0.5}s linear infinite ${i * 0.4}s`,
-                  strokeDasharray: '200',
-                  strokeDashoffset: '200'
-                }}
-              />
-            </svg>
-          </div>
-        ))}
-
-        {/* Neural activity indicators */}
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={`neural-${i}`}
-            className="absolute w-3 h-3 bg-green-500 rounded-full opacity-70"
-            style={{
-              left: `${15 + i * 12}%`,
-              top: `${30 + Math.sin(i * 1.2) * 20}%`,
-              animation: `neuralPulse ${1.5 + i * 0.3}s ease-in-out infinite ${i * 0.2}s`
-            }}
-          />
         ))}
       </div>
 
@@ -137,7 +208,7 @@ const AboutSection: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-green-500 mx-auto rounded-full mb-4"></div>
           <p className="text-base text-gray-700 max-w-2xl mx-auto">
-            Infrastructure layer for brain-machine interfaces. Runtime integrity between neural input and execution.
+            Neural infrastructure for brain-machine interfaces.
           </p>
         </div>
 
@@ -166,8 +237,8 @@ const AboutSection: React.FC = () => {
               <h3 className="text-base font-bold text-gray-900">Mission</h3>
             </div>
             <p className="text-gray-800 font-medium text-sm">
-              Building a <span className="text-green-600 font-bold">containment and control layer</span> 
-              for safe, enforceable signal flow in BMI systems.
+              Building <span className="text-green-600 font-bold">containment and control</span> 
+              for safe BMI systems.
             </p>
           </CardContent>
         </Card>

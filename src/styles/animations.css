@@ -87,6 +87,23 @@
   }
 }
 
+@keyframes eegFlow {
+  0% {
+    stroke-dashoffset: 800;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -800;
+    opacity: 0;
+  }
+}
+
 .bg-gradient-radial {
   background-image: radial-gradient(circle, var(--tw-gradient-stops));
 }
