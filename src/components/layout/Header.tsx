@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { Brain, Menu, X } from 'lucide-react';
 import { Switch } from '../ui/switch';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = ['About', 'Research', 'Technology', 'Careers', 'Briefing Request'];
 
@@ -11,28 +13,30 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const [stealthMode, setStealthMode] = useState(true);
+  const navigate = useNavigate();
 
   const handleNavClick = (item: string) => {
     if (item === 'Briefing Request') {
       window.open('https://tally.so/r/nGaDPo', '_blank');
     } else if (item === 'Careers') {
-      window.location.href = '/careers';
+      navigate('/careers');
     } else if (item === 'About') {
-      window.location.href = '/about';
-    } else {
-      // For other nav items, navigate to section
-      const sectionId = item.toLowerCase().replace(' ', '-');
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      navigate('/about');
+    } else if (item === 'Research') {
+      navigate('/research');
+    } else if (item === 'Technology') {
+      navigate('/technology');
     }
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   return (
     <header className="p-6 backdrop-blur-xl bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 border-b border-cyan-500/50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={handleLogoClick}>
           <div className="relative">
             <Brain className="h-8 w-8 text-cyan-400" />
             <div className="absolute inset-0 bg-cyan-400/60 rounded-full animate-ping"></div>
