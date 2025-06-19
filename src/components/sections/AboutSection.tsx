@@ -4,6 +4,8 @@ import { Card, CardContent } from '../ui/card';
 import { Shield, Cpu, Lock, Timer, Network, AlertTriangle } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
+  console.log("AboutSection rendering...");
+  
   const coreFeatures = [
     {
       icon: Shield,
@@ -33,8 +35,8 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-12 md:py-20 px-4 md:px-6 bg-white min-h-screen">
-      <div className="max-w-4xl mx-auto">
+    <section id="about" className="py-12 md:py-20 px-4 md:px-6 bg-white min-h-screen w-full">
+      <div className="max-w-4xl mx-auto w-full">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3 text-gray-900">
