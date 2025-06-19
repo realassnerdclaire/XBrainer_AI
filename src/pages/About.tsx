@@ -52,9 +52,9 @@ const About: React.FC = () => {
       <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
         <Link 
           to="/" 
-          className="inline-flex items-center text-green-700 hover:text-green-900 transition-colors duration-300"
+          className="inline-flex items-center text-green-700 hover:text-green-900 transition-all duration-300 hover:translate-x-1 transform"
         >
-          <ArrowLeft className="h-5 w-5 mr-2" />
+          <ArrowLeft className="h-5 w-5 mr-2 transition-transform duration-300" />
           Back to Home
         </Link>
       </div>
@@ -156,31 +156,31 @@ const About: React.FC = () => {
           </svg>
         </div>
 
-        {/* Decorative brain activity pulses */}
-        <div className="absolute top-10 left-10 opacity-20">
-          <Brain className="h-16 w-16 text-green-400 animate-pulse" />
+        {/* Decorative brain activity pulses with enhanced animations */}
+        <div className="absolute top-10 left-10 opacity-20 animate-pulse">
+          <Brain className="h-16 w-16 text-green-400 transform hover:scale-110 transition-transform duration-300" />
         </div>
-        <div className="absolute top-20 right-20 opacity-15">
-          <Activity className="h-12 w-12 text-emerald-500 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 right-20 opacity-15 animate-bounce">
+          <Activity className="h-12 w-12 text-emerald-500" style={{ animationDelay: '1s' }} />
         </div>
         <div className="absolute bottom-10 left-1/4 opacity-10">
-          <Brain className="h-20 w-20 text-green-600 animate-pulse" style={{ animationDelay: '2s' }} />
+          <Brain className="h-20 w-20 text-green-600 animate-pulse transform hover:rotate-12 transition-transform duration-500" style={{ animationDelay: '2s' }} />
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+          {/* Header with enhanced animations */}
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
               About XBrainer AI
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full animate-pulse"></div>
           </div>
 
-          {/* Elevator Pitch Summary */}
-          <Card className="bg-white/80 border-green-200 shadow-lg backdrop-blur-sm mb-16">
+          {/* Elevator Pitch Summary with card animation */}
+          <Card className="bg-white/80 border-green-200 shadow-lg backdrop-blur-sm mb-16 transform hover:scale-105 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <CardContent className="p-8">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4 transform hover:rotate-12 transition-transform duration-300">
                   <Brain className="h-8 w-8 text-green-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Control-Layer Runtime for Neural Interfaces</h2>
@@ -195,8 +195,8 @@ const About: React.FC = () => {
 
       <div className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          {/* Main Description */}
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 shadow-sm mb-16">
+          {/* Main Description with floating animation */}
+          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 shadow-sm mb-16 transform hover:scale-102 hover:shadow-md transition-all duration-300 hover:-translate-y-1 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <CardContent className="p-8">
               <p className="text-lg text-gray-800 leading-relaxed text-center">
                 XBrainer AI is developing a <span className="text-green-700 font-semibold">low-level control and policy enforcement layer</span> for brain-machine interfaces (BMIs), 
@@ -207,8 +207,8 @@ const About: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Infrastructure Focus */}
-          <Card className="bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 shadow-sm mb-16">
+          {/* Infrastructure Focus with letter-like animation */}
+          <Card className="bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 shadow-sm mb-16 transform hover:scale-102 hover:shadow-md transition-all duration-300 hover:rotate-1 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-emerald-800 mb-4 text-center">Infrastructure Layer Focus</h2>
               <p className="text-gray-800 leading-relaxed text-center">
@@ -218,21 +218,21 @@ const About: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Core Components - Improved Layout */}
+          {/* Core Components - Enhanced with staggered card animations */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-4 text-green-800">
+            <h2 className="text-3xl font-bold text-center mb-4 text-green-800 animate-fade-in" style={{ animationDelay: '0.5s' }}>
               Core Components
             </h2>
-            <p className="text-center text-gray-600 mb-12">Five specialized modules addressing critical BMI infrastructure challenges</p>
+            <p className="text-center text-gray-600 mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>Five specialized modules addressing critical BMI infrastructure challenges</p>
             
-            {/* First Row - 3 components */}
+            {/* First Row - 3 components with staggered entrance */}
             <div className="grid md:grid-cols-3 gap-6 mb-6">
               {coreComponents.slice(0, 3).map((component, index) => (
-                <Card key={index} className="bg-white border-green-200 shadow-sm hover:shadow-md transition-all duration-300 group h-full">
+                <Card key={index} className="bg-white border-green-200 shadow-sm hover:shadow-xl transition-all duration-500 group h-full transform hover:scale-105 hover:-translate-y-3 hover:rotate-1 animate-fade-in" style={{ animationDelay: `${0.7 + index * 0.1}s` }}>
                   <CardContent className="p-6 h-full flex flex-col">
                     <div className="flex items-center mb-3">
-                      <div className="p-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 mr-3 group-hover:from-green-200 group-hover:to-emerald-200 transition-all duration-300">
-                        <component.icon className="h-5 w-5 text-green-600" />
+                      <div className="p-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 mr-3 group-hover:from-green-200 group-hover:to-emerald-200 transition-all duration-300 transform group-hover:rotate-12 group-hover:scale-110">
+                        <component.icon className="h-5 w-5 text-green-600 transform group-hover:rotate-12 transition-transform duration-300" />
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-green-600 uppercase tracking-wide">{component.category}</div>
@@ -246,14 +246,14 @@ const About: React.FC = () => {
               ))}
             </div>
             
-            {/* Second Row - 2 components centered */}
+            {/* Second Row - 2 components centered with letter-like floating */}
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {coreComponents.slice(3, 5).map((component, index) => (
-                <Card key={index + 3} className="bg-white border-green-200 shadow-sm hover:shadow-md transition-all duration-300 group h-full">
+                <Card key={index + 3} className="bg-white border-green-200 shadow-sm hover:shadow-xl transition-all duration-500 group h-full transform hover:scale-105 hover:-translate-y-4 hover:-rotate-1 animate-fade-in" style={{ animationDelay: `${1.0 + index * 0.1}s` }}>
                   <CardContent className="p-6 h-full flex flex-col">
                     <div className="flex items-center mb-3">
-                      <div className="p-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 mr-3 group-hover:from-green-200 group-hover:to-emerald-200 transition-all duration-300">
-                        <component.icon className="h-5 w-5 text-green-600" />
+                      <div className="p-3 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 mr-3 group-hover:from-green-200 group-hover:to-emerald-200 transition-all duration-300 transform group-hover:-rotate-12 group-hover:scale-110">
+                        <component.icon className="h-5 w-5 text-green-600 transform group-hover:-rotate-12 transition-transform duration-300" />
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-green-600 uppercase tracking-wide">{component.category}</div>
@@ -268,11 +268,11 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Risk Profile - Adjusted Colors */}
-          <Card className="bg-gradient-to-r from-orange-50 to-red-50 border-orange-200 shadow-sm mb-16">
+          {/* Risk Profile with enhanced card animation */}
+          <Card className="bg-gradient-to-r from-orange-50 to-red-50 border-orange-200 shadow-sm mb-16 transform hover:scale-102 hover:shadow-lg transition-all duration-400 hover:-translate-y-2 hover:rotate-0.5 animate-fade-in" style={{ animationDelay: '1.2s' }}>
             <CardContent className="p-8">
               <div className="flex items-center justify-center mb-4">
-                <AlertTriangle className="h-8 w-8 text-orange-600 mr-3" />
+                <AlertTriangle className="h-8 w-8 text-orange-600 mr-3 animate-pulse" />
                 <h2 className="text-2xl font-bold text-orange-800">Risk Profile & Safety</h2>
               </div>
               <p className="text-gray-800 leading-relaxed text-center">
@@ -284,8 +284,8 @@ const About: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Founder Information */}
-          <Card className="bg-gradient-to-r from-teal-50 to-green-50 border-teal-200 shadow-sm mb-16">
+          {/* Founder Information with floating letter effect */}
+          <Card className="bg-gradient-to-r from-teal-50 to-green-50 border-teal-200 shadow-sm mb-16 transform hover:scale-102 hover:shadow-lg transition-all duration-400 hover:-translate-y-1 hover:-rotate-0.5 animate-fade-in" style={{ animationDelay: '1.3s' }}>
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-teal-800 mb-4 text-center">Leadership</h2>
               <p className="text-gray-800 leading-relaxed text-center">
@@ -297,9 +297,9 @@ const About: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Current Status */}
+          {/* Current Status with card dance animations */}
           <div className="grid md:grid-cols-2 gap-6 mb-16">
-            <Card className="bg-gradient-to-r from-emerald-50 to-green-50 border-emerald-200 shadow-sm">
+            <Card className="bg-gradient-to-r from-emerald-50 to-green-50 border-emerald-200 shadow-sm transform hover:scale-105 hover:shadow-lg transition-all duration-400 hover:-translate-y-2 hover:rotate-1 animate-fade-in" style={{ animationDelay: '1.4s' }}>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-emerald-800 mb-3">Current Status</h3>
                 <p className="text-gray-800 text-sm leading-relaxed">
@@ -309,7 +309,7 @@ const About: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 shadow-sm">
+            <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 shadow-sm transform hover:scale-105 hover:shadow-lg transition-all duration-400 hover:-translate-y-2 hover:-rotate-1 animate-fade-in" style={{ animationDelay: '1.5s' }}>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-green-800 mb-3">Documentation</h3>
                 <p className="text-gray-800 text-sm leading-relaxed">
@@ -319,12 +319,12 @@ const About: React.FC = () => {
             </Card>
           </div>
 
-          {/* Enhanced Contact/CTA Section - Connected to Tally */}
+          {/* Enhanced Contact/CTA Section with dramatic card animation */}
           <div className="border-t-4 border-green-500 pt-12">
-            <Card className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 border-none shadow-lg">
+            <Card className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 border-none shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 animate-fade-in" style={{ animationDelay: '1.6s' }}>
               <CardContent className="p-8">
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 transform hover:rotate-12 hover:scale-110 transition-all duration-300 animate-pulse">
                     <FileText className="h-8 w-8 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold text-white mb-4">Request Technical Briefing</h2>
@@ -332,13 +332,13 @@ const About: React.FC = () => {
                     Access prototype documentation, technical specifications, and evaluation partnerships
                   </p>
                   <div className="flex flex-wrap justify-center gap-4 text-sm mb-6">
-                    <span className="bg-white/20 text-white px-4 py-2 rounded-full">🔒 NDA Required</span>
-                    <span className="bg-white/20 text-white px-4 py-2 rounded-full">🔬 Prototype Access</span>
-                    <span className="bg-white/20 text-white px-4 py-2 rounded-full">📋 Technical Docs</span>
+                    <span className="bg-white/20 text-white px-4 py-2 rounded-full transform hover:scale-110 hover:bg-white/30 transition-all duration-300">🔒 NDA Required</span>
+                    <span className="bg-white/20 text-white px-4 py-2 rounded-full transform hover:scale-110 hover:bg-white/30 transition-all duration-300" style={{ animationDelay: '0.1s' }}>🔬 Prototype Access</span>
+                    <span className="bg-white/20 text-white px-4 py-2 rounded-full transform hover:scale-110 hover:bg-white/30 transition-all duration-300" style={{ animationDelay: '0.2s' }}>📋 Technical Docs</span>
                   </div>
                   <button 
                     onClick={handleTechnicalBriefing}
-                    className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors duration-300 shadow-lg"
+                    className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg transform hover:scale-110 hover:-translate-y-1 hover:shadow-xl"
                   >
                     Submit Request
                   </button>
@@ -347,8 +347,8 @@ const About: React.FC = () => {
             </Card>
           </div>
 
-          {/* Key Message */}
-          <Card className="bg-gradient-to-r from-slate-50 to-gray-50 border-2 border-green-300 shadow-sm mt-12">
+          {/* Key Message with final dramatic animation */}
+          <Card className="bg-gradient-to-r from-slate-50 to-gray-50 border-2 border-green-300 shadow-sm mt-12 transform hover:scale-102 hover:shadow-lg transition-all duration-500 hover:-translate-y-2 hover:rotate-0.5 animate-fade-in" style={{ animationDelay: '1.7s' }}>
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
