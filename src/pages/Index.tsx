@@ -1,39 +1,35 @@
 
 import React, { useState } from 'react';
-import Background from '../components/layout/Background';
-import MouseFollower from '../components/layout/MouseFollower';
+import { Toaster } from "../components/ui/toaster";
 import Header from '../components/layout/Header';
 import HeroSection from '../components/sections/HeroSection';
-import PhasesSection from '../components/sections/PhasesSection';
+import ProblemCards from '../components/sections/ProblemCards';
+import AboutSection from '../components/sections/AboutSection';
+import ResearchSection from '../components/sections/ResearchSection';
 import AICapabilitiesSection from '../components/sections/AICapabilitiesSection';
+import PhasesSection from '../components/sections/PhasesSection';
 import FooterCTA from '../components/sections/FooterCTA';
 import Footer from '../components/sections/Footer';
-import { useMousePosition } from '../hooks/useMousePosition';
-import '../styles/animations.css';
+import Background from '../components/layout/Background';
+import MouseFollower from '../components/layout/MouseFollower';
 
-console.log("Index component loading...");
-
-const Index: React.FC = () => {
-  console.log("Index component rendering...");
+const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const mousePosition = useMousePosition();
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Background />
-      <MouseFollower mousePosition={mousePosition} />
-
-      <div className="relative z-20">
-        <Header 
-          mobileMenuOpen={mobileMenuOpen} 
-          setMobileMenuOpen={setMobileMenuOpen} 
-        />
-        <HeroSection />
-        <PhasesSection />
-        <AICapabilitiesSection />
-        <FooterCTA />
-        <Footer />
-      </div>
+      <MouseFollower />
+      <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <HeroSection />
+      <ProblemCards />
+      <AboutSection />
+      <ResearchSection />
+      <AICapabilitiesSection />
+      <PhasesSection />
+      <FooterCTA />
+      <Footer />
+      <Toaster />
     </div>
   );
 };
