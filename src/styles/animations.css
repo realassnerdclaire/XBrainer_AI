@@ -1,3 +1,4 @@
+
 @keyframes twinkle {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
@@ -71,7 +72,7 @@
 
 @keyframes eegSignal {
   0% {
-    transform: translateX(-100%);
+    stroke-dashoffset: 400;
     opacity: 0;
   }
   10% {
@@ -81,7 +82,7 @@
     opacity: 0.8;
   }
   100% {
-    transform: translateX(100vw);
+    stroke-dashoffset: -400;
     opacity: 0;
   }
 }
