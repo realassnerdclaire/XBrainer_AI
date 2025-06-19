@@ -4,7 +4,6 @@ import Background from '../components/layout/Background';
 import MouseFollower from '../components/layout/MouseFollower';
 import Header from '../components/layout/Header';
 import HeroSection from '../components/sections/HeroSection';
-import AboutSection from '../components/sections/AboutSection';
 import PhasesSection from '../components/sections/PhasesSection';
 import AICapabilitiesSection from '../components/sections/AICapabilitiesSection';
 import FooterCTA from '../components/sections/FooterCTA';
@@ -30,7 +29,6 @@ const Index: React.FC = () => {
           setMobileMenuOpen={setMobileMenuOpen} 
         />
         <HeroSection />
-        <AboutSection />
         <PhasesSection />
         <AICapabilitiesSection />
         <FooterCTA />

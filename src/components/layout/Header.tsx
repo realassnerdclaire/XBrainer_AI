@@ -17,6 +17,8 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
       window.open('https://tally.so/r/nGaDPo', '_blank');
     } else if (item === 'Careers') {
       window.location.href = '/careers';
+    } else if (item === 'About') {
+      window.location.href = '/about';
     } else {
       // For other nav items, navigate to section
       const sectionId = item.toLowerCase().replace(' ', '-');
