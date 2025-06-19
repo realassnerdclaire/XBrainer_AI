@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '../components/ui/card';
-import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, ArrowLeft, Leaf, FileText } from 'lucide-react';
+import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, ArrowLeft, Activity, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -56,20 +56,80 @@ const About: React.FC = () => {
         </Link>
       </div>
 
-      {/* Nature-inspired header with leaf pattern */}
-      <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-20 px-6 relative">
-        {/* Decorative leaves */}
-        <div className="absolute top-10 left-10 opacity-20">
-          <Leaf className="h-16 w-16 text-green-400 transform rotate-12" />
-        </div>
-        <div className="absolute top-20 right-20 opacity-15">
-          <Leaf className="h-12 w-12 text-emerald-500 transform -rotate-45" />
-        </div>
-        <div className="absolute bottom-10 left-1/4 opacity-10">
-          <Leaf className="h-20 w-20 text-green-600 transform rotate-45" />
+      {/* Nature-inspired header with EEG signal pattern */}
+      <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-20 px-6 relative overflow-hidden">
+        {/* Animated EEG Signal Lines */}
+        <div className="absolute inset-0 opacity-10">
+          {/* Multiple EEG signal paths */}
+          <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none">
+            {/* Signal Line 1 - Top */}
+            <path
+              d="M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="text-green-400"
+            >
+              <animate
+                attributeName="d"
+                dur="4s"
+                repeatCount="indefinite"
+                values="M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100;
+                        M0,100 Q50,120 100,100 T200,100 Q250,80 300,100 T400,100 Q450,140 500,100 T600,100 Q650,70 700,100 T800,100 Q850,130 900,100 T1000,100 Q1050,85 1100,100 L1200,100;
+                        M0,100 Q50,80 100,100 T200,100 Q250,120 300,100 T400,100 Q450,80 500,100 T600,100 Q650,120 700,100 T800,100 Q850,80 900,100 T1000,100 Q1050,120 1100,100 L1200,100"
+              />
+            </path>
+
+            {/* Signal Line 2 - Middle */}
+            <path
+              d="M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="text-emerald-400"
+            >
+              <animate
+                attributeName="d"
+                dur="3.5s"
+                repeatCount="indefinite"
+                values="M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200;
+                        M0,200 Q30,240 80,200 T180,200 Q230,160 280,200 T380,200 Q430,230 480,200 T580,200 Q630,170 680,200 T780,200 Q830,220 880,200 T980,200 Q1030,180 1080,200 L1200,200;
+                        M0,200 Q30,180 80,200 T180,200 Q230,220 280,200 T380,200 Q430,180 480,200 T580,200 Q630,220 680,200 T780,200 Q830,180 880,200 T980,200 Q1030,220 1080,200 L1200,200"
+              />
+            </path>
+
+            {/* Signal Line 3 - Bottom */}
+            <path
+              d="M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="text-teal-400"
+            >
+              <animate
+                attributeName="d"
+                dur="5s"
+                repeatCount="indefinite"
+                values="M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300;
+                        M0,300 Q40,320 90,300 T190,300 Q240,260 290,300 T390,300 Q440,340 490,300 T590,300 Q640,270 690,300 T790,300 Q840,330 890,300 T990,300 Q1040,280 1090,300 L1200,300;
+                        M0,300 Q40,280 90,300 T190,300 Q240,320 290,300 T390,300 Q440,280 490,300 T590,300 Q640,320 690,300 T790,300 Q840,280 890,300 T990,300 Q1040,320 1090,300 L1200,300"
+              />
+            </path>
+          </svg>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        {/* Decorative brain activity pulses */}
+        <div className="absolute top-10 left-10 opacity-20">
+          <Activity className="h-16 w-16 text-green-400 animate-pulse" />
+        </div>
+        <div className="absolute top-20 right-20 opacity-15">
+          <Activity className="h-12 w-12 text-emerald-500 animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+        <div className="absolute bottom-10 left-1/4 opacity-10">
+          <Activity className="h-20 w-20 text-green-600 animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
@@ -83,7 +143,7 @@ const About: React.FC = () => {
             <CardContent className="p-8">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full mb-4">
-                  <Leaf className="h-8 w-8 text-green-600" />
+                  <Activity className="h-8 w-8 text-green-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Control-Layer Runtime for Neural Interfaces</h2>
                 <p className="text-lg text-gray-700 font-medium">
