@@ -2,8 +2,12 @@
 import { Job } from '../types';
 import { Brain, Shield, Lock, Search, Zap, CheckCircle, Microscope, Server, Users } from 'lucide-react';
 
-// Navigation items for header - should be strings as expected by Header component
-export const navItems = ['Home', 'Careers', 'Briefing Request'];
+// Navigation items for header
+export const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Briefing Request', href: '/briefing' }
+];
 
 // Problem cards data with React components and actions
 export const problemCards = [
