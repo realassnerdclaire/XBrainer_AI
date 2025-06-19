@@ -1,34 +1,57 @@
 
 import React from 'react';
 import { Card, CardContent } from '../ui/card';
-import { Shield, Cpu, Lock, Timer, Network, AlertTriangle } from 'lucide-react';
+import { Shield, Cpu, Lock, Timer, Network, AlertTriangle, Clock, TrendingUp, Target } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const coreComponents = [
     {
       icon: Shield,
       title: "Signal-level Authentication",
-      description: "Entropy-based verification, spectrum-domain irregularity detection, and temporal consistency scoring"
+      description: "Entropy-based verification, spectrum-domain irregularity detection, and temporal consistency scoring",
+      stage: "Early-stage architecture module"
     },
     {
       icon: Timer,
       title: "Interruptible Routing Logic",
-      description: "Capable of halting, delaying, or redirecting real-time signal propagation across trust boundaries"
+      description: "Capable of halting, delaying, or redirecting real-time signal propagation across trust boundaries",
+      stage: "Modular prototype primitive"
     },
     {
       icon: Lock,
       title: "Device-bound Permissions",
-      description: "Leveraging embedded cryptographic primitives for handshake protocols and per-session authentication"
+      description: "Leveraging embedded cryptographic primitives for handshake protocols and per-session authentication",
+      stage: "Early-stage architecture module"
     },
     {
       icon: Cpu,
       title: "Policy-governed Scheduling",
-      description: "Managing execution timing, concurrency limits, and actuator-level arbitration"
+      description: "Managing execution timing, concurrency limits, and actuator-level arbitration",
+      stage: "Modular prototype primitive"
     },
     {
       icon: Network,
       title: "Cross-modal Integration",
-      description: "Enabling compatibility with EEG, ECoG, and planned sub-cranial hardware interfaces"
+      description: "Enabling compatibility with EEG, ECoG, and planned sub-cranial hardware interfaces",
+      stage: "Early-stage architecture module"
+    }
+  ];
+
+  const whyNowFactors = [
+    {
+      icon: TrendingUp,
+      title: "Growing EEG Device Availability",
+      description: "Consumer and clinical EEG devices are becoming more accessible, creating new use cases that require safety infrastructure"
+    },
+    {
+      icon: Shield,
+      title: "FDA-Approved Implants",
+      description: "With clinical trials advancing and regulatory approvals increasing, the need for secure control layers is critical"
+    },
+    {
+      icon: AlertTriangle,
+      title: "Neural Cyber-Attack Risks",
+      description: "As neural interfaces connect to actuator systems, the attack surface and potential for harm expands significantly"
     }
   ];
 
@@ -55,6 +78,60 @@ const AboutSection: React.FC = () => {
           </CardContent>
         </Card>
 
+        {/* Why Now Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center mb-4">
+              <Clock className="h-8 w-8 text-cyan-400 mr-3" />
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">
+                Why Now?
+              </h3>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {whyNowFactors.map((factor, index) => (
+              <Card key={index} className="bg-slate-900/70 border-cyan-500/40 backdrop-blur-sm hover:bg-slate-900/90 transition-all duration-300 group">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 rounded-full bg-gradient-to-r from-cyan-500/30 to-emerald-500/30 mr-3 group-hover:from-cyan-500/50 group-hover:to-emerald-500/50 transition-all duration-300">
+                      <factor.icon className="h-6 w-6 text-cyan-300" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-cyan-200">{factor.title}</h4>
+                  </div>
+                  <p className="text-slate-300 text-sm leading-relaxed">{factor.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Timing & Infrastructure Gap */}
+        <Card className="bg-slate-900/80 border-purple-500/30 backdrop-blur-xl mb-12">
+          <CardContent className="p-8">
+            <h3 className="text-2xl font-bold text-purple-300 mb-4 text-center">Timing & Infrastructure Gap</h3>
+            <div className="space-y-4 text-slate-200 leading-relaxed">
+              <p>
+                Neural interface systems are entering a new phase — with increased consumer EEG availability, clinical trials for implants under FDA review, 
+                and growing interest from government and defense in closed-loop neurotechnology. As actuator-coupled interfaces expand, so do the risks of 
+                <span className="text-red-300 font-semibold"> uncontained signal execution and adversarial routing</span>.
+              </p>
+              <p>
+                While much of the industry focuses on decoding intent or expanding sensing resolution, there remains a critical gap: 
+                <span className="text-purple-300 font-semibold"> the lack of a dedicated control layer between neural input and output execution</span>. 
+                Most neurostacks still operate without runtime signal arbitration, interrupt logic, or formal containment layers.
+              </p>
+              <p>
+                XBrainer AI is focused on this unaddressed layer — building the <span className="text-emerald-300 font-semibold">foundational runtime control and safety infrastructure</span> 
+                that allows BMI systems to operate securely and predictably, even under adversarial or high-risk conditions.
+              </p>
+              <p className="text-center font-medium text-purple-200">
+                Early implementation is underway, and technical evaluation materials are available under NDA.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Infrastructure Focus */}
         <Card className="bg-slate-900/80 border-teal-500/30 backdrop-blur-xl mb-12">
           <CardContent className="p-8">
@@ -66,10 +143,34 @@ const AboutSection: React.FC = () => {
           </CardContent>
         </Card>
 
+        {/* Go-to-Market Entry Points */}
+        <Card className="bg-slate-900/80 border-indigo-500/30 backdrop-blur-xl mb-12">
+          <CardContent className="p-8">
+            <div className="flex items-center justify-center mb-4">
+              <Target className="h-8 w-8 text-indigo-400 mr-3" />
+              <h3 className="text-2xl font-bold text-indigo-300">Go-to-Market Entry Points</h3>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-indigo-200 mb-2">SDK for BCI Developers</h4>
+                <p className="text-slate-300 text-sm">Runtime control APIs and safety primitives for existing BCI development teams</p>
+              </div>
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-indigo-200 mb-2">Hardware Partners</h4>
+                <p className="text-slate-300 text-sm">Direct integration with neural interface hardware manufacturers and system integrators</p>
+              </div>
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-indigo-200 mb-2">Research Labs</h4>
+                <p className="text-slate-300 text-sm">Academic and clinical research institutions requiring safety-first neural system infrastructure</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Core Components Grid */}
         <div className="mb-12">
           <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">
-            Core Components
+            Modular Prototype Primitives
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreComponents.map((component, index) => (
@@ -79,7 +180,10 @@ const AboutSection: React.FC = () => {
                     <div className="p-3 rounded-full bg-gradient-to-r from-emerald-500/30 to-teal-500/30 mr-3 group-hover:from-emerald-500/50 group-hover:to-teal-500/50 transition-all duration-300">
                       <component.icon className="h-6 w-6 text-emerald-300" />
                     </div>
-                    <h4 className="text-lg font-semibold text-emerald-200">{component.title}</h4>
+                    <div>
+                      <h4 className="text-lg font-semibold text-emerald-200">{component.title}</h4>
+                      <span className="text-xs text-emerald-400 italic">{component.stage}</span>
+                    </div>
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed">{component.description}</p>
                 </CardContent>
