@@ -115,41 +115,81 @@ export const phases = [
 
 export const baseJobs: Job[] = [
   {
-    id: 'machine-engineer-intern',
-    title: 'Machine Engineer Intern',
+    id: 'machine-learning-signal-processing-intern',
+    title: 'Machine Learning / Signal Processing Intern',
     type: 'Intern',
     location: '',
     country: '',
-    focus: 'Design and optimize hardware components for neural interface systems.',
-    skills: 'Mechanical engineering, CAD software, hardware prototyping',
-    background: 'Mechanical or electrical engineering studies',
+    focus: 'Support R&D efforts in preprocessing and analyzing EEG or related neural interface data. Implement pipelines for artifact removal, anomaly detection, and signal classification.',
+    skills: 'Python (required), NumPy, SciPy, pandas, PyTorch or TensorFlow, signal processing (filtering, ICA, spike sorting), time-series modeling, anomaly detection',
+    background: 'Coursework or research in biomedical engineering, computational neuroscience, or machine learning. Exposure to brain-computer interface research or neuro-AI tools.',
     commitment: '15-20 hours/week',
-    sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
+    sfCompensation: 'Unpaid; potential for full-time paid role with salary + equity upon funding',
+    hydCompensation: '$250 USD per month',
     responsibilities: [
-      'Design mechanical components for neural interfaces',
-      'Create prototypes and test hardware reliability',
-      'Collaborate with engineering teams',
-      'Document design specifications'
+      'Preprocess EEG or neurodata streams (e.g., filtering, ICA, normalization)',
+      'Implement anomaly detection and signal segmentation pipelines',
+      'Perform feature extraction from multichannel time-series data',
+      'Evaluate model performance on simulated or recorded neural signals',
+      'Document technical findings and assist in shaping internal research tools'
     ]
   },
   {
-    id: 'ai-research-analyst',
-    title: 'AI Research Analyst',
+    id: 'cybersecurity-engineer-neuro-context',
+    title: 'Cybersecurity Engineer / Intern (Neuro-Context)',
     type: 'Intern',
     location: '',
     country: '',
-    focus: 'Analyze AI security vulnerabilities in neural interface systems and develop mitigation strategies.',
-    skills: 'Python, machine learning frameworks, data analysis, research methodology',
-    background: 'Computer science, AI/ML, or cybersecurity studies',
+    focus: 'Help design and test secure transmission protocols, encryption frameworks, and authentication schemes tailored for neural interface data streams.',
+    skills: 'Proficiency in Python, C/C++, or Go, familiarity with TLS, custom protocol stacks, or encryption algorithms, understanding of cybersecurity principles, applied cryptography',
+    background: 'Computer science, cybersecurity, or applied cryptography major. Coursework or research experience in protocol security or secure systems.',
     commitment: '15-20 hours/week',
-    sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
+    sfCompensation: 'Unpaid; eligible for full-time paid role (with salary + equity) upon company funding',
+    hydCompensation: '₹2200 INR per month',
     responsibilities: [
-      'Research AI vulnerabilities in brain-machine interfaces',
-      'Develop security analysis frameworks',
-      'Create documentation and reports',
-      'Collaborate with cybersecurity team'
+      'Prototype secure communication layers for real-time neural input/output',
+      'Design and simulate protocol flow for encrypted neurodata transmission',
+      'Research and compare lightweight cryptographic algorithms (e.g., post-quantum, homomorphic, biometric-based)',
+      'Assist in modeling authentication or identity schemes for brain-signal signatures',
+      'Contribute to internal security audits and protocol validation'
+    ]
+  },
+  {
+    id: 'software-devops-infrastructure-intern',
+    title: 'Software/DevOps Infrastructure Intern',
+    type: 'Intern',
+    location: '',
+    country: '',
+    focus: 'Support backend automation and deployment workflows. Prototype tools, design simulation environments, and implement streamlined pipelines across AI and neurosecurity stack.',
+    skills: 'Experience with Python and shell scripting, familiarity with Docker, GitHub Actions, or similar CI/CD tools, exposure to cloud platforms (AWS, GCP)',
+    background: 'Computer engineering, DevOps, or infrastructure automation. Comfortable working in fast-paced R&D environments with minimal supervision.',
+    commitment: '15-20 hours/week',
+    sfCompensation: 'Unpaid; opportunity to transition into paid position (salary + equity) contingent on funding',
+    hydCompensation: '₹2200 INR per month',
+    responsibilities: [
+      'Design and implement lightweight CI/CD pipelines for rapid experimentation',
+      'Automate build/test/deploy operations across multi-agent research systems',
+      'Create containerized testbeds (e.g., Docker) for simulating secure neural data channels',
+      'Support infrastructure configuration for distributed BCI simulation environments'
+    ]
+  },
+  {
+    id: 'neuroscientist',
+    title: 'Neuroscientist',
+    type: 'Part-Time',
+    location: '',
+    country: '',
+    focus: 'Guide understanding of neural signal structures and contribute insight into physiological patterns relevant to interface security.',
+    skills: 'Experience with EEG, MEG, or other neurophysiological data types, strong understanding of brain dynamics or signal modeling, familiarity with Python, MATLAB, or R',
+    background: 'Background in neuroscience, biomedical engineering, or cognitive science. Research experience in neuroimaging or brain-computer interface (BCI) work.',
+    commitment: '15-20 hours/week',
+    sfCompensation: 'Applications open July 5, 2025',
+    hydCompensation: 'Applications open July 5, 2025',
+    responsibilities: [
+      'Analyze and interpret neural data (EEG or similar signal types)',
+      'Validate statistical or computational models of neural physiology',
+      'Collaborate with AI and cybersecurity researchers to inform protocol-level design',
+      'Investigate the impact of neural variability on cognitive authentication and transmission systems'
     ]
   },
   {
@@ -188,44 +228,6 @@ export const baseJobs: Job[] = [
       'Review neural interface standards',
       'Ensure compatibility between hardware and security protocols',
       'Mentor engineering team'
-    ]
-  },
-  {
-    id: 'cybersecurity-engineer-neuro-context',
-    title: 'Cybersecurity Engineer / Intern (Neuro-Context)',
-    type: 'Intern',
-    location: '',
-    country: '',
-    focus: 'Design secure communication layers for neural signal transmission and develop encryption frameworks.',
-    skills: 'Python, C/C++, Go, cryptography, protocol security, neural data encryption',
-    background: 'Computer science, cybersecurity, or applied cryptography',
-    commitment: '15-20 hours/week',
-    sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
-    responsibilities: [
-      'Prototype secure communication layers',
-      'Design encrypted neurodata transmission protocols',
-      'Research lightweight cryptographic algorithms',
-      'Assist in modeling authentication schemes'
-    ]
-  },
-  {
-    id: 'software-devops-infrastructure-intern',
-    title: 'Software/DevOps Infrastructure Intern',
-    type: 'Intern',
-    location: '',
-    country: '',
-    focus: 'Build and maintain automated CI/CD pipelines and support infrastructure for AI-based neural security platforms.',
-    skills: 'Python, shell scripting, Docker, CI/CD tools, cloud platforms',
-    background: 'Computer engineering, DevOps, or infrastructure automation',
-    commitment: '15-20 hours/week',
-    sfCompensation: 'Unpaid',
-    hydCompensation: '2,200 INR per month',
-    responsibilities: [
-      'Design and implement CI/CD pipelines',
-      'Automate build/test/deploy operations',
-      'Create containerized testbeds',
-      'Support infrastructure configuration'
     ]
   }
 ];
