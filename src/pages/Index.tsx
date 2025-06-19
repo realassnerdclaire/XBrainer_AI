@@ -12,14 +12,16 @@ import FooterCTA from '../components/sections/FooterCTA';
 import Footer from '../components/sections/Footer';
 import Background from '../components/layout/Background';
 import MouseFollower from '../components/layout/MouseFollower';
+import { useMousePosition } from '../hooks/useMousePosition';
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mousePosition = useMousePosition();
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Background />
-      <MouseFollower />
+      <MouseFollower mousePosition={mousePosition} />
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <HeroSection />
       <ProblemCards />
