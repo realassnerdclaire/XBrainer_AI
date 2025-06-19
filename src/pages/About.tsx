@@ -11,12 +11,16 @@ const About = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mousePosition = useMousePosition();
 
+  console.log("About page component rendering...");
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Background />
       <MouseFollower mousePosition={mousePosition} />
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      <AboutSection />
+      <main>
+        <AboutSection />
+      </main>
       <Toaster />
     </div>
   );
