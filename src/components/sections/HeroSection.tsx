@@ -37,11 +37,16 @@ const HeroSection: React.FC = () => {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
-            <Button variant="neon" onClick={handleRequestBrief} className="px-7 py-3 text-base md:text-lg">
+            <Button onClick={handleRequestBrief} className="px-7 py-3 text-base md:text-lg rounded-full bg-gradient-cta text-white border border-white/10 hover:opacity-95">
               Request Technical Brief
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
-            <Button variant="outlineIndigo" onClick={handleViewDiagram} className="px-7 py-3 text-base md:text-lg">
+            <Button
+              variant="outline"
+              onClick={handleViewDiagram}
+              className="px-7 py-3 text-base md:text-lg rounded-full"
+              style={{ borderColor: 'hsl(var(--brand-electric-indigo))', color: 'hsl(var(--brand-electric-indigo))' }}
+            >
               View Architecture Diagram
             </Button>
           </div>

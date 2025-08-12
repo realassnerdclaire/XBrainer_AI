@@ -37,13 +37,12 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
     <header className="p-3 md:p-6 backdrop-blur-xl bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 border-b border-cyan-500/50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={handleLogoClick}>
-          <div className="relative">
-            <Brain className="h-6 w-6 md:h-8 md:w-8 text-cyan-400" />
-            <div className="absolute inset-0 bg-cyan-400/60 rounded-full animate-ping"></div>
-          </div>
-          <span className="text-lg md:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            XBrainer AI
-          </span>
+          <img
+            src="/lovable-uploads/50a0e18a-c7f5-4bd5-a6c6-493f1baf87cc.png"
+            alt="XBrainer AI logo – The firewall for your brain"
+            className="h-8 w-auto md:h-10"
+            loading="eager"
+          />
         </div>
 
         {/* Desktop Navigation */}

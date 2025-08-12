@@ -2,7 +2,10 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Node = ({ label }: { label: string }) => (
-  <div className="rounded-lg border border-[hsl(var(--brand-sapphire)/0.5)] bg-background/60 px-4 py-3 text-sm md:text-base text-foreground">
+  <div
+    className="rounded-lg border bg-background/60 px-4 py-3 text-sm md:text-base text-foreground"
+    style={{ borderColor: 'hsl(var(--brand-sapphire) / 0.5)' }}
+  >
     {label}
   </div>
 );
@@ -15,7 +18,7 @@ const SolutionSection: React.FC = () => {
           Security at the Signal Layer
         </h2>
 
-        <div className="relative rounded-xl border border-border/60 p-6 md:p-8 bg-gradient-hero/10">
+        <div className="relative rounded-xl border border-border/60 p-6 md:p-8" style={{ backgroundImage: 'var(--gradient-hero)' }}>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
             <Node label="Device" />
             <ArrowRight className="text-[hsl(var(--brand-azure))] hidden md:block" />
