@@ -25,6 +25,19 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
     --radius: 0.5rem;
+
+    /* Brand palette (HSL) */
+    --brand-electric-indigo: 243 100% 69%; /* #6C63FF */
+    --brand-azure: 244 75% 59%;           /* #4F46E5 */
+    --brand-cyber-violet: 262 83% 58%;    /* #7C3AED */
+    --brand-techno-purple: 271 81% 56%;   /* #9333EA */
+    --brand-sapphire: 245 58% 51%;        /* #4338CA */
+    --brand-plasma: 271 91% 65%;          /* #A855F7 */
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-sapphire)), hsl(var(--brand-techno-purple)));
+    --gradient-cta: linear-gradient(90deg, hsl(var(--brand-azure)), hsl(var(--brand-plasma)));
+    --gradient-surface: radial-gradient(1200px 800px at 50% -20%, hsl(var(--brand-sapphire) / 0.25), transparent 60%);
   }
 }
 
@@ -57,6 +70,9 @@
   .bg-gradient-radial {
     background-image: radial-gradient(circle, var(--tw-gradient-stops));
   }
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-cta { background-image: var(--gradient-cta); }
+  .bg-gradient-surface { background-image: var(--gradient-surface); }
 }
 
 @keyframes cloudFloat {
