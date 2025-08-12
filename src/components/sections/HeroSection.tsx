@@ -17,8 +17,14 @@ const HeroSection: React.FC = () => {
     <section className="relative py-16 md:py-28 px-4 md:px-6 overflow-hidden">
       {/* Futuristic layered background */}
       <div className="pointer-events-none absolute inset-0 -z-20 bg-gradient-surface" aria-hidden="true" />
-      <div className="pointer-events-none absolute -right-28 md:right-0 top-10 md:top-0 -z-10 h-[480px] w-[480px] md:h-[640px] md:w-[640px] rounded-full bg-[radial-gradient(circle_at_30%_30%,hsl(var(--brand-techno-purple)/0.35),transparent_60%)] blur-2xl" />
-      <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(1px_1px_at_12px_12px,hsl(var(--brand-sapphire)/0.25)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
+      <div
+        className="pointer-events-none absolute -right-28 md:right-0 top-10 md:top-0 -z-10 h-[480px] w-[480px] md:h-[640px] md:w-[640px] rounded-full blur-2xl"
+        style={{ background: 'radial-gradient(circle at 30% 30%, hsl(var(--brand-techno-purple) / 0.35), transparent 60%)' }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-30"
+        style={{ background: 'radial-gradient(1px 1px at 12px 12px, hsl(var(--brand-sapphire) / 0.25) 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+      />
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
         {/* Copy */}
@@ -46,7 +52,10 @@ const HeroSection: React.FC = () => {
           <div className="absolute inset-0 rounded-3xl border border-border/60 bg-background/40 backdrop-blur-sm" />
           {/* Flow lines */}
           <div className="absolute inset-0 p-6">
-            <div className="h-full w-full rounded-2xl bg-[radial-gradient(1200px_600px_at_20%_-10%,hsl(var(--brand-azure)/0.18),transparent_60%)]" />
+            <div
+              className="h-full w-full rounded-2xl"
+              style={{ background: 'radial-gradient(1200px 600px at 20% -10%, hsl(var(--brand-azure) / 0.18), transparent 60%)' }}
+            />
             <svg className="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 800 600" fill="none">
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
