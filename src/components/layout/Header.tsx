@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen }) =>
         <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={handleLogoClick}>
           <img
             src="/lovable-uploads/50a0e18a-c7f5-4bd5-a6c6-493f1baf87cc.png"
-            alt="XBrainer AI logo – The firewall for your brain"
+            alt="XBrainer AI Official Website"
             className="h-8 w-auto md:h-10"
             loading="eager"
           />

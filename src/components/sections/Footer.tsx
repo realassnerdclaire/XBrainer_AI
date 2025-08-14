@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           </span>
         </div>
         <div className="text-slate-300 text-sm">
-          © 2024 XBrainer AI. Building the Firewall for the Human Brain.
+          © 2024 XBrainer AI Official Website.
         </div>
       </div>
     </footer>
