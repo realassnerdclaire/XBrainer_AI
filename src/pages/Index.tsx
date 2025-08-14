@@ -10,6 +10,7 @@ import ProblemSection from '../components/sections/ProblemSection';
 import SolutionSection from '../components/sections/SolutionSection';
 import TechnicalFeaturesSection from '../components/sections/TechnicalFeaturesSection';
 import DeveloperCTASection from '../components/sections/DeveloperCTASection';
+import Footer from '../components/sections/Footer';
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,6 +49,7 @@ const Index = () => {
         <TechnicalFeaturesSection />
         <DeveloperCTASection />
       </main>
+      <Footer />
       <Toaster />
     </div>
   );
